@@ -12,7 +12,7 @@ const Index = () => {
     { icon: Target, title: "Landing Page + MVP Combos", description: "Complete market entry package" }
   ];
 
-  const techStack = ["React", "Next.js", "Python", "Supabase", "Vercel", "TypeScript", "Tailwind"];
+  const techStack = ["React", "Next.js", "Supabase", "Vercel", "TypeScript", "Tailwind"];
 
   const faqs = [
     { q: "Will my idea get stolen?", a: "Nope! We sign NDAs and have zero interest in stealing ideas. We're too busy building legendary MVPs." },
@@ -43,7 +43,10 @@ const Index = () => {
             <a href="#services" className="hover:text-emerald-400 transition-colors">Services</a>
             <a href="#work" className="hover:text-emerald-400 transition-colors">Our Work</a>
             <a href="#pricing" className="hover:text-emerald-400 transition-colors">Pricing</a>
-            <Button className="bg-gradient-to-r from-emerald-400 to-cyan-400 text-gray-900 hover:from-emerald-500 hover:to-cyan-500 font-bold">
+            <Button 
+              className="bg-gradient-to-r from-emerald-400 to-cyan-400 text-gray-900 hover:from-emerald-500 hover:to-cyan-500 font-bold"
+              onClick={() => window.open('https://cal.com/fawuzanth/mvpee', '_blank')}
+            >
               Book a Call
             </Button>
           </div>
@@ -54,11 +57,10 @@ const Index = () => {
       <section className="relative z-10 px-6 py-20">
         <div className="max-w-7xl mx-auto text-center">
           <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight font-space">
-            Turn Your{' '}
+            From Idea to{' '}
             <span className="bg-gradient-to-r from-emerald-400 via-cyan-400 to-blue-400 bg-clip-text text-transparent animate-pulse">
-              Million-Dollar Idea
+              Delightful Product
             </span>
-            <br />Into Reality
           </h1>
           <p className="text-xl md:text-2xl text-gray-300 mb-8 max-w-3xl mx-auto font-inter">
             We build MVPs that actually work. Fast, fun, and profitable.
@@ -66,7 +68,11 @@ const Index = () => {
             <span className="text-emerald-400 font-semibold">Where Ideas Become Reality</span>
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <Button size="lg" className="bg-gradient-to-r from-emerald-400 to-cyan-400 text-gray-900 hover:from-emerald-500 hover:to-cyan-500 font-bold text-lg px-8 py-4 transition-all duration-300 hover:scale-105">
+            <Button 
+              size="lg" 
+              className="bg-gradient-to-r from-emerald-400 to-cyan-400 text-gray-900 hover:from-emerald-500 hover:to-cyan-500 font-bold text-lg px-8 py-4 transition-all duration-300 hover:scale-105"
+              onClick={() => window.open('https://cal.com/fawuzanth/mvpee', '_blank')}
+            >
               Book a Call
             </Button>
             <Button size="lg" variant="outline" className="border-emerald-400 text-emerald-400 hover:bg-emerald-400/10 font-bold text-lg px-8 py-4">
@@ -174,7 +180,11 @@ const Index = () => {
           <p className="text-xl text-gray-300 mb-12">
             No hidden fees, no BS. Just clear, honest pricing for production-ready MVPs.
           </p>
-          <Button size="lg" className="bg-gradient-to-r from-emerald-400 to-cyan-400 text-gray-900 hover:from-emerald-500 hover:to-cyan-500 font-bold text-lg px-8 py-4">
+          <Button 
+            size="lg" 
+            className="bg-gradient-to-r from-emerald-400 to-cyan-400 text-gray-900 hover:from-emerald-500 hover:to-cyan-500 font-bold text-lg px-8 py-4"
+            onClick={() => window.open('https://cal.com/fawuzanth/mvpee', '_blank')}
+          >
             <Calendar className="mr-2 h-5 w-5" />
             Get Custom Quote
           </Button>
@@ -215,7 +225,11 @@ const Index = () => {
             Don't let your idea die in a notes app. Let's build something amazing together.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="bg-gradient-to-r from-emerald-400 to-cyan-400 text-gray-900 hover:from-emerald-500 hover:to-cyan-500 font-bold text-lg px-8 py-4">
+            <Button 
+              size="lg" 
+              className="bg-gradient-to-r from-emerald-400 to-cyan-400 text-gray-900 hover:from-emerald-500 hover:to-cyan-500 font-bold text-lg px-8 py-4"
+              onClick={() => window.open('https://cal.com/fawuzanth/mvpee', '_blank')}
+            >
               <Calendar className="mr-2 h-5 w-5" />
               Book a Call
             </Button>
