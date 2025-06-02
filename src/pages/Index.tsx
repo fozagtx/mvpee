@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { Rocket, Zap, Star, CheckCircle, ArrowRight, PlayCircle, MessageCircle, Calendar, Code, Smartphone, ShoppingCart, Target } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -18,7 +17,6 @@ const Index = () => {
 
   const services = [
     { icon: Rocket, title: "SaaS MVP Development", description: "Full-stack web apps that scale from day one" },
-    { icon: Smartphone, title: "Mobile App Prototypes", description: "Native feel, cross-platform power" },
     { icon: ShoppingCart, title: "E-commerce Platforms", description: "Sell online, grow online, dominate online" },
     { icon: Target, title: "Landing Page + MVP Combos", description: "Complete market entry package" }
   ];
@@ -29,7 +27,7 @@ const Index = () => {
     { name: "Elena Vasquez", company: "LocalEats", quote: "Best investment ever. My MVP is now processing $100K+ monthly.", avatar: "🍕" }
   ];
 
-  const techStack = ["React", "Next.js", "Python", "Supabase", "Vercel", "TypeScript", "Tailwind", "FastAPI"];
+  const techStack = ["React", "Next.js", "Python", "Supabase", "Vercel", "TypeScript", "Tailwind"];
 
   const faqs = [
     { q: "Will my idea get stolen?", a: "Nope! We sign NDAs and have zero interest in stealing ideas. We're too busy building legendary MVPs." },
@@ -153,7 +151,7 @@ const Index = () => {
             </h2>
             <p className="text-xl text-gray-300">What we love building (and what we're damn good at)</p>
           </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid md:grid-cols-3 gap-6">
             {services.map((service, index) => (
               <Card key={index} className="bg-gray-800 border-gray-700 hover:border-emerald-400/50 transition-all duration-300 hover:scale-105 cursor-pointer group">
                 <CardHeader className="text-center">
