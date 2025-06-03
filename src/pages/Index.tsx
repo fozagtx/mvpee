@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { Search, TrendingUp, Zap, Star, CheckCircle, ArrowRight, PlayCircle, MessageCircle, Calendar, BarChart3, Target, Brain, Users, Lightbulb } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -131,29 +130,6 @@ const Index = () => {
                 </CardContent>
               </Card>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Stats Section */}
-      <section className="px-6 py-24 bg-white">
-        <div className="max-w-7xl mx-auto text-center">
-          <h2 className="text-4xl md:text-5xl font-bold mb-8 text-gray-900">
-            Trusted by <span className="text-purple-500">2,000+</span> Startups
-          </h2>
-          <div className="grid md:grid-cols-3 gap-8 mt-16">
-            <div className="text-center">
-              <div className="text-4xl font-bold text-purple-500 mb-2">126+</div>
-              <div className="text-gray-600">SEO Tips & Strategies</div>
-            </div>
-            <div className="text-center">
-              <div className="text-4xl font-bold text-purple-500 mb-2">2.3M+</div>
-              <div className="text-gray-600">Organic Traffic Generated</div>
-            </div>
-            <div className="text-center">
-              <div className="text-4xl font-bold text-purple-500 mb-2">89%</div>
-              <div className="text-gray-600">Report Improved Rankings</div>
-            </div>
           </div>
         </div>
       </section>
