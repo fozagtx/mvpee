@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { Search, TrendingUp, Zap, Star, CheckCircle, ArrowRight, PlayCircle, MessageCircle, Calendar, BarChart3, Target, Brain, Users, Lightbulb } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -63,21 +64,13 @@ const Index = () => {
             <br />
             <span className="text-purple-500 font-medium">Build organic growth from day one.</span>
           </p>
-          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
+          <div className="flex justify-center">
             <Button 
               size="lg" 
               className="bg-purple-500 text-white hover:bg-purple-600 font-semibold text-lg px-10 py-4 rounded-lg"
               onClick={() => window.open('#repository', '_self')}
             >
               Explore SEO Tips
-            </Button>
-            <Button 
-              size="lg" 
-              variant="outline" 
-              className="border-2 border-gray-300 text-gray-700 hover:bg-gray-50 font-semibold text-lg px-10 py-4 rounded-lg"
-            >
-              <PlayCircle className="mr-2 h-5 w-5" />
-              Watch Demo
             </Button>
           </div>
         </div>
@@ -167,7 +160,7 @@ const Index = () => {
           <p className="text-xl text-purple-100 mb-12">
             Join thousands of startups using our SEO repository to build sustainable organic growth.
           </p>
-          <div className="flex flex-col sm:flex-row gap-6 justify-center">
+          <div className="flex justify-center">
             <Button 
               size="lg" 
               className="bg-white text-purple-600 hover:bg-gray-50 font-semibold text-lg px-10 py-4 rounded-lg"
@@ -175,14 +168,6 @@ const Index = () => {
             >
               <Calendar className="mr-3 h-5 w-5" />
               Start Free Today
-            </Button>
-            <Button 
-              size="lg" 
-              variant="outline" 
-              className="border-2 border-white/30 text-white hover:bg-white/10 backdrop-blur-sm font-semibold text-lg px-10 py-4 rounded-lg"
-            >
-              <MessageCircle className="mr-3 h-5 w-5" />
-              Join Community
             </Button>
           </div>
         </div>
