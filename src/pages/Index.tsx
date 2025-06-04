@@ -116,10 +116,10 @@ const Index = () => {
                   <a href="#repository" className="text-gray-200 hover:text-white transition-colors text-lg font-medium">Fast SEO</a>
                   <a href="#community" className="text-gray-200 hover:text-white transition-colors text-lg font-medium">Results</a>
                   <div className="flex flex-col space-y-3 pt-6 border-t border-white/20">
-                    <Button variant="outline" className="text-black bg-white border-white hover:bg-gray-100 font-medium">
+                    <Button variant="outline" size="sm" className="text-black bg-white border-white hover:bg-gray-100 font-medium">
                       Login
                     </Button>
-                    <Button className="bg-purple-500 hover:bg-purple-600 text-white font-medium">
+                    <Button size="sm" className="bg-purple-500 hover:bg-purple-600 text-white font-medium shadow-md">
                       Sign Up
                     </Button>
                   </div>
