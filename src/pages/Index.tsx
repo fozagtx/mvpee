@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { Search, TrendingUp, Zap, Star, CheckCircle, ArrowRight, PlayCircle, MessageCircle, Calendar, BarChart3, Target, Brain, Users, Lightbulb, Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -88,21 +87,6 @@ const Index = () => {
               <a href="#community" className="text-gray-200 hover:text-white transition-colors font-medium">Results</a>
             </div>
 
-            {/* Desktop Buttons */}
-            <div className="hidden lg:flex items-center space-x-3">
-              <Button variant="outline" size="sm" className="text-black bg-white border-white hover:bg-gray-100 font-medium shadow-md">
-                Login
-              </Button>
-              <Button size="sm" className="bg-purple-500 hover:bg-purple-600 text-white font-medium shadow-md">
-                Sign Up
-              </Button>
-              {scrolled && (
-                <Button size="sm" className="bg-white text-black hover:bg-gray-100 font-medium shadow-md">
-                  Get Started
-                </Button>
-              )}
-            </div>
-
             {/* Mobile Menu Toggle */}
             <Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
               <SheetTrigger asChild>
@@ -115,14 +99,6 @@ const Index = () => {
                   <a href="#features" className="text-gray-200 hover:text-white transition-colors text-lg font-medium">Quick Wins</a>
                   <a href="#repository" className="text-gray-200 hover:text-white transition-colors text-lg font-medium">Fast SEO</a>
                   <a href="#community" className="text-gray-200 hover:text-white transition-colors text-lg font-medium">Results</a>
-                  <div className="flex flex-col space-y-3 pt-6 border-t border-white/20">
-                    <Button variant="outline" size="sm" className="text-black bg-white border-white hover:bg-gray-100 font-medium">
-                      Login
-                    </Button>
-                    <Button size="sm" className="bg-purple-500 hover:bg-purple-600 text-white font-medium shadow-md">
-                      Sign Up
-                    </Button>
-                  </div>
                 </div>
               </SheetContent>
             </Sheet>
