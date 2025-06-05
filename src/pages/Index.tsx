@@ -40,13 +40,6 @@ const Index = () => {
     { icon: Target, title: "From Failure to Success", description: "Learn from my mistakes and discoveries that led to breakthrough moments" }
   ];
 
-  const tipCategories = [
-    { icon: Search, title: "Finding Your First Idea", description: "How I discovered what to build when everything seemed impossible", tips: "12 strategies" },
-    { icon: BarChart3, title: "Building Without Budget", description: "Creative ways to create amazing things with zero money", tips: "18 tips" },
-    { icon: Users, title: "Getting People to Care", description: "How I got my first users and built a community around my projects", tips: "15 insights" },
-    { icon: Lightbulb, title: "Staying Motivated", description: "Mental frameworks that kept me going through the tough times", tips: "8 mindsets" }
-  ];
-
   const faqs = [
     { q: "Why should I listen to a teenager's advice?", a: "Because I'm sharing real experiences, not theory. These are strategies that actually worked for me while navigating the same challenges you might be facing." },
     { q: "Are these tips only for teenagers?", a: "Not at all! While my journey started as a teen, these strategies work for anyone starting their building journey, regardless of age." },
@@ -84,7 +77,6 @@ const Index = () => {
             {/* Desktop Menu */}
             <div className="hidden lg:flex items-center space-x-8">
               <a href="#story" className="text-gray-200 hover:text-white transition-colors font-medium">My Story</a>
-              <a href="#tips" className="text-gray-200 hover:text-white transition-colors font-medium">Tips & Strategies</a>
               <a href="#support" className="text-gray-200 hover:text-white transition-colors font-medium">Support</a>
             </div>
 
@@ -98,7 +90,6 @@ const Index = () => {
               <SheetContent side="right" className="bg-black/95 backdrop-blur-md border-white/20">
                 <div className="flex flex-col space-y-6 mt-8">
                   <a href="#story" className="text-gray-200 hover:text-white transition-colors text-lg font-medium">My Story</a>
-                  <a href="#tips" className="text-gray-200 hover:text-white transition-colors text-lg font-medium">Tips & Strategies</a>
                   <a href="#support" className="text-gray-200 hover:text-white transition-colors text-lg font-medium">Support</a>
                 </div>
               </SheetContent>
@@ -124,14 +115,23 @@ const Index = () => {
               <br />
               <span className="text-purple-300 font-medium">Real experiences. Real results. Real impact.</span>
             </p>
-            <div className="flex justify-center">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button 
                 size="lg" 
                 className="bg-purple-500 text-white hover:bg-purple-600 font-semibold text-lg px-10 py-4 rounded-lg animate-fade-in shadow-xl hover:shadow-2xl transition-all duration-300"
-                onClick={() => window.open('#tips', '_self')}
+                onClick={() => window.open('#story', '_self')}
               >
                 <Lightbulb className="mr-3 h-5 w-5" />
-                Discover My Strategies
+                Discover My Journey
+              </Button>
+              <Button 
+                size="lg" 
+                variant="outline"
+                className="bg-white text-purple-700 hover:bg-gray-50 font-semibold text-lg px-10 py-4 rounded-lg shadow-xl hover:shadow-2xl transition-all duration-300 border-white"
+                onClick={() => window.open('https://paystack.shop/pay/mvpe', '_blank')}
+              >
+                <Gift className="mr-3 h-5 w-5" />
+                Send a Gift
               </Button>
             </div>
           </div>
@@ -156,32 +156,6 @@ const Index = () => {
                 </CardHeader>
                 <CardContent className="text-center">
                   <p className="text-gray-200">{feature.description}</p>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Tips Repository */}
-      <section id="tips" className="relative z-20 px-6 py-24 bg-white/95 backdrop-blur-sm">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-20">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900">
-              Strategies That <span className="text-purple-600">Actually Work</span>
-            </h2>
-            <p className="text-xl text-gray-700 font-medium">Hard-learned lessons organized for your success</p>
-          </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {tipCategories.map((category, index) => (
-              <Card key={index} className="border border-gray-300 hover:border-purple-300 transition-all duration-300 hover:shadow-xl cursor-pointer group rounded-xl bg-white shadow-md">
-                <CardHeader className="text-center pb-4">
-                  <category.icon className="h-12 w-12 text-purple-600 mx-auto mb-4 group-hover:scale-110 transition-transform duration-300" />
-                  <CardTitle className="text-lg text-gray-900 font-semibold">{category.title}</CardTitle>
-                  <Badge className="bg-purple-100 text-purple-700 border-purple-200 font-medium">{category.tips}</Badge>
-                </CardHeader>
-                <CardContent className="text-center">
-                  <p className="text-gray-700 text-sm font-medium">{category.description}</p>
                 </CardContent>
               </Card>
             ))}
