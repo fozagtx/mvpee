@@ -71,7 +71,7 @@ const Index = () => {
               <div className="w-8 h-8 bg-purple-500 rounded-lg flex items-center justify-center shadow-lg">
                 <Lightbulb className="h-5 w-5 text-white" />
               </div>
-              <span className="text-xl font-bold text-white drop-shadow-sm">Teen Builder</span>
+              <span className="text-xl font-bold text-white drop-shadow-sm">mvpe.me</span>
             </div>
 
             {/* Desktop Menu */}
@@ -216,7 +216,7 @@ const Index = () => {
             <div className="w-6 h-6 bg-purple-500 rounded-lg flex items-center justify-center shadow-md">
               <Lightbulb className="h-4 w-4 text-white" />
             </div>
-            <span className="text-xl font-bold text-white drop-shadow-sm">Teen Builder</span>
+            <span className="text-xl font-bold text-white drop-shadow-sm">mvpe.me</span>
           </div>
           <p className="text-gray-200 mb-4 font-medium">Sharing real strategies from a teenage building journey</p>
           <p className="text-gray-400 text-sm">From teen dreams to real impact - building since 2024</p>
