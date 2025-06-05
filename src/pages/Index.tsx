@@ -1,5 +1,6 @@
+
 import React, { useState, useEffect } from 'react';
-import { Search, TrendingUp, Zap, Star, CheckCircle, ArrowRight, PlayCircle, MessageCircle, Calendar, BarChart3, Target, Brain, Users, Lightbulb, Menu, X } from 'lucide-react';
+import { Search, TrendingUp, Zap, Star, CheckCircle, ArrowRight, PlayCircle, MessageCircle, Calendar, BarChart3, Target, Brain, Users, Lightbulb, Menu, X, Heart, Gift } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -34,22 +35,22 @@ const Index = () => {
   }, []);
 
   const features = [
-    { icon: Brain, title: "AI-Powered SEO Analysis", description: "Smart recommendations that get your MVP discovered faster" },
-    { icon: Zap, title: "Rapid Implementation", description: "Quick-win SEO tactics you can implement in minutes, not months" },
-    { icon: Target, title: "MVP-Focused Strategies", description: "Skip the complexity - get essential SEO tactics for faster launches" }
+    { icon: Brain, title: "Real Teen Experiences", description: "Authentic stories and lessons from building projects during my teenage years" },
+    { icon: Zap, title: "Practical Strategies", description: "Actionable tips that actually worked - no fluff, just real results" },
+    { icon: Target, title: "From Failure to Success", description: "Learn from my mistakes and discoveries that led to breakthrough moments" }
   ];
 
-  const seoCategories = [
-    { icon: Search, title: "Quick Keyword Wins", description: "Find high-impact keywords for faster MVP validation", tips: "47 tips" },
-    { icon: BarChart3, title: "Speed-First Technical SEO", description: "Essential optimizations that accelerate your MVP's visibility", tips: "32 tips" },
-    { icon: Users, title: "Rapid Content Strategy", description: "Content frameworks that drive faster user acquisition", tips: "28 tips" },
-    { icon: Lightbulb, title: "Fast Local Presence", description: "Quick local SEO setup for location-based MVPs", tips: "19 tips" }
+  const tipCategories = [
+    { icon: Search, title: "Finding Your First Idea", description: "How I discovered what to build when everything seemed impossible", tips: "12 strategies" },
+    { icon: BarChart3, title: "Building Without Budget", description: "Creative ways to create amazing things with zero money", tips: "18 tips" },
+    { icon: Users, title: "Getting People to Care", description: "How I got my first users and built a community around my projects", tips: "15 insights" },
+    { icon: Lightbulb, title: "Staying Motivated", description: "Mental frameworks that kept me going through the tough times", tips: "8 mindsets" }
   ];
 
   const faqs = [
-    { q: "How fast can I see results with my MVP?", a: "Our quick-win strategies are designed for immediate implementation. Most startups see initial SEO improvements within 2-4 weeks of launch." },
-    { q: "Is this suitable for pre-launch MVPs?", a: "Absolutely! Many of our strategies help you build SEO foundation before launch, giving you a head start on organic visibility." },
-    { q: "Can I implement these while building my MVP?", a: "Yes! Our tips are designed to integrate seamlessly into your development process without slowing down your launch timeline." }
+    { q: "Why should I listen to a teenager's advice?", a: "Because I'm sharing real experiences, not theory. These are strategies that actually worked for me while navigating the same challenges you might be facing." },
+    { q: "Are these tips only for teenagers?", a: "Not at all! While my journey started as a teen, these strategies work for anyone starting their building journey, regardless of age." },
+    { q: "How can I support your work?", a: "If my content helps you, you can show your appreciation through my gift link. It helps me continue sharing and creating more valuable content!" }
   ];
 
   return (
@@ -75,16 +76,16 @@ const Index = () => {
             {/* Logo */}
             <div className="flex items-center space-x-3">
               <div className="w-8 h-8 bg-purple-500 rounded-lg flex items-center justify-center shadow-lg">
-                <Zap className="h-5 w-5 text-white" />
+                <Lightbulb className="h-5 w-5 text-white" />
               </div>
-              <span className="text-xl font-bold text-white drop-shadow-sm">MVPE</span>
+              <span className="text-xl font-bold text-white drop-shadow-sm">Teen Builder</span>
             </div>
 
             {/* Desktop Menu */}
             <div className="hidden lg:flex items-center space-x-8">
-              <a href="#features" className="text-gray-200 hover:text-white transition-colors font-medium">Quick Wins</a>
-              <a href="#repository" className="text-gray-200 hover:text-white transition-colors font-medium">Fast SEO</a>
-              <a href="#community" className="text-gray-200 hover:text-white transition-colors font-medium">Results</a>
+              <a href="#story" className="text-gray-200 hover:text-white transition-colors font-medium">My Story</a>
+              <a href="#tips" className="text-gray-200 hover:text-white transition-colors font-medium">Tips & Strategies</a>
+              <a href="#support" className="text-gray-200 hover:text-white transition-colors font-medium">Support</a>
             </div>
 
             {/* Mobile Menu Toggle */}
@@ -96,9 +97,9 @@ const Index = () => {
               </SheetTrigger>
               <SheetContent side="right" className="bg-black/95 backdrop-blur-md border-white/20">
                 <div className="flex flex-col space-y-6 mt-8">
-                  <a href="#features" className="text-gray-200 hover:text-white transition-colors text-lg font-medium">Quick Wins</a>
-                  <a href="#repository" className="text-gray-200 hover:text-white transition-colors text-lg font-medium">Fast SEO</a>
-                  <a href="#community" className="text-gray-200 hover:text-white transition-colors text-lg font-medium">Results</a>
+                  <a href="#story" className="text-gray-200 hover:text-white transition-colors text-lg font-medium">My Story</a>
+                  <a href="#tips" className="text-gray-200 hover:text-white transition-colors text-lg font-medium">Tips & Strategies</a>
+                  <a href="#support" className="text-gray-200 hover:text-white transition-colors text-lg font-medium">Support</a>
                 </div>
               </SheetContent>
             </Sheet>
@@ -112,39 +113,39 @@ const Index = () => {
           <div className="animate-fade-in">
             <h1 className="mb-8 leading-tight">
               <div className="font-light text-6xl md:text-7xl xl:text-[5.25rem] text-white drop-shadow-lg">
-                Build <span className="text-purple-400">MVPs Faster</span>
+                From <span className="text-purple-400">Teen Dreams</span>
               </div>
               <div className="font-light text-6xl md:text-7xl xl:text-[5.25rem] italic text-white drop-shadow-lg">
-                with Smart SEO
+                to Real Results
               </div>
             </h1>
             <p className="text-lg text-gray-200 mb-12 max-w-2xl mx-auto leading-relaxed drop-shadow-sm">
-              Skip months of SEO research. Get your MVP discovered from day one with our curated repository of quick-win strategies.
+              I started building things as a teenager with big dreams and no money. Here are the strategies, mistakes, and breakthroughs that shaped my journey.
               <br />
-              <span className="text-purple-300 font-medium">Launch faster. Grow faster. Succeed faster.</span>
+              <span className="text-purple-300 font-medium">Real experiences. Real results. Real impact.</span>
             </p>
             <div className="flex justify-center">
               <Button 
                 size="lg" 
                 className="bg-purple-500 text-white hover:bg-purple-600 font-semibold text-lg px-10 py-4 rounded-lg animate-fade-in shadow-xl hover:shadow-2xl transition-all duration-300"
-                onClick={() => window.open('#repository', '_self')}
+                onClick={() => window.open('#tips', '_self')}
               >
-                <Zap className="mr-3 h-5 w-5" />
-                Get Quick SEO Wins
+                <Lightbulb className="mr-3 h-5 w-5" />
+                Discover My Strategies
               </Button>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Features */}
-      <section id="features" className="relative z-20 px-6 py-24 bg-black/70 backdrop-blur-sm">
+      {/* Story */}
+      <section id="story" className="relative z-20 px-6 py-24 bg-black/70 backdrop-blur-sm">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-20">
             <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white drop-shadow-md">
-              Why Startups Build <span className="text-purple-400">Faster</span> with MVPE
+              Why I'm Sharing <span className="text-purple-400">My Journey</span>
             </h2>
-            <p className="text-xl text-gray-200 drop-shadow-sm">Speed-focused SEO that accelerates your MVP launch timeline</p>
+            <p className="text-xl text-gray-200 drop-shadow-sm">The strategies that changed everything for me as a young builder</p>
           </div>
           <div className="grid md:grid-cols-3 gap-8">
             {features.map((feature, index) => (
@@ -162,17 +163,17 @@ const Index = () => {
         </div>
       </section>
 
-      {/* SEO Repository */}
-      <section id="repository" className="relative z-20 px-6 py-24 bg-white/95 backdrop-blur-sm">
+      {/* Tips Repository */}
+      <section id="tips" className="relative z-20 px-6 py-24 bg-white/95 backdrop-blur-sm">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-20">
             <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900">
-              Fast-Track Your <span className="text-purple-600">MVP Launch</span>
+              Strategies That <span className="text-purple-600">Actually Work</span>
             </h2>
-            <p className="text-xl text-gray-700 font-medium">Quick-implementation SEO strategies organized for maximum speed</p>
+            <p className="text-xl text-gray-700 font-medium">Hard-learned lessons organized for your success</p>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {seoCategories.map((category, index) => (
+            {tipCategories.map((category, index) => (
               <Card key={index} className="border border-gray-300 hover:border-purple-300 transition-all duration-300 hover:shadow-xl cursor-pointer group rounded-xl bg-white shadow-md">
                 <CardHeader className="text-center pb-4">
                   <category.icon className="h-12 w-12 text-purple-600 mx-auto mb-4 group-hover:scale-110 transition-transform duration-300" />
@@ -193,9 +194,9 @@ const Index = () => {
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-20">
             <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900">
-              Build Faster with <span className="text-purple-600">Confidence</span>
+              Questions About <span className="text-purple-600">My Journey</span>
             </h2>
-            <p className="text-xl text-gray-700 font-medium">Common questions about accelerating your MVP with SEO</p>
+            <p className="text-xl text-gray-700 font-medium">Common questions about my building experiences</p>
           </div>
           <div className="space-y-6">
             {faqs.map((faq, index) => (
@@ -212,23 +213,23 @@ const Index = () => {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="relative z-20 px-6 py-24 bg-gradient-to-r from-purple-600/90 to-purple-700/90 backdrop-blur-sm">
+      {/* Support Section */}
+      <section id="support" className="relative z-20 px-6 py-24 bg-gradient-to-r from-purple-600/90 to-purple-700/90 backdrop-blur-sm">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-4xl md:text-5xl font-bold mb-8 text-white drop-shadow-md">
-            Ready to <span className="text-purple-200">Launch Faster?</span>
+            Love What You're <span className="text-purple-200">Learning?</span>
           </h2>
           <p className="text-xl text-purple-100 mb-12 font-medium drop-shadow-sm">
-            Join thousands of startups building MVPs faster with our speed-focused SEO strategies.
+            If my tips and strategies are helping you on your building journey, consider supporting my work so I can continue sharing valuable content with the world.
           </p>
           <div className="flex justify-center">
             <Button 
               size="lg" 
               className="bg-white text-purple-700 hover:bg-gray-50 font-semibold text-lg px-10 py-4 rounded-lg shadow-xl hover:shadow-2xl transition-all duration-300"
-              onClick={() => window.open('https://cal.com/fawuzanth/mvpee', '_blank')}
+              onClick={() => window.open('https://paystack.shop/pay/mvpe', '_blank')}
             >
-              <Zap className="mr-3 h-5 w-5" />
-              Accelerate My MVP
+              <Gift className="mr-3 h-5 w-5" />
+              Send a Gift
             </Button>
           </div>
         </div>
@@ -239,12 +240,12 @@ const Index = () => {
         <div className="max-w-7xl mx-auto text-center">
           <div className="flex items-center justify-center space-x-3 mb-6">
             <div className="w-6 h-6 bg-purple-500 rounded-lg flex items-center justify-center shadow-md">
-              <Zap className="h-4 w-4 text-white" />
+              <Lightbulb className="h-4 w-4 text-white" />
             </div>
-            <span className="text-xl font-bold text-white drop-shadow-sm">MVPE</span>
+            <span className="text-xl font-bold text-white drop-shadow-sm">Teen Builder</span>
           </div>
-          <p className="text-gray-200 mb-4 font-medium">Helping startups build MVPs faster with smart SEO</p>
-          <p className="text-gray-400 text-sm">MVPE - Build faster, launch sooner since 2024</p>
+          <p className="text-gray-200 mb-4 font-medium">Sharing real strategies from a teenage building journey</p>
+          <p className="text-gray-400 text-sm">From teen dreams to real impact - building since 2024</p>
         </div>
       </footer>
     </div>
