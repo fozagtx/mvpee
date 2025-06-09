@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
-import { Lightbulb, Gift, Sparkles, Search, Zap, TrendingUp, ArrowRight, Menu, X, Play, CheckCircle } from 'lucide-react';
+import { Lightbulb, Gift, Sparkles, Search, Zap, TrendingUp, ArrowRight, Menu, X, Play, CheckCircle, Link } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
@@ -18,34 +18,34 @@ const Index = () => {
   }, []);
 
   const painPoints = [
-    "You're tired of generic SEO advice that doesn't actually rank your content",
-    "You want actionable SEO strategies, not just theoretical knowledge",
-    "You need proven techniques that actually work in today's search landscape",
-    "You're looking for authentic SEO experiences, not outdated tactics"
+    "You're tired of paying thousands for backlinks that don't move the needle",
+    "You want quality backlinks for your SaaS, not spammy directory links",
+    "You need simple backlink strategies without confusing technical terms",
+    "You're looking for authentic link building methods that actually work"
   ];
 
   const benefits = [
     { 
-      icon: CheckCircle, 
-      title: "Battle-Tested SEO Strategies", 
-      description: "Real SEO frameworks I used to rank content successfully - no theory, just what actually works in search engines." 
+      icon: Link, 
+      title: "Quality Backlink Strategies", 
+      description: "Simple, proven methods to get high-quality backlinks for your SaaS without breaking the bank or using confusing tech speak." 
     },
     { 
       icon: CheckCircle, 
-      title: "Avoid SEO Penalties", 
-      description: "Learn from my SEO mistakes so you don't have to repeat them. Save months of lost rankings and traffic." 
+      title: "No-Nonsense Approach", 
+      description: "Skip the technical jargon and complex tools. Learn straightforward backlink tactics that any SaaS founder can implement." 
     },
     { 
       icon: CheckCircle, 
-      title: "Zero-Budget SEO Solutions", 
-      description: "Discover how to rank without expensive tools - smart SEO tactics beat expensive software every time." 
+      title: "Real Relationship Building", 
+      description: "Discover how to build genuine connections that lead to quality backlinks, not just transactional link exchanges." 
     }
   ];
 
   const socialProof = [
-    { stat: "50+", label: "SEO Projects" },
-    { stat: "100%", label: "Authentic Experience" },
-    { stat: "3+", label: "Years in SEO" }
+    { stat: "Quality", label: "Over Quantity" },
+    { stat: "Simple", label: "No Tech Jargon" },
+    { stat: "Real", label: "Proven Methods" }
   ];
 
   return (
@@ -68,13 +68,13 @@ const Index = () => {
           <div className="flex justify-between items-center">
             <div className="flex items-center space-x-3 group">
               <div className="w-10 h-10 bg-gradient-to-br from-purple-500 to-pink-500 rounded-xl flex items-center justify-center shadow-lg group-hover:shadow-purple-500/25 transition-all duration-300 group-hover:scale-105">
-                <Search className="h-5 w-5 text-white" />
+                <Link className="h-5 w-5 text-white" />
               </div>
               <span className="text-2xl font-bold bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">mvpee</span>
             </div>
 
             <div className="hidden lg:flex items-center space-x-8">
-              <a href="#story" className="text-gray-300 hover:text-white transition-colors font-medium hover:scale-105 transition-transform duration-200">My SEO Story</a>
+              <a href="#story" className="text-gray-300 hover:text-white transition-colors font-medium hover:scale-105 transition-transform duration-200">My Backlink Story</a>
               <a href="#support" className="text-gray-300 hover:text-white transition-colors font-medium hover:scale-105 transition-transform duration-200">Support</a>
             </div>
 
@@ -86,7 +86,7 @@ const Index = () => {
               </SheetTrigger>
               <SheetContent side="right" className="bg-black/95 backdrop-blur-xl border-white/10">
                 <div className="flex flex-col space-y-6 mt-8">
-                  <a href="#story" className="text-gray-200 hover:text-white transition-colors text-lg font-medium">My SEO Story</a>
+                  <a href="#story" className="text-gray-200 hover:text-white transition-colors text-lg font-medium">My Backlink Story</a>
                   <a href="#support" className="text-gray-200 hover:text-white transition-colors text-lg font-medium">Support</a>
                 </div>
               </SheetContent>
@@ -102,26 +102,26 @@ const Index = () => {
             {/* Attention Grabber */}
             <div className="inline-flex items-center px-6 py-3 rounded-full bg-gradient-to-r from-red-600/30 to-orange-600/30 border border-red-500/50 backdrop-blur-sm mb-8 group hover:scale-105 transition-transform duration-300">
               <Sparkles className="h-4 w-4 text-red-400 mr-2 animate-pulse" />
-              <span className="text-sm font-bold text-red-200 uppercase tracking-wider">Finally Revealed</span>
+              <span className="text-sm font-bold text-red-200 uppercase tracking-wider">SaaS Backlink Secrets</span>
             </div>
 
             {/* Big Promise Headline */}
             <h1 className="mb-8 leading-tight">
               <div className="font-black text-4xl md:text-6xl xl:text-7xl bg-gradient-to-r from-white via-purple-200 to-pink-200 bg-clip-text text-transparent mb-4">
-                The EXACT SEO Strategies I Used
+                Get Quality Backlinks
               </div>
               <div className="font-black text-4xl md:text-6xl xl:text-7xl bg-gradient-to-r from-purple-400 via-pink-400 to-cyan-400 bg-clip-text text-transparent mb-6">
-                to Rank 50+ Projects
+                For Your SaaS
               </div>
               <div className="text-2xl md:text-3xl text-gray-300 font-light">
-                <span className="bg-gradient-to-r from-yellow-400 to-orange-400 bg-clip-text text-transparent font-bold">Zero Budget.</span> Real Rankings. Proven SEO Methods.
+                <span className="bg-gradient-to-r from-yellow-400 to-orange-400 bg-clip-text text-transparent font-bold">Simple strategies.</span> No tech jargon. Real results.
               </div>
             </h1>
             
             {/* Value Proposition */}
             <p className="text-xl text-gray-300 mb-8 max-w-4xl mx-auto leading-relaxed font-light">
-              What if I told you that the biggest obstacle to your SEO success isn't lack of money, tools, or even technical skills... 
-              <span className="text-purple-300 font-semibold"> it's following outdated SEO advice from people who never actually ranked anything recently?</span>
+              What if I told you that getting quality backlinks for your SaaS doesn't require expensive tools, complex outreach campaigns, or understanding technical SEO... 
+              <span className="text-purple-300 font-semibold"> it's about building real relationships the right way?</span>
             </p>
 
             {/* Social Proof Stats */}
@@ -144,13 +144,13 @@ const Index = () => {
                 onClick={() => document.getElementById('story')?.scrollIntoView({ behavior: 'smooth' })}
               >
                 <Play className="mr-3 h-6 w-6 group-hover:scale-110 transition-transform duration-300" />
-                Discover The SEO Strategies
+                Learn The Backlink Strategies
                 <ArrowRight className="ml-3 h-6 w-6 group-hover:translate-x-1 transition-transform duration-300" />
               </Button>
             </div>
 
             <p className="text-sm text-gray-500 mt-4">
-              👆 Click above to see the EXACT SEO methods that changed everything
+              👆 Click above to discover simple backlink methods that actually work
             </p>
           </div>
         </div>
@@ -160,7 +160,7 @@ const Index = () => {
       <section className="relative z-20 px-6 py-20 bg-gradient-to-r from-red-900/10 to-orange-900/10">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-4xl md:text-5xl font-black mb-6 text-white">
-            Are You Tired of <span className="bg-gradient-to-r from-red-400 to-orange-400 bg-clip-text text-transparent">Generic SEO Advice?</span>
+            Tired of <span className="bg-gradient-to-r from-red-400 to-orange-400 bg-clip-text text-transparent">Expensive Backlink Tactics?</span>
           </h2>
           <p className="text-xl text-gray-300 mb-12 font-light">
             If any of these sound familiar, you're in the right place...
@@ -184,9 +184,9 @@ const Index = () => {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-20">
             <h2 className="text-5xl md:text-6xl font-black mb-6 bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent">
-              Here's What You'll <span className="bg-gradient-to-r from-green-400 to-blue-400 bg-clip-text text-transparent">Actually Get</span>
+              Here's What You'll <span className="bg-gradient-to-r from-green-400 to-blue-400 bg-clip-text text-transparent">Actually Learn</span>
             </h2>
-            <p className="text-xl text-gray-400 font-light max-w-3xl mx-auto">Real SEO strategies that transformed my content into 50+ ranking projects</p>
+            <p className="text-xl text-gray-400 font-light max-w-3xl mx-auto">Simple backlink strategies that help your SaaS get noticed by the right people</p>
           </div>
           
           <div className="grid md:grid-cols-3 gap-8">
@@ -209,16 +209,16 @@ const Index = () => {
       <section className="relative z-20 px-6 py-20 bg-gradient-to-r from-purple-900/20 to-pink-900/20">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-4xl md:text-5xl font-black mb-6 text-white">
-            Don't Wait Another Day to <span className="bg-gradient-to-r from-yellow-400 to-orange-400 bg-clip-text text-transparent">Start Ranking</span>
+            Don't Wait to <span className="bg-gradient-to-r from-yellow-400 to-orange-400 bg-clip-text text-transparent">Build Authority</span>
           </h2>
           <p className="text-xl text-gray-300 mb-8 font-light">
-            Every day you delay is another day of missed organic traffic. While others struggle with outdated SEO tactics, 
-            you could be implementing the exact strategies that work in 2024.
+            Every day you delay building quality backlinks is another day your competitors are getting ahead. 
+            While others struggle with expensive link building agencies, you could be implementing simple relationship-based strategies.
           </p>
           
           <div className="bg-gradient-to-r from-yellow-500/20 to-orange-500/20 border border-yellow-500/30 rounded-2xl p-8 mb-8">
             <p className="text-lg text-yellow-200 font-semibold">
-              ⚡ These aren't just SEO tips - they're the EXACT step-by-step methods I wish someone had shared with me when I started my SEO journey.
+              ⚡ These aren't just backlink tips - they're the EXACT relationship-building methods that get your SaaS noticed by industry leaders.
             </p>
           </div>
         </div>
@@ -231,8 +231,8 @@ const Index = () => {
             Ready to <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">Support Real Value?</span>
           </h2>
           <p className="text-xl text-gray-300 mb-8 font-light leading-relaxed max-w-3xl mx-auto">
-            If these SEO strategies help you avoid even ONE major algorithm penalty or land your first top ranking, 
-            they'll pay for themselves 100x over in organic traffic value.
+            If these backlink strategies help you land even ONE quality link from an industry leader, 
+            they'll pay for themselves 100x over in authority and organic traffic.
           </p>
           
           <div className="bg-white/5 backdrop-blur-xl rounded-3xl p-8 mb-12 border border-white/10">
@@ -240,15 +240,15 @@ const Index = () => {
             <div className="space-y-3 text-left max-w-2xl mx-auto">
               <div className="flex items-center">
                 <CheckCircle className="h-5 w-5 text-green-400 mr-3" />
-                <span className="text-gray-200">You help me create even more valuable SEO content</span>
+                <span className="text-gray-200">You help me create even more valuable backlink strategies</span>
               </div>
               <div className="flex items-center">
                 <CheckCircle className="h-5 w-5 text-green-400 mr-3" />
-                <span className="text-gray-200">You become part of a community of real SEO practitioners</span>
+                <span className="text-gray-200">You become part of a community of SaaS founders building authority</span>
               </div>
               <div className="flex items-center">
                 <CheckCircle className="h-5 w-5 text-green-400 mr-3" />
-                <span className="text-gray-200">You invest in authentic, tested SEO strategies</span>
+                <span className="text-gray-200">You invest in simple, relationship-based link building methods</span>
               </div>
             </div>
           </div>
@@ -260,13 +260,13 @@ const Index = () => {
               onClick={() => window.open('https://paystack.shop/pay/mvpe', '_blank')}
             >
               <Gift className="mr-4 h-6 w-6 group-hover:rotate-12 transition-transform duration-300" />
-              YES! Support Real SEO Value
+              YES! Support Quality Backlink Education
               <Sparkles className="ml-4 h-6 w-6 group-hover:scale-110 transition-transform duration-300" />
             </Button>
           </div>
           
           <p className="text-sm text-gray-400 mt-6">
-            💝 Your support helps me continue sharing real, tested SEO strategies with the community
+            💝 Your support helps me continue sharing simple, effective backlink strategies for SaaS founders
           </p>
         </div>
       </section>
@@ -276,12 +276,12 @@ const Index = () => {
         <div className="max-w-7xl mx-auto text-center">
           <div className="flex items-center justify-center space-x-3 mb-6 group">
             <div className="w-8 h-8 bg-gradient-to-br from-purple-500 to-pink-500 rounded-xl flex items-center justify-center shadow-lg group-hover:rotate-6 transition-transform duration-300">
-              <Search className="h-5 w-5 text-white" />
+              <Link className="h-5 w-5 text-white" />
             </div>
             <span className="text-2xl font-bold bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">mvpee</span>
           </div>
-          <p className="text-gray-300 mb-4 font-light">Real SEO strategies from real ranking experiences</p>
-          <p className="text-gray-500 text-sm">Authentic. Tested. Proven since day one.</p>
+          <p className="text-gray-300 mb-4 font-light">Simple backlink strategies for smart SaaS founders</p>
+          <p className="text-gray-500 text-sm">No tech jargon. Just real relationships and quality links.</p>
         </div>
       </footer>
     </div>
