@@ -42,12 +42,6 @@ const Index = () => {
     }
   ];
 
-  const socialProof = [
-    { stat: "SEO-First", label: "MVP Strategy" },
-    { stat: "Founder", label: "Focused" },
-    { stat: "Launch", label: "Ready" }
-  ];
-
   return (
     <div className="min-h-screen bg-[#0a0a0a] text-white font-inter relative overflow-hidden">
       {/* Animated Background Gradients */}
@@ -113,28 +107,7 @@ const Index = () => {
               <div className="font-black text-4xl md:text-6xl xl:text-7xl bg-gradient-to-r from-purple-400 via-pink-400 to-cyan-400 bg-clip-text text-transparent mb-6">
                 MVPs That Get Found
               </div>
-              <div className="text-2xl md:text-3xl text-gray-300 font-light">
-                <span className="bg-gradient-to-r from-yellow-400 to-orange-400 bg-clip-text text-transparent font-bold">Launch with visibility.</span> No complex tools. Real results.
-              </div>
             </h1>
-            
-            {/* Value Proposition */}
-            <p className="text-xl text-gray-300 mb-8 max-w-4xl mx-auto leading-relaxed font-light">
-              What if I told you that building an MVP that ranks on Google from day one doesn't require expensive SEO agencies, complex technical setups, or months of optimization... 
-              <span className="text-purple-300 font-semibold"> it's about baking SEO into your product development process?</span>
-            </p>
-
-            {/* Social Proof Stats */}
-            <div className="flex flex-wrap justify-center gap-8 mb-12">
-              {socialProof.map((item, index) => (
-                <div key={index} className="text-center group">
-                  <div className="text-4xl md:text-5xl font-black bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent group-hover:scale-110 transition-transform duration-300">
-                    {item.stat}
-                  </div>
-                  <div className="text-gray-400 font-medium mt-1">{item.label}</div>
-                </div>
-              ))}
-            </div>
             
             {/* Primary CTA */}
             <div className="flex flex-col sm:flex-row gap-6 justify-center">
