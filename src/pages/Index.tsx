@@ -68,8 +68,12 @@ const Index = () => {
             </div>
 
             <div className="hidden lg:flex items-center space-x-8">
-              <a href="#story" className="text-gray-300 hover:text-white transition-colors font-medium hover:scale-105 transition-transform duration-200">MVP Success Stories</a>
-              <a href="#support" className="text-gray-300 hover:text-white transition-colors font-medium hover:scale-105 transition-transform duration-200">Support</a>
+              <Button 
+                className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white font-bold px-6 py-2 rounded-xl shadow-lg hover:shadow-purple-500/25 transition-all duration-300 hover:scale-105"
+                onClick={() => window.open('https://calendly.com/your-link', '_blank')}
+              >
+                Book a Call
+              </Button>
             </div>
 
             <Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
@@ -80,8 +84,12 @@ const Index = () => {
               </SheetTrigger>
               <SheetContent side="right" className="bg-black/95 backdrop-blur-xl border-white/10">
                 <div className="flex flex-col space-y-6 mt-8">
-                  <a href="#story" className="text-gray-200 hover:text-white transition-colors text-lg font-medium">MVP Success Stories</a>
-                  <a href="#support" className="text-gray-200 hover:text-white transition-colors text-lg font-medium">Support</a>
+                  <Button 
+                    className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white font-bold px-6 py-3 rounded-xl shadow-lg"
+                    onClick={() => window.open('https://calendly.com/your-link', '_blank')}
+                  >
+                    Book a Call
+                  </Button>
                 </div>
               </SheetContent>
             </Sheet>
@@ -102,10 +110,10 @@ const Index = () => {
             {/* Big Promise Headline */}
             <h1 className="mb-8 leading-tight">
               <div className="font-black text-4xl md:text-6xl xl:text-7xl bg-gradient-to-r from-white via-purple-200 to-pink-200 bg-clip-text text-transparent mb-4">
-                Build SEO-Optimized
+                Bring your idea and we'll
               </div>
               <div className="font-black text-4xl md:text-6xl xl:text-7xl bg-gradient-to-r from-purple-400 via-pink-400 to-cyan-400 bg-clip-text text-transparent mb-6">
-                MVPs That Get Found
+                build it into an SEO-backed MVP in 2 weeks
               </div>
             </h1>
             
@@ -114,16 +122,16 @@ const Index = () => {
               <Button 
                 size="lg" 
                 className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white font-bold text-xl px-16 py-8 rounded-2xl shadow-2xl hover:shadow-purple-500/25 transition-all duration-300 hover:scale-105 border-0 group"
-                onClick={() => document.getElementById('story')?.scrollIntoView({ behavior: 'smooth' })}
+                onClick={() => window.open('https://calendly.com/your-link', '_blank')}
               >
                 <Play className="mr-3 h-6 w-6 group-hover:scale-110 transition-transform duration-300" />
-                Learn SEO-First MVP Development
+                Book Your MVP Strategy Call
                 <ArrowRight className="ml-3 h-6 w-6 group-hover:translate-x-1 transition-transform duration-300" />
               </Button>
             </div>
 
             <p className="text-sm text-gray-500 mt-4">
-              👆 Click above to discover how to build MVPs that get discovered from launch
+              👆 Click above to start building your SEO-optimized MVP today
             </p>
           </div>
         </div>
