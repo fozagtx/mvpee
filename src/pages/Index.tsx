@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { Lightbulb, Gift, Sparkles, Search, Zap, TrendingUp, ArrowRight, Menu, X, Play, CheckCircle, Rocket } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -101,12 +100,6 @@ const Index = () => {
       <section className="relative z-20 min-h-screen flex items-center justify-center px-6 pt-20">
         <div className="max-w-5xl mx-auto text-center">
           <div className="animate-fade-in">
-            {/* Attention Grabber */}
-            <div className="inline-flex items-center px-6 py-3 rounded-full bg-gradient-to-r from-red-600/30 to-orange-600/30 border border-red-500/50 backdrop-blur-sm mb-8 group hover:scale-105 transition-transform duration-300">
-              <Sparkles className="h-4 w-4 text-red-400 mr-2 animate-pulse" />
-              <span className="text-sm font-bold text-red-200 uppercase tracking-wider">SEO-First MVP Secrets</span>
-            </div>
-
             {/* Big Promise Headline */}
             <h1 className="mb-8 leading-tight">
               <div className="font-black text-4xl md:text-6xl xl:text-7xl bg-gradient-to-r from-white via-purple-200 to-pink-200 bg-clip-text text-transparent mb-4">
