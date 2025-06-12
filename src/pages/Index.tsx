@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
-import { Lightbulb, Gift, Sparkles, Search, Zap, TrendingUp, ArrowRight, Menu, X, Play, CheckCircle, Link } from 'lucide-react';
+import { Lightbulb, Gift, Sparkles, Search, Zap, TrendingUp, ArrowRight, Menu, X, Play, CheckCircle, Rocket } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
@@ -18,34 +18,34 @@ const Index = () => {
   }, []);
 
   const painPoints = [
-    "You're tired of paying thousands for backlinks that don't move the needle",
-    "You want quality backlinks for your SaaS, not spammy directory links",
-    "You need simple backlink strategies without confusing technical terms",
-    "You're looking for authentic link building methods that actually work"
+    "You're building an MVP but worried no one will find it when you launch",
+    "You want your product to rank on Google from day one, not months later",
+    "You need SEO strategies that work for MVPs without technical complexity",
+    "You're tired of launching products that get buried in search results"
   ];
 
   const benefits = [
     { 
-      icon: Link, 
-      title: "Quality Backlink Strategies", 
-      description: "Simple, proven methods to get high-quality backlinks for your SaaS without breaking the bank or using confusing tech speak." 
+      icon: Search, 
+      title: "SEO-First MVP Development", 
+      description: "Build your MVP with SEO baked in from the start. Learn the exact strategies to make your product discoverable from launch day." 
     },
     { 
-      icon: CheckCircle, 
-      title: "No-Nonsense Approach", 
-      description: "Skip the technical jargon and complex tools. Learn straightforward backlink tactics that any SaaS founder can implement." 
+      icon: TrendingUp, 
+      title: "Founder-Friendly Approach", 
+      description: "Skip the technical jargon and complex SEO tools. Get practical, actionable strategies that any founder can implement." 
     },
     { 
-      icon: CheckCircle, 
-      title: "Real Relationship Building", 
-      description: "Discover how to build genuine connections that lead to quality backlinks, not just transactional link exchanges." 
+      icon: Rocket, 
+      title: "Launch with Visibility", 
+      description: "Don't just build and hope. Learn how to position your MVP to get found by your ideal customers through search." 
     }
   ];
 
   const socialProof = [
-    { stat: "Quality", label: "Over Quantity" },
-    { stat: "Simple", label: "No Tech Jargon" },
-    { stat: "Real", label: "Proven Methods" }
+    { stat: "SEO-First", label: "MVP Strategy" },
+    { stat: "Founder", label: "Focused" },
+    { stat: "Launch", label: "Ready" }
   ];
 
   return (
@@ -68,13 +68,13 @@ const Index = () => {
           <div className="flex justify-between items-center">
             <div className="flex items-center space-x-3 group">
               <div className="w-10 h-10 bg-gradient-to-br from-purple-500 to-pink-500 rounded-xl flex items-center justify-center shadow-lg group-hover:shadow-purple-500/25 transition-all duration-300 group-hover:scale-105">
-                <Link className="h-5 w-5 text-white" />
+                <Rocket className="h-5 w-5 text-white" />
               </div>
               <span className="text-2xl font-bold bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">mvpee</span>
             </div>
 
             <div className="hidden lg:flex items-center space-x-8">
-              <a href="#story" className="text-gray-300 hover:text-white transition-colors font-medium hover:scale-105 transition-transform duration-200">My Backlink Story</a>
+              <a href="#story" className="text-gray-300 hover:text-white transition-colors font-medium hover:scale-105 transition-transform duration-200">MVP Success Stories</a>
               <a href="#support" className="text-gray-300 hover:text-white transition-colors font-medium hover:scale-105 transition-transform duration-200">Support</a>
             </div>
 
@@ -86,7 +86,7 @@ const Index = () => {
               </SheetTrigger>
               <SheetContent side="right" className="bg-black/95 backdrop-blur-xl border-white/10">
                 <div className="flex flex-col space-y-6 mt-8">
-                  <a href="#story" className="text-gray-200 hover:text-white transition-colors text-lg font-medium">My Backlink Story</a>
+                  <a href="#story" className="text-gray-200 hover:text-white transition-colors text-lg font-medium">MVP Success Stories</a>
                   <a href="#support" className="text-gray-200 hover:text-white transition-colors text-lg font-medium">Support</a>
                 </div>
               </SheetContent>
@@ -102,26 +102,26 @@ const Index = () => {
             {/* Attention Grabber */}
             <div className="inline-flex items-center px-6 py-3 rounded-full bg-gradient-to-r from-red-600/30 to-orange-600/30 border border-red-500/50 backdrop-blur-sm mb-8 group hover:scale-105 transition-transform duration-300">
               <Sparkles className="h-4 w-4 text-red-400 mr-2 animate-pulse" />
-              <span className="text-sm font-bold text-red-200 uppercase tracking-wider">SaaS Backlink Secrets</span>
+              <span className="text-sm font-bold text-red-200 uppercase tracking-wider">SEO-First MVP Secrets</span>
             </div>
 
             {/* Big Promise Headline */}
             <h1 className="mb-8 leading-tight">
               <div className="font-black text-4xl md:text-6xl xl:text-7xl bg-gradient-to-r from-white via-purple-200 to-pink-200 bg-clip-text text-transparent mb-4">
-                Get Quality Backlinks
+                Build SEO-Optimized
               </div>
               <div className="font-black text-4xl md:text-6xl xl:text-7xl bg-gradient-to-r from-purple-400 via-pink-400 to-cyan-400 bg-clip-text text-transparent mb-6">
-                For Your SaaS
+                MVPs That Get Found
               </div>
               <div className="text-2xl md:text-3xl text-gray-300 font-light">
-                <span className="bg-gradient-to-r from-yellow-400 to-orange-400 bg-clip-text text-transparent font-bold">Simple strategies.</span> No tech jargon. Real results.
+                <span className="bg-gradient-to-r from-yellow-400 to-orange-400 bg-clip-text text-transparent font-bold">Launch with visibility.</span> No complex tools. Real results.
               </div>
             </h1>
             
             {/* Value Proposition */}
             <p className="text-xl text-gray-300 mb-8 max-w-4xl mx-auto leading-relaxed font-light">
-              What if I told you that getting quality backlinks for your SaaS doesn't require expensive tools, complex outreach campaigns, or understanding technical SEO... 
-              <span className="text-purple-300 font-semibold"> it's about building real relationships the right way?</span>
+              What if I told you that building an MVP that ranks on Google from day one doesn't require expensive SEO agencies, complex technical setups, or months of optimization... 
+              <span className="text-purple-300 font-semibold"> it's about baking SEO into your product development process?</span>
             </p>
 
             {/* Social Proof Stats */}
@@ -144,13 +144,13 @@ const Index = () => {
                 onClick={() => document.getElementById('story')?.scrollIntoView({ behavior: 'smooth' })}
               >
                 <Play className="mr-3 h-6 w-6 group-hover:scale-110 transition-transform duration-300" />
-                Learn The Backlink Strategies
+                Learn SEO-First MVP Development
                 <ArrowRight className="ml-3 h-6 w-6 group-hover:translate-x-1 transition-transform duration-300" />
               </Button>
             </div>
 
             <p className="text-sm text-gray-500 mt-4">
-              👆 Click above to discover simple backlink methods that actually work
+              👆 Click above to discover how to build MVPs that get discovered from launch
             </p>
           </div>
         </div>
@@ -160,7 +160,7 @@ const Index = () => {
       <section className="relative z-20 px-6 py-20 bg-gradient-to-r from-red-900/10 to-orange-900/10">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-4xl md:text-5xl font-black mb-6 text-white">
-            Tired of <span className="bg-gradient-to-r from-red-400 to-orange-400 bg-clip-text text-transparent">Expensive Backlink Tactics?</span>
+            Tired of <span className="bg-gradient-to-r from-red-400 to-orange-400 bg-clip-text text-transparent">Invisible MVPs?</span>
           </h2>
           <p className="text-xl text-gray-300 mb-12 font-light">
             If any of these sound familiar, you're in the right place...
@@ -186,7 +186,7 @@ const Index = () => {
             <h2 className="text-5xl md:text-6xl font-black mb-6 bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent">
               Here's What You'll <span className="bg-gradient-to-r from-green-400 to-blue-400 bg-clip-text text-transparent">Actually Learn</span>
             </h2>
-            <p className="text-xl text-gray-400 font-light max-w-3xl mx-auto">Simple backlink strategies that help your SaaS get noticed by the right people</p>
+            <p className="text-xl text-gray-400 font-light max-w-3xl mx-auto">SEO-first strategies that help your MVP get discovered by your ideal customers</p>
           </div>
           
           <div className="grid md:grid-cols-3 gap-8">
@@ -209,16 +209,16 @@ const Index = () => {
       <section className="relative z-20 px-6 py-20 bg-gradient-to-r from-purple-900/20 to-pink-900/20">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-4xl md:text-5xl font-black mb-6 text-white">
-            Don't Wait to <span className="bg-gradient-to-r from-yellow-400 to-orange-400 bg-clip-text text-transparent">Build Authority</span>
+            Don't Launch in the <span className="bg-gradient-to-r from-yellow-400 to-orange-400 bg-clip-text text-transparent">Dark</span>
           </h2>
           <p className="text-xl text-gray-300 mb-8 font-light">
-            Every day you delay building quality backlinks is another day your competitors are getting ahead. 
-            While others struggle with expensive link building agencies, you could be implementing simple relationship-based strategies.
+            Every day you delay implementing SEO in your MVP development is another day your competitors are getting ahead. 
+            While others launch and hope for the best, you could be building products that get discovered from day one.
           </p>
           
           <div className="bg-gradient-to-r from-yellow-500/20 to-orange-500/20 border border-yellow-500/30 rounded-2xl p-8 mb-8">
             <p className="text-lg text-yellow-200 font-semibold">
-              ⚡ These aren't just backlink tips - they're the EXACT relationship-building methods that get your SaaS noticed by industry leaders.
+              ⚡ These aren't just SEO tips - they're the EXACT strategies to build MVPs that rank, convert, and scale with search visibility baked in.
             </p>
           </div>
         </div>
@@ -228,11 +228,11 @@ const Index = () => {
       <section id="support" className="relative z-20 px-6 py-32 bg-gradient-to-br from-purple-600/20 via-pink-600/20 to-cyan-600/20">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-5xl md:text-6xl font-black mb-8 bg-gradient-to-r from-white to-gray-200 bg-clip-text text-transparent">
-            Ready to <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">Support Real Value?</span>
+            Ready to <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">Build Smart?</span>
           </h2>
           <p className="text-xl text-gray-300 mb-8 font-light leading-relaxed max-w-3xl mx-auto">
-            If these backlink strategies help you land even ONE quality link from an industry leader, 
-            they'll pay for themselves 100x over in authority and organic traffic.
+            If these SEO-first MVP strategies help you get even ONE early customer through organic search, 
+            they'll pay for themselves 100x over in customer acquisition and product validation.
           </p>
           
           <div className="bg-white/5 backdrop-blur-xl rounded-3xl p-8 mb-12 border border-white/10">
@@ -240,15 +240,15 @@ const Index = () => {
             <div className="space-y-3 text-left max-w-2xl mx-auto">
               <div className="flex items-center">
                 <CheckCircle className="h-5 w-5 text-green-400 mr-3" />
-                <span className="text-gray-200">You help me create even more valuable backlink strategies</span>
+                <span className="text-gray-200">You help me create even more valuable SEO-first development strategies</span>
               </div>
               <div className="flex items-center">
                 <CheckCircle className="h-5 w-5 text-green-400 mr-3" />
-                <span className="text-gray-200">You become part of a community of SaaS founders building authority</span>
+                <span className="text-gray-200">You become part of a community of founders building discoverable products</span>
               </div>
               <div className="flex items-center">
                 <CheckCircle className="h-5 w-5 text-green-400 mr-3" />
-                <span className="text-gray-200">You invest in simple, relationship-based link building methods</span>
+                <span className="text-gray-200">You invest in smart, sustainable MVP development methods</span>
               </div>
             </div>
           </div>
@@ -260,13 +260,13 @@ const Index = () => {
               onClick={() => window.open('https://paystack.shop/pay/mvpe', '_blank')}
             >
               <Gift className="mr-4 h-6 w-6 group-hover:rotate-12 transition-transform duration-300" />
-              YES! Support Quality Backlink Education
+              YES! Support SEO-First MVP Development
               <Sparkles className="ml-4 h-6 w-6 group-hover:scale-110 transition-transform duration-300" />
             </Button>
           </div>
           
           <p className="text-sm text-gray-400 mt-6">
-            💝 Your support helps me continue sharing simple, effective backlink strategies for SaaS founders
+            💝 Your support helps me continue sharing smart, SEO-first strategies for founders building discoverable products
           </p>
         </div>
       </section>
@@ -276,12 +276,12 @@ const Index = () => {
         <div className="max-w-7xl mx-auto text-center">
           <div className="flex items-center justify-center space-x-3 mb-6 group">
             <div className="w-8 h-8 bg-gradient-to-br from-purple-500 to-pink-500 rounded-xl flex items-center justify-center shadow-lg group-hover:rotate-6 transition-transform duration-300">
-              <Link className="h-5 w-5 text-white" />
+              <Rocket className="h-5 w-5 text-white" />
             </div>
             <span className="text-2xl font-bold bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">mvpee</span>
           </div>
-          <p className="text-gray-300 mb-4 font-light">Simple backlink strategies for smart SaaS founders</p>
-          <p className="text-gray-500 text-sm">No tech jargon. Just real relationships and quality links.</p>
+          <p className="text-gray-300 mb-4 font-light">SEO-optimized MVP development for smart founders</p>
+          <p className="text-gray-500 text-sm">Build products that get discovered from day one.</p>
         </div>
       </footer>
     </div>
