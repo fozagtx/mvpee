@@ -1,5 +1,6 @@
+
 import React, { useState, useEffect } from 'react';
-import { Lightbulb, Gift, Sparkles, Search, Zap, TrendingUp, ArrowRight, Menu, X, Play, CheckCircle, Rocket } from 'lucide-react';
+import { Star, Zap, TrendingUp, ArrowRight, Menu, X, Play, CheckCircle, Rocket, Target, Users, Clock } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
@@ -16,78 +17,76 @@ const Index = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const painPoints = [
-    "You're building an MVP but worried no one will find it when you launch",
-    "You want your product to rank on Google from day one, not months later",
-    "You need SEO strategies that work for MVPs without technical complexity",
-    "You're tired of launching products that get buried in search results"
-  ];
-
-  const benefits = [
+  const features = [
     { 
-      icon: Search, 
-      title: "SEO-First MVP Development", 
-      description: "Build your MVP with SEO baked in from the start. Learn the exact strategies to make your product discoverable from launch day." 
+      icon: Target, 
+      title: "Strategic Planning", 
+      description: "We analyze your market and define the perfect MVP scope that validates your core assumptions without overbuilding." 
+    },
+    { 
+      icon: Zap, 
+      title: "Rapid Development", 
+      description: "Our streamlined process delivers a fully functional MVP in just 2 weeks, complete with SEO optimization from day one." 
     },
     { 
       icon: TrendingUp, 
-      title: "Founder-Friendly Approach", 
-      description: "Skip the technical jargon and complex SEO tools. Get practical, actionable strategies that any founder can implement." 
-    },
-    { 
-      icon: Rocket, 
-      title: "Launch with Visibility", 
-      description: "Don't just build and hope. Learn how to position your MVP to get found by your ideal customers through search." 
+      title: "Built to Scale", 
+      description: "Every MVP we build is designed with growth in mind, ensuring smooth scaling as your user base expands." 
     }
   ];
 
-  return (
-    <div className="min-h-screen bg-[#0a0a0a] text-white font-inter relative overflow-hidden">
-      {/* Animated Background Gradients */}
-      <div className="fixed inset-0 z-0">
-        <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-purple-900/20 via-transparent to-pink-900/20 animate-pulse"></div>
-        <div className="absolute top-1/4 right-0 w-96 h-96 bg-gradient-to-l from-blue-600/30 to-purple-600/30 rounded-full blur-3xl animate-float"></div>
-        <div className="absolute bottom-1/4 left-0 w-80 h-80 bg-gradient-to-r from-pink-600/30 to-purple-600/30 rounded-full blur-3xl animate-float" style={{ animationDelay: '2s' }}></div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-gradient-to-tr from-cyan-600/20 to-blue-600/20 rounded-full blur-2xl animate-pulse" style={{ animationDelay: '1s' }}></div>
-      </div>
+  const benefits = [
+    "📈 Get discovered by customers from day one",
+    "⚡ Launch faster than building in-house",
+    "🎯 Focus on what matters: validation & growth",
+    "💰 Save months of development costs"
+  ];
 
+  const stats = [
+    { number: "50+", label: "MVPs Launched" },
+    { number: "2", label: "Week Delivery" },
+    { number: "95%", label: "Client Success Rate" }
+  ];
+
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50">
       {/* Navbar */}
       <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         scrolled 
-          ? 'bg-black/80 backdrop-blur-xl border-b border-white/10' 
+          ? 'bg-white/90 backdrop-blur-xl border-b border-gray-200 shadow-sm' 
           : 'bg-transparent'
       }`}>
         <div className="max-w-7xl mx-auto px-6 py-4">
           <div className="flex justify-between items-center">
             <div className="flex items-center space-x-3 group">
-              <div className="w-10 h-10 bg-gradient-to-br from-purple-500 to-pink-500 rounded-xl flex items-center justify-center shadow-lg group-hover:shadow-purple-500/25 transition-all duration-300 group-hover:scale-105">
+              <div className="w-10 h-10 bg-gradient-to-br from-blue-600 to-purple-600 rounded-xl flex items-center justify-center shadow-lg group-hover:shadow-blue-500/25 transition-all duration-300 group-hover:scale-105">
                 <Rocket className="h-5 w-5 text-white" />
               </div>
-              <span className="text-2xl font-bold bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">mvpee</span>
+              <span className="text-2xl font-bold bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent">mvpee</span>
             </div>
 
             <div className="hidden lg:flex items-center space-x-8">
               <Button 
-                className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white font-bold px-6 py-2 rounded-xl shadow-lg hover:shadow-purple-500/25 transition-all duration-300 hover:scale-105"
+                className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold px-8 py-3 rounded-full shadow-lg hover:shadow-blue-500/25 transition-all duration-300 hover:scale-105"
                 onClick={() => window.open('https://calendly.com/your-link', '_blank')}
               >
-                Book a Call
+                Start Your MVP
               </Button>
             </div>
 
             <Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
               <SheetTrigger asChild>
-                <Button variant="ghost" size="sm" className="lg:hidden text-white hover:bg-white/10 border border-white/20">
+                <Button variant="ghost" size="sm" className="lg:hidden text-gray-900 hover:bg-gray-100">
                   <Menu className="h-5 w-5" />
                 </Button>
               </SheetTrigger>
-              <SheetContent side="right" className="bg-black/95 backdrop-blur-xl border-white/10">
+              <SheetContent side="right" className="bg-white border-gray-200">
                 <div className="flex flex-col space-y-6 mt-8">
                   <Button 
-                    className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white font-bold px-6 py-3 rounded-xl shadow-lg"
+                    className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold px-8 py-3 rounded-full shadow-lg"
                     onClick={() => window.open('https://calendly.com/your-link', '_blank')}
                   >
-                    Book a Call
+                    Start Your MVP
                   </Button>
                 </div>
               </SheetContent>
@@ -96,82 +95,83 @@ const Index = () => {
         </div>
       </nav>
 
-      {/* Hero Section - VSL Style */}
-      <section className="relative z-20 min-h-screen flex items-center justify-center px-6 pt-20">
-        <div className="max-w-5xl mx-auto text-center">
+      {/* Hero Section */}
+      <section className="relative min-h-screen flex items-center justify-center px-6 pt-20">
+        <div className="max-w-6xl mx-auto text-center">
           <div className="animate-fade-in">
-            {/* Big Promise Headline */}
+            {/* Stats Bar */}
+            <div className="flex justify-center items-center space-x-8 mb-12">
+              {stats.map((stat, index) => (
+                <div key={index} className="text-center">
+                  <div className="text-3xl font-bold text-gray-900">{stat.number}</div>
+                  <div className="text-sm text-gray-600">{stat.label}</div>
+                </div>
+              ))}
+            </div>
+
+            {/* Main Headline */}
             <h1 className="mb-8 leading-tight">
-              <div className="font-black text-4xl md:text-6xl xl:text-7xl bg-gradient-to-r from-white via-purple-200 to-pink-200 bg-clip-text text-transparent mb-4">
-                Bring your idea and we'll
+              <div className="font-black text-5xl md:text-7xl xl:text-8xl bg-gradient-to-r from-gray-900 via-blue-800 to-purple-800 bg-clip-text text-transparent mb-6">
+                Build Your MVP
               </div>
-              <div className="font-black text-4xl md:text-6xl xl:text-7xl bg-gradient-to-r from-purple-400 via-pink-400 to-cyan-400 bg-clip-text text-transparent mb-6">
-                build it into an SEO-backed MVP in 2 weeks
+              <div className="font-black text-5xl md:text-7xl xl:text-8xl bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent mb-8">
+                In 2 Weeks
               </div>
             </h1>
+            
+            <p className="text-xl md:text-2xl text-gray-600 mb-12 max-w-4xl mx-auto leading-relaxed">
+              From idea to launch-ready product with built-in SEO. We handle the technical complexity 
+              so you can focus on growing your business.
+            </p>
+
+            {/* Benefits List */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-2xl mx-auto mb-12">
+              {benefits.map((benefit, index) => (
+                <div key={index} className="flex items-center text-left text-gray-700 text-lg">
+                  <span>{benefit}</span>
+                </div>
+              ))}
+            </div>
             
             {/* Primary CTA */}
             <div className="flex flex-col sm:flex-row gap-6 justify-center">
               <Button 
                 size="lg" 
-                className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white font-bold text-xl px-16 py-8 rounded-2xl shadow-2xl hover:shadow-purple-500/25 transition-all duration-300 hover:scale-105 border-0 group"
+                className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-bold text-xl px-16 py-8 rounded-full shadow-2xl hover:shadow-blue-500/25 transition-all duration-300 hover:scale-105 border-0 group"
                 onClick={() => window.open('https://calendly.com/your-link', '_blank')}
               >
                 <Play className="mr-3 h-6 w-6 group-hover:scale-110 transition-transform duration-300" />
-                Book Your MVP Strategy Call
+                Book Your Strategy Call
                 <ArrowRight className="ml-3 h-6 w-6 group-hover:translate-x-1 transition-transform duration-300" />
               </Button>
             </div>
 
-            <p className="text-sm text-gray-500 mt-4">
-              👆 Click above to start building your SEO-optimized MVP today
+            <p className="text-sm text-gray-500 mt-6">
+              Free consultation • No commitment required
             </p>
           </div>
         </div>
       </section>
 
-      {/* Pain Points Section */}
-      <section className="relative z-20 px-6 py-20 bg-gradient-to-r from-red-900/10 to-orange-900/10">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-4xl md:text-5xl font-black mb-6 text-white">
-            Tired of <span className="bg-gradient-to-r from-red-400 to-orange-400 bg-clip-text text-transparent">Invisible MVPs?</span>
-          </h2>
-          <p className="text-xl text-gray-300 mb-12 font-light">
-            If any of these sound familiar, you're in the right place...
-          </p>
-          
-          <div className="space-y-6">
-            {painPoints.map((point, index) => (
-              <Card key={index} className="border-0 bg-red-500/10 backdrop-blur-xl hover:bg-red-500/20 transition-all duration-500 rounded-2xl group hover:scale-[1.02]">
-                <CardContent className="p-6 flex items-center">
-                  <X className="h-6 w-6 text-red-400 mr-4 flex-shrink-0" />
-                  <p className="text-lg text-gray-200 text-left">{point}</p>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Solution Section */}
-      <section id="story" className="relative z-20 px-6 py-32">
+      {/* Features Section */}
+      <section className="relative px-6 py-32 bg-white">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-20">
-            <h2 className="text-5xl md:text-6xl font-black mb-6 bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent">
-              Here's What You'll <span className="bg-gradient-to-r from-green-400 to-blue-400 bg-clip-text text-transparent">Actually Learn</span>
+            <h2 className="text-5xl md:text-6xl font-black mb-6 bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent">
+              How We <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Build Smart</span>
             </h2>
-            <p className="text-xl text-gray-400 font-light max-w-3xl mx-auto">SEO-first strategies that help your MVP get discovered by your ideal customers</p>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">Our proven process turns your idea into a market-ready MVP in just 14 days</p>
           </div>
           
           <div className="grid md:grid-cols-3 gap-8">
-            {benefits.map((benefit, index) => (
-              <Card key={index} className="border-0 bg-white/5 backdrop-blur-xl hover:bg-white/10 transition-all duration-500 rounded-3xl group hover:scale-105 hover:shadow-2xl hover:shadow-green-500/10">
+            {features.map((feature, index) => (
+              <Card key={index} className="border-0 bg-gradient-to-br from-blue-50 to-purple-50 hover:from-blue-100 hover:to-purple-100 transition-all duration-500 rounded-3xl group hover:scale-105 hover:shadow-2xl">
                 <CardContent className="p-8 text-center h-full flex flex-col">
-                  <div className="w-16 h-16 bg-gradient-to-br from-green-500 to-blue-500 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:rotate-6 transition-transform duration-300 shadow-lg">
-                    <benefit.icon className="h-8 w-8 text-white" />
+                  <div className="w-16 h-16 bg-gradient-to-br from-blue-600 to-purple-600 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:rotate-6 transition-transform duration-300 shadow-lg">
+                    <feature.icon className="h-8 w-8 text-white" />
                   </div>
-                  <h3 className="text-2xl font-bold text-white mb-4 group-hover:text-green-200 transition-colors duration-300">{benefit.title}</h3>
-                  <p className="text-gray-300 font-light leading-relaxed flex-grow">{benefit.description}</p>
+                  <h3 className="text-2xl font-bold text-gray-900 mb-4">{feature.title}</h3>
+                  <p className="text-gray-600 leading-relaxed flex-grow">{feature.description}</p>
                 </CardContent>
               </Card>
             ))}
@@ -179,83 +179,84 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Urgency/Scarcity Section */}
-      <section className="relative z-20 px-6 py-20 bg-gradient-to-r from-purple-900/20 to-pink-900/20">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-4xl md:text-5xl font-black mb-6 text-white">
-            Don't Launch in the <span className="bg-gradient-to-r from-yellow-400 to-orange-400 bg-clip-text text-transparent">Dark</span>
+      {/* Process Section */}
+      <section className="relative px-6 py-32 bg-gradient-to-br from-gray-50 to-blue-50">
+        <div className="max-w-6xl mx-auto text-center">
+          <h2 className="text-5xl md:text-6xl font-black mb-16 bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent">
+            Your MVP in <span className="bg-gradient-to-r from-green-600 to-blue-600 bg-clip-text text-transparent">3 Simple Steps</span>
           </h2>
-          <p className="text-xl text-gray-300 mb-8 font-light">
-            Every day you delay implementing SEO in your MVP development is another day your competitors are getting ahead. 
-            While others launch and hope for the best, you could be building products that get discovered from day one.
-          </p>
           
-          <div className="bg-gradient-to-r from-yellow-500/20 to-orange-500/20 border border-yellow-500/30 rounded-2xl p-8 mb-8">
-            <p className="text-lg text-yellow-200 font-semibold">
-              ⚡ These aren't just SEO tips - they're the EXACT strategies to build MVPs that rank, convert, and scale with search visibility baked in.
-            </p>
+          <div className="grid md:grid-cols-3 gap-8">
+            {[
+              { step: "01", title: "Discovery Call", desc: "We understand your vision, validate the concept, and define the MVP scope" },
+              { step: "02", title: "Build & Optimize", desc: "Our team develops your MVP with SEO optimization and user experience in mind" },
+              { step: "03", title: "Launch Ready", desc: "Receive your fully functional MVP ready to acquire customers and validate your market" }
+            ].map((item, index) => (
+              <div key={index} className="relative">
+                <div className="text-6xl font-black text-blue-200 mb-4">{item.step}</div>
+                <h3 className="text-2xl font-bold text-gray-900 mb-4">{item.title}</h3>
+                <p className="text-gray-600 leading-relaxed">{item.desc}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Support Section - Strong CTA */}
-      <section id="support" className="relative z-20 px-6 py-32 bg-gradient-to-br from-purple-600/20 via-pink-600/20 to-cyan-600/20">
+      {/* CTA Section */}
+      <section className="relative px-6 py-32 bg-gradient-to-br from-blue-600 via-purple-600 to-pink-600">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-5xl md:text-6xl font-black mb-8 bg-gradient-to-r from-white to-gray-200 bg-clip-text text-transparent">
-            Ready to <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">Build Smart?</span>
+          <h2 className="text-5xl md:text-6xl font-black mb-8 text-white">
+            Ready to <span className="text-yellow-300">Launch?</span>
           </h2>
-          <p className="text-xl text-gray-300 mb-8 font-light leading-relaxed max-w-3xl mx-auto">
-            If these SEO-first MVP strategies help you get even ONE early customer through organic search, 
-            they'll pay for themselves 100x over in customer acquisition and product validation.
+          <p className="text-xl text-blue-100 mb-12 leading-relaxed max-w-3xl mx-auto">
+            Join 50+ founders who've successfully launched their MVPs and started building their dream businesses.
           </p>
           
-          <div className="bg-white/5 backdrop-blur-xl rounded-3xl p-8 mb-12 border border-white/10">
-            <h3 className="text-2xl font-bold text-white mb-4">What happens when you support my work:</h3>
-            <div className="space-y-3 text-left max-w-2xl mx-auto">
-              <div className="flex items-center">
-                <CheckCircle className="h-5 w-5 text-green-400 mr-3" />
-                <span className="text-gray-200">You help me create even more valuable SEO-first development strategies</span>
-              </div>
-              <div className="flex items-center">
-                <CheckCircle className="h-5 w-5 text-green-400 mr-3" />
-                <span className="text-gray-200">You become part of a community of founders building discoverable products</span>
-              </div>
-              <div className="flex items-center">
-                <CheckCircle className="h-5 w-5 text-green-400 mr-3" />
-                <span className="text-gray-200">You invest in smart, sustainable MVP development methods</span>
+          <div className="bg-white/10 backdrop-blur-xl rounded-3xl p-8 mb-12 border border-white/20">
+            <div className="flex items-center justify-center mb-6">
+              <div className="flex -space-x-2">
+                {[1,2,3,4,5].map((i) => (
+                  <div key={i} className="w-10 h-10 rounded-full bg-gradient-to-r from-yellow-400 to-orange-400 border-2 border-white flex items-center justify-center">
+                    <Star className="h-4 w-4 text-white fill-current" />
+                  </div>
+                ))}
               </div>
             </div>
+            <p className="text-white text-lg font-semibold">
+              "The fastest way to go from idea to paying customers. Highly recommended!"
+            </p>
+            <p className="text-blue-200 mt-2">- Sarah M., SaaS Founder</p>
           </div>
           
           <div className="flex justify-center">
             <Button 
               size="lg" 
-              className="bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-600 text-white font-bold text-xl px-16 py-8 rounded-3xl shadow-2xl hover:shadow-cyan-500/25 transition-all duration-300 hover:scale-105 border-0 group"
-              onClick={() => window.open('https://paystack.shop/pay/mvpe', '_blank')}
+              className="bg-white text-blue-600 hover:bg-blue-50 font-bold text-xl px-16 py-8 rounded-full shadow-2xl hover:shadow-white/25 transition-all duration-300 hover:scale-105 border-0 group"
+              onClick={() => window.open('https://calendly.com/your-link', '_blank')}
             >
-              <Gift className="mr-4 h-6 w-6 group-hover:rotate-12 transition-transform duration-300" />
-              YES! Support SEO-First MVP Development
-              <Sparkles className="ml-4 h-6 w-6 group-hover:scale-110 transition-transform duration-300" />
+              <Clock className="mr-4 h-6 w-6" />
+              Start Building Today
+              <ArrowRight className="ml-4 h-6 w-6 group-hover:translate-x-1 transition-transform duration-300" />
             </Button>
           </div>
           
-          <p className="text-sm text-gray-400 mt-6">
-            💝 Your support helps me continue sharing smart, SEO-first strategies for founders building discoverable products
+          <p className="text-blue-200 mt-6">
+            Free strategy call • Risk-free consultation
           </p>
         </div>
       </section>
 
       {/* Footer */}
-      <footer className="relative z-20 px-6 py-16 border-t border-white/10">
+      <footer className="relative px-6 py-16 bg-gray-900">
         <div className="max-w-7xl mx-auto text-center">
           <div className="flex items-center justify-center space-x-3 mb-6 group">
-            <div className="w-8 h-8 bg-gradient-to-br from-purple-500 to-pink-500 rounded-xl flex items-center justify-center shadow-lg group-hover:rotate-6 transition-transform duration-300">
+            <div className="w-8 h-8 bg-gradient-to-br from-blue-600 to-purple-600 rounded-xl flex items-center justify-center shadow-lg group-hover:rotate-6 transition-transform duration-300">
               <Rocket className="h-5 w-5 text-white" />
             </div>
-            <span className="text-2xl font-bold bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">mvpee</span>
+            <span className="text-2xl font-bold text-white">mvpee</span>
           </div>
-          <p className="text-gray-300 mb-4 font-light">SEO-optimized MVP development for smart founders</p>
-          <p className="text-gray-500 text-sm">Build products that get discovered from day one.</p>
+          <p className="text-gray-400 mb-4">Building tomorrow's products, today</p>
+          <p className="text-gray-500 text-sm">© 2024 mvpee. All rights reserved.</p>
         </div>
       </footer>
     </div>
