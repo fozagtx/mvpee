@@ -55,27 +55,6 @@ const Index = () => {
     { icon: Shield, text: "Save 6+ months of development costs" }
   ];
 
-  const stats = [
-    { number: "127+", label: "MVPs Launched", icon: Rocket },
-    { number: "14", label: "Day Delivery", icon: Clock },
-    { number: "98%", label: "Success Rate", icon: Award }
-  ];
-
-  const testimonials = [
-    {
-      quote: "From idea to $10K MRR in 6 weeks. The MVP was so polished, investors thought we'd been building for months.",
-      author: "Sarah Chen",
-      role: "Founder, TechFlow",
-      avatar: "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=64&h=64&fit=crop&crop=face"
-    },
-    {
-      quote: "Best investment we ever made. The SEO optimization alone brought us 2,000 organic users in month one.",
-      author: "Marcus Rodriguez",
-      role: "CEO, DataVault",
-      avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=64&h=64&fit=crop&crop=face"
-    }
-  ];
-
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-indigo-900 text-white overflow-hidden">
       {/* Animated Background Elements */}
@@ -154,28 +133,8 @@ const Index = () => {
       <section className="relative min-h-screen flex items-center justify-center px-6 pt-32">
         <div className="max-w-7xl mx-auto text-center">
           <div className="animate-fade-in">
-            {/* Trust Indicators */}
-            <div className="flex justify-center items-center space-x-12 mb-16 opacity-70">
-              {stats.map((stat, index) => (
-                <div key={index} className="text-center group">
-                  <div className="flex items-center justify-center mb-2">
-                    <stat.icon className="h-6 w-6 text-blue-400 mr-2" />
-                    <div className="text-4xl font-black bg-gradient-to-r from-white to-blue-200 bg-clip-text text-transparent group-hover:scale-110 transition-transform duration-300">
-                      {stat.number}
-                    </div>
-                  </div>
-                  <div className="text-sm text-slate-400 font-medium">{stat.label}</div>
-                </div>
-              ))}
-            </div>
-
             {/* Main Headline */}
             <div className="mb-12">
-              <div className="inline-flex items-center px-6 py-3 rounded-full bg-gradient-to-r from-blue-500/20 to-purple-500/20 border border-white/10 mb-8 backdrop-blur-xl">
-                <Sparkles className="h-4 w-4 text-blue-400 mr-2" />
-                <span className="text-sm font-semibold text-blue-300">Enterprise-Grade MVP Development</span>
-              </div>
-              
               <h1 className="mb-8 leading-[0.9] tracking-tight">
                 <div className="font-black text-6xl md:text-8xl xl:text-9xl bg-gradient-to-r from-white via-blue-200 to-purple-200 bg-clip-text text-transparent mb-6 drop-shadow-2xl">
                   Build Your
@@ -328,22 +287,6 @@ const Index = () => {
           <p className="text-xl text-blue-100 mb-16 leading-relaxed max-w-3xl mx-auto font-light">
             Join the elite group of founders who chose speed over perfection and built million-dollar businesses with our MVPs.
           </p>
-          
-          <div className="bg-white/10 backdrop-blur-2xl rounded-3xl p-12 mb-16 border border-white/20">
-            <div className="flex items-center justify-center mb-8">
-              <div className="flex -space-x-2">
-                {[1,2,3,4,5].map((i) => (
-                  <div key={i} className="w-12 h-12 rounded-full bg-gradient-to-r from-yellow-400 to-orange-400 border-3 border-white flex items-center justify-center shadow-xl">
-                    <Star className="h-5 w-5 text-white fill-current" />
-                  </div>
-                ))}
-              </div>
-            </div>
-            <p className="text-white text-2xl font-bold mb-4">
-              "The fastest way to go from idea to paying customers. Absolutely game-changing!"
-            </p>
-            <p className="text-blue-200 text-lg">- Sarah M., TechFlow (Now valued at $2.3M)</p>
-          </div>
           
           <div className="flex justify-center">
             <Button 
