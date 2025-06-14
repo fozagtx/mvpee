@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { Star, Zap, TrendingUp, ArrowRight, Menu, X, Play, CheckCircle, Rocket, Target, Users, Clock, Shield, Award, Sparkles, ChevronDown, MousePointer } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -230,45 +229,6 @@ const Index = () => {
             <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
               <ChevronDown className="h-8 w-8 text-white/50" />
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Social Proof Section */}
-      <section className="relative px-6 py-24 bg-gradient-to-r from-slate-900/50 to-indigo-900/50 backdrop-blur-sm">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-black mb-6 bg-gradient-to-r from-white to-blue-200 bg-clip-text text-transparent">
-              Trusted by <span className="text-green-400">127+ Founders</span>
-            </h2>
-          </div>
-          
-          <div className="grid md:grid-cols-2 gap-8">
-            {testimonials.map((testimonial, index) => (
-              <Card key={index} className="bg-white/5 backdrop-blur-xl border border-white/10 hover:bg-white/10 transition-all duration-500 rounded-3xl group hover:scale-105">
-                <CardContent className="p-8">
-                  <div className="flex items-center mb-6">
-                    {[1,2,3,4,5].map((i) => (
-                      <Star key={i} className="h-5 w-5 text-yellow-400 fill-current" />
-                    ))}
-                  </div>
-                  <p className="text-xl text-slate-200 leading-relaxed mb-6 font-light italic">
-                    "{testimonial.quote}"
-                  </p>
-                  <div className="flex items-center">
-                    <img 
-                      src={testimonial.avatar} 
-                      alt={testimonial.author}
-                      className="w-12 h-12 rounded-full mr-4"
-                    />
-                    <div>
-                      <div className="font-semibold text-white">{testimonial.author}</div>
-                      <div className="text-sm text-slate-400">{testimonial.role}</div>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
           </div>
         </div>
       </section>
