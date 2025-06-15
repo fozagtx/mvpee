@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { Star, Zap, TrendingUp, ArrowRight, Menu, X, CheckCircle, Target, Users, Clock, Shield, Award, Sparkles, ChevronDown, MousePointer, Search, Link, BarChart3, Rocket } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -39,27 +38,6 @@ const Index = () => {
       console.log('Email submitted:', email);
     }
   };
-
-  const features = [
-    { 
-      icon: Search, 
-      title: "SEO Domination", 
-      description: "Rank #1 for your target keywords with our proven SEO strategies that have generated 10M+ organic clicks.",
-      gradient: "from-blue-500 to-cyan-500"
-    },
-    { 
-      icon: Link, 
-      title: "High-Authority Backlinks", 
-      description: "Get premium backlinks from DR 70+ websites that actually move the needle on your rankings.",
-      gradient: "from-purple-500 to-pink-500"
-    },
-    { 
-      icon: BarChart3, 
-      title: "Traffic Explosion", 
-      description: "Scale your organic traffic from zero to 100K+ monthly visitors with our systematic approach.",
-      gradient: "from-green-500 to-emerald-500"
-    }
-  ];
 
   const benefits = [
     { icon: TrendingUp, text: "Rank #1 for your target keywords" },
@@ -233,124 +211,6 @@ const Index = () => {
               <ChevronDown className="h-8 w-8 text-white/50" />
             </div>
           </div>
-        </div>
-      </section>
-
-      {/* Features Section */}
-      <section className="relative px-6 py-32">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-20">
-            <h2 className="text-5xl md:text-7xl font-black mb-8 bg-gradient-to-r from-white to-blue-200 bg-clip-text text-transparent">
-              What You'll <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">Master</span>
-            </h2>
-            <p className="text-xl text-slate-400 max-w-3xl mx-auto font-light">
-              The complete system that took me from zero to 10M+ organic clicks
-            </p>
-          </div>
-          
-          <div className="grid md:grid-cols-3 gap-8">
-            {features.map((feature, index) => (
-              <Card key={index} className="relative bg-white/5 backdrop-blur-xl border border-white/10 hover:bg-white/10 transition-all duration-700 rounded-3xl group hover:scale-105 overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-br opacity-0 group-hover:opacity-10 transition-opacity duration-700" style={{
-                  background: `linear-gradient(135deg, ${feature.gradient.split(' ')[0].replace('from-', '')} 0%, ${feature.gradient.split(' ')[1].replace('to-', '')} 100%)`
-                }}></div>
-                <CardContent className="relative p-10 text-center h-full flex flex-col">
-                  <div className={`w-20 h-20 bg-gradient-to-br ${feature.gradient} rounded-3xl flex items-center justify-center mx-auto mb-8 group-hover:rotate-6 group-hover:scale-110 transition-all duration-500 shadow-2xl`}>
-                    <feature.icon className="h-10 w-10 text-white" />
-                  </div>
-                  <h3 className="text-2xl font-bold text-white mb-6">{feature.title}</h3>
-                  <p className="text-slate-300 leading-relaxed flex-grow font-light text-lg">{feature.description}</p>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Social Proof Section */}
-      <section className="relative px-6 py-32 bg-gradient-to-br from-slate-800/50 to-indigo-800/50">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-4xl md:text-6xl font-black mb-16 bg-gradient-to-r from-white to-blue-200 bg-clip-text text-transparent">
-            Proven <span className="bg-gradient-to-r from-green-400 to-blue-400 bg-clip-text text-transparent">Results</span>
-          </h2>
-          
-          <div className="grid md:grid-cols-3 gap-8 mb-16">
-            <div className="bg-white/5 backdrop-blur-xl rounded-3xl p-8 border border-white/10">
-              <div className="text-4xl font-black text-green-400 mb-2">10M+</div>
-              <div className="text-slate-300">Organic Clicks Generated</div>
-            </div>
-            <div className="bg-white/5 backdrop-blur-xl rounded-3xl p-8 border border-white/10">
-              <div className="text-4xl font-black text-blue-400 mb-2">500+</div>
-              <div className="text-slate-300">Keywords Ranked #1</div>
-            </div>
-            <div className="bg-white/5 backdrop-blur-xl rounded-3xl p-8 border border-white/10">
-              <div className="text-4xl font-black text-purple-400 mb-2">2,847</div>
-              <div className="text-slate-300">Businesses Scaled</div>
-            </div>
-          </div>
-
-          <div className="bg-white/10 backdrop-blur-2xl rounded-3xl p-12 border border-white/20">
-            <div className="flex items-center justify-center mb-8">
-              <div className="flex -space-x-2">
-                {[1,2,3,4,5].map((i) => (
-                  <div key={i} className="w-12 h-12 rounded-full bg-gradient-to-r from-yellow-400 to-orange-400 border-3 border-white flex items-center justify-center shadow-xl">
-                    <Star className="h-5 w-5 text-white fill-current" />
-                  </div>
-                ))}
-              </div>
-            </div>
-            <p className="text-white text-2xl font-bold mb-4">
-              "This system completely transformed our business. We went from 0 to 85K monthly visitors in just 4 months!"
-            </p>
-            <p className="text-blue-200 text-lg">- Marcus Chen, SaaS Founder</p>
-          </div>
-        </div>
-      </section>
-
-      {/* Final CTA Section */}
-      <section className="relative px-6 py-32 bg-gradient-to-br from-blue-600 via-purple-600 to-pink-600">
-        <div className="absolute inset-0 bg-black/20"></div>
-        <div className="relative max-w-5xl mx-auto text-center">
-          <div className="inline-flex items-center px-6 py-3 rounded-full bg-white/20 backdrop-blur-xl border border-white/30 mb-12">
-            <Clock className="h-5 w-5 text-white mr-2" />
-            <span className="text-white font-semibold">Early Access Closes Soon</span>
-          </div>
-          
-          <h2 className="text-5xl md:text-7xl font-black mb-8 text-white drop-shadow-2xl">
-            Ready to <span className="text-yellow-300">Dominate</span> Google?
-          </h2>
-          <p className="text-xl text-blue-100 mb-16 leading-relaxed max-w-3xl mx-auto font-light">
-            Join 2,847+ businesses who used this exact system to scale their organic traffic and dominate their competitors.
-          </p>
-          
-          {!isSubmitted && (
-            <div className="max-w-2xl mx-auto mb-8">
-              <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-4 p-2 bg-white/20 backdrop-blur-xl rounded-2xl border border-white/30">
-                <Input
-                  type="email"
-                  placeholder="Enter your email..."
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  className="flex-1 bg-white/20 border-0 text-white placeholder:text-white/70 text-lg px-6 py-4"
-                  required
-                />
-                <Button 
-                  type="submit"
-                  size="lg" 
-                  className="relative group bg-white text-blue-600 hover:bg-blue-50 font-black text-xl px-12 py-4 rounded-xl shadow-2xl hover:shadow-white/25 transition-all duration-500 hover:scale-105 border-0 overflow-hidden whitespace-nowrap"
-                >
-                  <div className="absolute inset-0 bg-gradient-to-r from-blue-600/20 to-purple-600/20 transform -skew-x-12 translate-x-[-100%] group-hover:translate-x-[200%] transition-transform duration-700"></div>
-                  <Target className="mr-3 h-6 w-6" />
-                  Secure My Spot
-                  <ArrowRight className="ml-3 h-6 w-6 group-hover:translate-x-1 transition-transform duration-300" />
-                </Button>
-              </form>
-            </div>
-          )}
-          
-          <p className="text-blue-200 text-lg font-light">
-            🔥 67% Early Bird Discount • 🚀 Instant Access • 🔒 No Spam Ever
-          </p>
         </div>
       </section>
 
