@@ -1,12 +1,16 @@
+
 import React, { useState, useEffect } from 'react';
-import { Star, Zap, TrendingUp, ArrowRight, Menu, X, Play, CheckCircle, Rocket, Target, Users, Clock, Shield, Award, Sparkles, ChevronDown, MousePointer } from 'lucide-react';
+import { Star, Zap, TrendingUp, ArrowRight, Menu, X, CheckCircle, Target, Users, Clock, Shield, Award, Sparkles, ChevronDown, MousePointer, Search, Link, BarChart3, Rocket } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
 import { Card, CardContent } from '@/components/ui/card';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 
 const Index = () => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [email, setEmail] = useState('');
+  const [isSubmitted, setIsSubmitted] = useState(false);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
 
   useEffect(() => {
@@ -27,32 +31,47 @@ const Index = () => {
     };
   }, []);
 
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (email) {
+      setIsSubmitted(true);
+      // Here you would integrate with your email service
+      console.log('Email submitted:', email);
+    }
+  };
+
   const features = [
     { 
-      icon: Target, 
-      title: "Strategic Planning", 
-      description: "Deep market analysis and MVP scoping that validates core assumptions without overbuilding.",
+      icon: Search, 
+      title: "SEO Domination", 
+      description: "Rank #1 for your target keywords with our proven SEO strategies that have generated 10M+ organic clicks.",
       gradient: "from-blue-500 to-cyan-500"
     },
     { 
-      icon: Zap, 
-      title: "Lightning Development", 
-      description: "14-day delivery with battle-tested frameworks and SEO optimization built-in from day one.",
+      icon: Link, 
+      title: "High-Authority Backlinks", 
+      description: "Get premium backlinks from DR 70+ websites that actually move the needle on your rankings.",
       gradient: "from-purple-500 to-pink-500"
     },
     { 
-      icon: TrendingUp, 
-      title: "Scale-Ready Architecture", 
-      description: "Enterprise-grade foundation designed to handle explosive growth from the first user to millions.",
+      icon: BarChart3, 
+      title: "Traffic Explosion", 
+      description: "Scale your organic traffic from zero to 100K+ monthly visitors with our systematic approach.",
       gradient: "from-green-500 to-emerald-500"
     }
   ];
 
   const benefits = [
-    { icon: TrendingUp, text: "Get discovered by customers from day one" },
-    { icon: Zap, text: "Launch faster than building in-house" },
-    { icon: Target, text: "Focus on validation & growth, not code" },
-    { icon: Shield, text: "Save 6+ months of development costs" }
+    { icon: TrendingUp, text: "Rank #1 for your target keywords" },
+    { icon: Link, text: "Get DR 70+ backlinks that actually work" },
+    { icon: Users, text: "10x your organic traffic in 90 days" },
+    { icon: Shield, text: "White-hat strategies that last" }
+  ];
+
+  const stats = [
+    { number: "500+", label: "Keywords Ranked #1" },
+    { number: "10M+", label: "Organic Clicks Generated" },
+    { number: "2,847", label: "Businesses Scaled" }
   ];
 
   return (
@@ -83,80 +102,70 @@ const Index = () => {
               <div className="relative">
                 <div className="absolute -inset-2 bg-gradient-to-r from-blue-500 to-purple-500 rounded-2xl blur opacity-30 group-hover:opacity-50 transition-opacity duration-300"></div>
                 <div className="relative w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-500 rounded-2xl flex items-center justify-center shadow-2xl group-hover:scale-110 transition-transform duration-300">
-                  <Rocket className="h-6 w-6 text-white" />
+                  <Search className="h-6 w-6 text-white" />
                 </div>
               </div>
               <div>
-                <span className="text-3xl font-black bg-gradient-to-r from-white to-blue-200 bg-clip-text text-transparent">mvpee</span>
-                <div className="text-xs text-blue-300 font-medium">Premium MVP Development</div>
+                <span className="text-3xl font-black bg-gradient-to-r from-white to-blue-200 bg-clip-text text-transparent">SEO Mastery</span>
+                <div className="text-xs text-blue-300 font-medium">Premium SEO & Backlinks Course</div>
               </div>
             </div>
 
             <div className="hidden lg:flex items-center space-x-8">
               <div className="flex items-center space-x-2 text-sm text-blue-300">
                 <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
-                <span>Available for new projects</span>
+                <span>Early Access Available</span>
               </div>
-              <Button 
-                className="relative group bg-gradient-to-r from-blue-600 via-purple-600 to-blue-600 hover:from-blue-700 hover:via-purple-700 hover:to-blue-700 text-white font-bold px-10 py-4 rounded-2xl shadow-2xl hover:shadow-blue-500/25 transition-all duration-500 hover:scale-105 border-0 text-lg bg-size-200 animate-gradient overflow-hidden"
-                onClick={() => window.open('https://calendly.com/your-link', '_blank')}
-              >
-                <div className="absolute inset-0 bg-white/20 transform -skew-x-12 translate-x-[-100%] group-hover:translate-x-[200%] transition-transform duration-700"></div>
-                <Sparkles className="mr-3 h-5 w-5" />
-                Start Your MVP
-                <ArrowRight className="ml-3 h-5 w-5 group-hover:translate-x-1 transition-transform duration-300" />
-              </Button>
             </div>
-
-            <Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
-              <SheetTrigger asChild>
-                <Button variant="ghost" size="sm" className="lg:hidden text-white hover:bg-white/10">
-                  <Menu className="h-6 w-6" />
-                </Button>
-              </SheetTrigger>
-              <SheetContent side="right" className="bg-slate-900 border-slate-700">
-                <div className="flex flex-col space-y-8 mt-12">
-                  <Button 
-                    className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-bold px-8 py-4 rounded-2xl shadow-2xl"
-                    onClick={() => window.open('https://calendly.com/your-link', '_blank')}
-                  >
-                    Start Your MVP
-                  </Button>
-                </div>
-              </SheetContent>
-            </Sheet>
           </div>
         </div>
       </nav>
 
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center px-6 pt-32">
-        <div className="max-w-7xl mx-auto text-center">
+        <div className="max-w-6xl mx-auto text-center">
           <div className="animate-fade-in">
+            {/* Social Proof Stats */}
+            <div className="flex justify-center items-center space-x-8 mb-12 opacity-70">
+              {stats.map((stat, index) => (
+                <div key={index} className="text-center">
+                  <div className="text-3xl md:text-4xl font-black bg-gradient-to-r from-white to-blue-200 bg-clip-text text-transparent">
+                    {stat.number}
+                  </div>
+                  <div className="text-xs text-slate-400 font-medium">{stat.label}</div>
+                </div>
+              ))}
+            </div>
+
             {/* Main Headline */}
             <div className="mb-12">
+              <div className="inline-flex items-center px-6 py-3 rounded-full bg-gradient-to-r from-green-500/20 to-blue-500/20 border border-white/10 mb-8 backdrop-blur-xl">
+                <Sparkles className="h-4 w-4 text-green-400 mr-2" />
+                <span className="text-sm font-semibold text-green-300">Limited Early Access • 67% Off</span>
+              </div>
+              
               <h1 className="mb-8 leading-[0.9] tracking-tight">
-                <div className="font-black text-6xl md:text-8xl xl:text-9xl bg-gradient-to-r from-white via-blue-200 to-purple-200 bg-clip-text text-transparent mb-6 drop-shadow-2xl">
-                  Build Your
+                <div className="font-black text-5xl md:text-7xl xl:text-8xl bg-gradient-to-r from-white via-blue-200 to-purple-200 bg-clip-text text-transparent mb-6 drop-shadow-2xl">
+                  Master SEO &
                 </div>
-                <div className="font-black text-6xl md:text-8xl xl:text-9xl bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent mb-8 drop-shadow-2xl">
-                  $1M MVP
+                <div className="font-black text-5xl md:text-7xl xl:text-8xl bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent mb-8 drop-shadow-2xl">
+                  Backlinks
                 </div>
-                <div className="text-2xl md:text-4xl font-bold text-slate-300 tracking-wide">
-                  In Just <span className="text-green-400">14 Days</span>
+                <div className="text-xl md:text-3xl font-bold text-slate-300 tracking-wide">
+                  From <span className="text-red-400 line-through">Zero to 100K+</span> <span className="text-green-400">Monthly Visitors</span>
                 </div>
               </h1>
             </div>
             
             <p className="text-xl md:text-2xl text-slate-300 mb-16 max-w-4xl mx-auto leading-relaxed font-light">
-              Skip months of development hell. Get a <span className="text-white font-semibold">launch-ready product</span> with 
-              built-in SEO, premium design, and enterprise-grade architecture that scales to millions of users.
+              The <span className="text-white font-semibold">exact system</span> I used to rank 500+ keywords #1 and generate 
+              10M+ organic clicks. Get the complete blueprint that 2,847 businesses used to <span className="text-green-400 font-semibold">dominate Google.</span>
             </p>
 
             {/* Benefits Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl mx-auto mb-16">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto mb-16">
               {benefits.map((benefit, index) => (
-                <div key={index} className="flex items-center text-left p-4 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10 hover:bg-white/10 transition-all duration-300 group">
+                <div key={index} className="flex items-center text-left p-6 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10 hover:bg-white/10 transition-all duration-300 group">
                   <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-500 to-purple-500 flex items-center justify-center mr-4 group-hover:scale-110 transition-transform duration-300">
                     <benefit.icon className="h-5 w-5 text-white" />
                   </div>
@@ -165,24 +174,59 @@ const Index = () => {
               ))}
             </div>
             
-            {/* CTA Section */}
-            <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-12">
-              <Button 
-                size="lg" 
-                className="relative group bg-gradient-to-r from-blue-600 via-purple-600 to-blue-600 hover:from-blue-700 hover:via-purple-700 hover:to-blue-700 text-white font-bold text-2xl px-20 py-8 rounded-2xl shadow-2xl hover:shadow-blue-500/25 transition-all duration-500 hover:scale-105 border-0 bg-size-200 animate-gradient overflow-hidden"
-                onClick={() => window.open('https://calendly.com/your-link', '_blank')}
-              >
-                <div className="absolute inset-0 bg-white/20 transform -skew-x-12 translate-x-[-100%] group-hover:translate-x-[200%] transition-transform duration-700"></div>
-                <Play className="mr-4 h-7 w-7 group-hover:scale-110 transition-transform duration-300" />
-                Book Strategy Call
-                <ArrowRight className="ml-4 h-7 w-7 group-hover:translate-x-1 transition-transform duration-300" />
-              </Button>
-              
-              <div className="text-center">
-                <div className="text-slate-400 text-sm mb-2">✓ Free consultation</div>
-                <div className="text-slate-400 text-sm">✓ No commitment required</div>
+            {/* Waitlist Form */}
+            {!isSubmitted ? (
+              <div className="max-w-2xl mx-auto mb-12">
+                <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-4 p-2 bg-white/10 backdrop-blur-xl rounded-2xl border border-white/20">
+                  <Input
+                    type="email"
+                    placeholder="Enter your email for early access..."
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    className="flex-1 bg-transparent border-0 text-white placeholder:text-slate-400 text-lg px-6 py-4 focus:ring-2 focus:ring-blue-500"
+                    required
+                  />
+                  <Button 
+                    type="submit"
+                    size="lg" 
+                    className="relative group bg-gradient-to-r from-blue-600 via-purple-600 to-blue-600 hover:from-blue-700 hover:via-purple-700 hover:to-blue-700 text-white font-bold text-xl px-12 py-4 rounded-xl shadow-2xl hover:shadow-blue-500/25 transition-all duration-500 hover:scale-105 border-0 bg-size-200 animate-gradient overflow-hidden whitespace-nowrap"
+                  >
+                    <div className="absolute inset-0 bg-white/20 transform -skew-x-12 translate-x-[-100%] group-hover:translate-x-[200%] transition-transform duration-700"></div>
+                    <Rocket className="mr-3 h-6 w-6" />
+                    Get Early Access
+                    <ArrowRight className="ml-3 h-6 w-6 group-hover:translate-x-1 transition-transform duration-300" />
+                  </Button>
+                </form>
+                
+                <div className="flex justify-center items-center space-x-8 mt-6 text-sm text-slate-400">
+                  <div className="flex items-center">
+                    <CheckCircle className="h-4 w-4 text-green-400 mr-2" />
+                    <span>67% Early Bird Discount</span>
+                  </div>
+                  <div className="flex items-center">
+                    <CheckCircle className="h-4 w-4 text-green-400 mr-2" />
+                    <span>Instant Access</span>
+                  </div>
+                  <div className="flex items-center">
+                    <CheckCircle className="h-4 w-4 text-green-400 mr-2" />
+                    <span>No Spam, Ever</span>
+                  </div>
+                </div>
               </div>
-            </div>
+            ) : (
+              <div className="max-w-2xl mx-auto mb-12 p-8 bg-green-500/10 backdrop-blur-xl rounded-2xl border border-green-500/20">
+                <div className="text-center">
+                  <CheckCircle className="h-16 w-16 text-green-400 mx-auto mb-4" />
+                  <h3 className="text-2xl font-bold text-white mb-2">You're In! 🎉</h3>
+                  <p className="text-green-200 text-lg mb-4">
+                    Welcome to the SEO Mastery early access list. You'll be the first to know when we launch!
+                  </p>
+                  <p className="text-slate-400">
+                    Check your email for exclusive bonuses and updates.
+                  </p>
+                </div>
+              </div>
+            )}
 
             {/* Scroll Indicator */}
             <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
@@ -197,10 +241,10 @@ const Index = () => {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-20">
             <h2 className="text-5xl md:text-7xl font-black mb-8 bg-gradient-to-r from-white to-blue-200 bg-clip-text text-transparent">
-              Why Choose <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">mvpee</span>
+              What You'll <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">Master</span>
             </h2>
             <p className="text-xl text-slate-400 max-w-3xl mx-auto font-light">
-              Our battle-tested process combines strategic thinking with lightning-fast execution
+              The complete system that took me from zero to 10M+ organic clicks
             </p>
           </div>
           
@@ -223,51 +267,42 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Process Section */}
+      {/* Social Proof Section */}
       <section className="relative px-6 py-32 bg-gradient-to-br from-slate-800/50 to-indigo-800/50">
-        <div className="max-w-6xl mx-auto text-center">
-          <h2 className="text-5xl md:text-7xl font-black mb-20 bg-gradient-to-r from-white to-blue-200 bg-clip-text text-transparent">
-            Your MVP in <span className="bg-gradient-to-r from-green-400 to-blue-400 bg-clip-text text-transparent">3 Steps</span>
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-4xl md:text-6xl font-black mb-16 bg-gradient-to-r from-white to-blue-200 bg-clip-text text-transparent">
+            Proven <span className="bg-gradient-to-r from-green-400 to-blue-400 bg-clip-text text-transparent">Results</span>
           </h2>
           
-          <div className="grid md:grid-cols-3 gap-12">
-            {[
-              { 
-                step: "01", 
-                title: "Strategy Deep-Dive", 
-                desc: "We dissect your vision, validate assumptions, and architect the perfect MVP scope that maximizes market impact.",
-                icon: Target,
-                gradient: "from-blue-500 to-cyan-500"
-              },
-              { 
-                step: "02", 
-                title: "Lightning Build", 
-                desc: "Our elite team crafts your MVP using premium tech stack with SEO optimization and conversion-focused UX.",
-                icon: Zap,
-                gradient: "from-purple-500 to-pink-500"
-              },
-              { 
-                step: "03", 
-                title: "Launch & Scale", 
-                desc: "Deploy your battle-tested MVP with enterprise infrastructure ready to handle viral growth from day one.",
-                icon: Rocket,
-                gradient: "from-green-500 to-emerald-500"
-              }
-            ].map((item, index) => (
-              <div key={index} className="relative group">
-                <div className="absolute -inset-4 bg-gradient-to-r opacity-0 group-hover:opacity-20 rounded-3xl blur transition-opacity duration-500" style={{
-                  background: `linear-gradient(135deg, ${item.gradient.split(' ')[0].replace('from-', '')} 0%, ${item.gradient.split(' ')[1].replace('to-', '')} 100%)`
-                }}></div>
-                <div className="relative bg-white/5 backdrop-blur-xl rounded-3xl p-10 border border-white/10 group-hover:bg-white/10 transition-all duration-500">
-                  <div className={`w-20 h-20 bg-gradient-to-br ${item.gradient} rounded-3xl flex items-center justify-center mx-auto mb-8 group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 shadow-2xl`}>
-                    <item.icon className="h-10 w-10 text-white" />
+          <div className="grid md:grid-cols-3 gap-8 mb-16">
+            <div className="bg-white/5 backdrop-blur-xl rounded-3xl p-8 border border-white/10">
+              <div className="text-4xl font-black text-green-400 mb-2">10M+</div>
+              <div className="text-slate-300">Organic Clicks Generated</div>
+            </div>
+            <div className="bg-white/5 backdrop-blur-xl rounded-3xl p-8 border border-white/10">
+              <div className="text-4xl font-black text-blue-400 mb-2">500+</div>
+              <div className="text-slate-300">Keywords Ranked #1</div>
+            </div>
+            <div className="bg-white/5 backdrop-blur-xl rounded-3xl p-8 border border-white/10">
+              <div className="text-4xl font-black text-purple-400 mb-2">2,847</div>
+              <div className="text-slate-300">Businesses Scaled</div>
+            </div>
+          </div>
+
+          <div className="bg-white/10 backdrop-blur-2xl rounded-3xl p-12 border border-white/20">
+            <div className="flex items-center justify-center mb-8">
+              <div className="flex -space-x-2">
+                {[1,2,3,4,5].map((i) => (
+                  <div key={i} className="w-12 h-12 rounded-full bg-gradient-to-r from-yellow-400 to-orange-400 border-3 border-white flex items-center justify-center shadow-xl">
+                    <Star className="h-5 w-5 text-white fill-current" />
                   </div>
-                  <div className="text-6xl font-black text-white/10 mb-6 group-hover:text-white/20 transition-colors duration-500">{item.step}</div>
-                  <h3 className="text-2xl font-bold text-white mb-6">{item.title}</h3>
-                  <p className="text-slate-300 leading-relaxed font-light text-lg">{item.desc}</p>
-                </div>
+                ))}
               </div>
-            ))}
+            </div>
+            <p className="text-white text-2xl font-bold mb-4">
+              "This system completely transformed our business. We went from 0 to 85K monthly visitors in just 4 months!"
+            </p>
+            <p className="text-blue-200 text-lg">- Marcus Chen, SaaS Founder</p>
           </div>
         </div>
       </section>
@@ -277,32 +312,44 @@ const Index = () => {
         <div className="absolute inset-0 bg-black/20"></div>
         <div className="relative max-w-5xl mx-auto text-center">
           <div className="inline-flex items-center px-6 py-3 rounded-full bg-white/20 backdrop-blur-xl border border-white/30 mb-12">
-            <MousePointer className="h-5 w-5 text-white mr-2" />
-            <span className="text-white font-semibold">Limited Spots Available</span>
+            <Clock className="h-5 w-5 text-white mr-2" />
+            <span className="text-white font-semibold">Early Access Closes Soon</span>
           </div>
           
           <h2 className="text-5xl md:text-7xl font-black mb-8 text-white drop-shadow-2xl">
-            Ready to <span className="text-yellow-300">Dominate</span> Your Market?
+            Ready to <span className="text-yellow-300">Dominate</span> Google?
           </h2>
           <p className="text-xl text-blue-100 mb-16 leading-relaxed max-w-3xl mx-auto font-light">
-            Join the elite group of founders who chose speed over perfection and built million-dollar businesses with our MVPs.
+            Join 2,847+ businesses who used this exact system to scale their organic traffic and dominate their competitors.
           </p>
           
-          <div className="flex justify-center">
-            <Button 
-              size="lg" 
-              className="relative group bg-white text-blue-600 hover:bg-blue-50 font-black text-2xl px-20 py-8 rounded-2xl shadow-2xl hover:shadow-white/25 transition-all duration-500 hover:scale-105 border-0 overflow-hidden"
-              onClick={() => window.open('https://calendly.com/your-link', '_blank')}
-            >
-              <div className="absolute inset-0 bg-gradient-to-r from-blue-600/20 to-purple-600/20 transform -skew-x-12 translate-x-[-100%] group-hover:translate-x-[200%] transition-transform duration-700"></div>
-              <Clock className="mr-4 h-7 w-7" />
-              Claim Your Spot Now
-              <ArrowRight className="ml-4 h-7 w-7 group-hover:translate-x-1 transition-transform duration-300" />
-            </Button>
-          </div>
+          {!isSubmitted && (
+            <div className="max-w-2xl mx-auto mb-8">
+              <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-4 p-2 bg-white/20 backdrop-blur-xl rounded-2xl border border-white/30">
+                <Input
+                  type="email"
+                  placeholder="Enter your email..."
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  className="flex-1 bg-white/20 border-0 text-white placeholder:text-white/70 text-lg px-6 py-4"
+                  required
+                />
+                <Button 
+                  type="submit"
+                  size="lg" 
+                  className="relative group bg-white text-blue-600 hover:bg-blue-50 font-black text-xl px-12 py-4 rounded-xl shadow-2xl hover:shadow-white/25 transition-all duration-500 hover:scale-105 border-0 overflow-hidden whitespace-nowrap"
+                >
+                  <div className="absolute inset-0 bg-gradient-to-r from-blue-600/20 to-purple-600/20 transform -skew-x-12 translate-x-[-100%] group-hover:translate-x-[200%] transition-transform duration-700"></div>
+                  <Target className="mr-3 h-6 w-6" />
+                  Secure My Spot
+                  <ArrowRight className="ml-3 h-6 w-6 group-hover:translate-x-1 transition-transform duration-300" />
+                </Button>
+              </form>
+            </div>
+          )}
           
-          <p className="text-blue-200 mt-8 text-lg font-light">
-            Free strategy session • Zero risk • Maximum impact
+          <p className="text-blue-200 text-lg font-light">
+            🔥 67% Early Bird Discount • 🚀 Instant Access • 🔒 No Spam Ever
           </p>
         </div>
       </section>
@@ -314,19 +361,19 @@ const Index = () => {
             <div className="relative">
               <div className="absolute -inset-2 bg-gradient-to-r from-blue-500 to-purple-500 rounded-2xl blur opacity-30 group-hover:opacity-50 transition-opacity duration-300"></div>
               <div className="relative w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-500 rounded-2xl flex items-center justify-center shadow-2xl group-hover:rotate-6 transition-transform duration-300">
-                <Rocket className="h-6 w-6 text-white" />
+                <Search className="h-6 w-6 text-white" />
               </div>
             </div>
             <div>
-              <span className="text-3xl font-black text-white">mvpee</span>
-              <div className="text-sm text-slate-400">Premium MVP Development</div>
+              <span className="text-3xl font-black text-white">SEO Mastery</span>
+              <div className="text-sm text-slate-400">The Ultimate SEO & Backlinks Course</div>
             </div>
           </div>
-          <p className="text-slate-400 mb-6 text-lg font-light">Building tomorrow's unicorns, today</p>
+          <p className="text-slate-400 mb-6 text-lg font-light">Dominate Google. Scale your traffic. Build your empire.</p>
           <div className="flex justify-center space-x-8 mb-8">
-            <div className="text-sm text-slate-500">© 2024 mvpee. All rights reserved.</div>
+            <div className="text-sm text-slate-500">© 2024 SEO Mastery. All rights reserved.</div>
             <div className="text-sm text-slate-500">•</div>
-            <div className="text-sm text-slate-500">Enterprise-grade quality guaranteed</div>
+            <div className="text-sm text-slate-500">Premium training guaranteed</div>
           </div>
         </div>
       </footer>
