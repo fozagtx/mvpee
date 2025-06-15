@@ -32,24 +32,6 @@ const Index = () => {
     window.open('https://buy.polar.sh/polar_cl_xr19Csuoe1KnnHb256iQjEaKPesJQc3MxKgc442QHHz', '_blank');
   };
 
-  const templates = [
-    { category: "Guest Post Outreach", count: "3", rate: "31%" },
-    { category: "Resource Page Outreach", count: "2", rate: "34%" },
-    { category: "Broken Link Building", count: "2", rate: "41%" },
-    { category: "Testimonial Link Building", count: "2", rate: "52%" },
-    { category: "Expert Roundups", count: "2", rate: "67%" },
-    { category: "Relationship Building", count: "2", rate: "45%" },
-    { category: "Industry-Specific", count: "3", rate: "35%" },
-    { category: "Seasonal & Timely", count: "2", rate: "42%" }
-  ];
-
-  const benefits = [
-    { icon: Mail, text: "50+ proven email templates that actually get responses" },
-    { icon: TrendingUp, text: "Success rates up to 67% (industry average is 8%)" },
-    { icon: Target, text: "Based on analysis of 10,000+ successful campaigns" },
-    { icon: Rocket, text: "Generated 80K+ backlinks using these exact templates" }
-  ];
-
   const stats = [
     { number: "80K+", label: "Backlinks Generated" },
     { number: "50+", label: "Proven Templates" },
@@ -144,34 +126,6 @@ const Index = () => {
               comes down to your email approach. These <span className="text-green-400 font-semibold">proven templates generated 80K+ backlinks</span> with success rates up to 67%.
             </p>
 
-            {/* Templates Categories Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 max-w-6xl mx-auto mb-16">
-              {templates.map((template, index) => (
-                <div key={index} className="p-4 rounded-xl bg-white/5 backdrop-blur-sm border border-white/10 hover:bg-white/10 transition-all duration-300 group text-left">
-                  <div className="flex items-center justify-between mb-2">
-                    <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-500 to-purple-500 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                      <FileText className="h-4 w-4 text-white" />
-                    </div>
-                    <div className="text-sm font-bold text-green-400">{template.rate}</div>
-                  </div>
-                  <div className="text-white font-medium text-sm mb-1">{template.category}</div>
-                  <div className="text-slate-400 text-xs">{template.count} Templates</div>
-                </div>
-              ))}
-            </div>
-
-            {/* Benefits Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto mb-16">
-              {benefits.map((benefit, index) => (
-                <div key={index} className="flex items-center text-left p-6 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/10 hover:bg-white/10 transition-all duration-300 group">
-                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-500 to-purple-500 flex items-center justify-center mr-4 group-hover:scale-110 transition-transform duration-300">
-                    <benefit.icon className="h-5 w-5 text-white" />
-                  </div>
-                  <span className="text-slate-200 font-medium text-lg">{benefit.text}</span>
-                </div>
-              ))}
-            </div>
-            
             {/* Buy Now CTA */}
             <div className="max-w-2xl mx-auto mb-12">
               <Button 
