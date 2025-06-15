@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { Star, Zap, TrendingUp, ArrowRight, Menu, X, CheckCircle, Target, Users, Clock, Shield, Award, Sparkles, ChevronDown, MousePointer, Search, Link, BarChart3, Rocket, Mail, FileText, Globe } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -9,8 +8,6 @@ import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 const Index = () => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [email, setEmail] = useState('');
-  const [isSubmitted, setIsSubmitted] = useState(false);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
 
   useEffect(() => {
@@ -31,12 +28,8 @@ const Index = () => {
     };
   }, []);
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (email) {
-      setIsSubmitted(true);
-      console.log('Email submitted:', email);
-    }
+  const handleBuyNow = () => {
+    window.open('https://buy.polar.sh/polar_cl_xr19Csuoe1KnnHb256iQjEaKPesJQc3MxKgc442QHHz', '_blank');
   };
 
   const templates = [
@@ -179,59 +172,34 @@ const Index = () => {
               ))}
             </div>
             
-            {/* Waitlist Form */}
-            {!isSubmitted ? (
-              <div className="max-w-2xl mx-auto mb-12">
-                <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-4 p-2 bg-white/10 backdrop-blur-xl rounded-2xl border border-white/20">
-                  <Input
-                    type="email"
-                    placeholder="Enter your email for instant access..."
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    className="flex-1 bg-transparent border-0 text-white placeholder:text-slate-400 text-lg px-6 py-4 focus:ring-2 focus:ring-blue-500"
-                    required
-                  />
-                  <Button 
-                    type="submit"
-                    size="lg" 
-                    className="relative group bg-gradient-to-r from-blue-600 via-purple-600 to-blue-600 hover:from-blue-700 hover:via-purple-700 hover:to-blue-700 text-white font-bold text-xl px-12 py-4 rounded-xl shadow-2xl hover:shadow-blue-500/25 transition-all duration-500 hover:scale-105 border-0 bg-size-200 animate-gradient overflow-hidden whitespace-nowrap"
-                  >
-                    <div className="absolute inset-0 bg-white/20 transform -skew-x-12 translate-x-[-100%] group-hover:translate-x-[200%] transition-transform duration-700"></div>
-                    <Mail className="mr-3 h-6 w-6" />
-                    Get Templates Now
-                    <ArrowRight className="ml-3 h-6 w-6 group-hover:translate-x-1 transition-transform duration-300" />
-                  </Button>
-                </form>
-                
-                <div className="flex justify-center items-center space-x-8 mt-6 text-sm text-slate-400">
-                  <div className="flex items-center">
-                    <CheckCircle className="h-4 w-4 text-green-400 mr-2" />
-                    <span>Instant Download</span>
-                  </div>
-                  <div className="flex items-center">
-                    <CheckCircle className="h-4 w-4 text-green-400 mr-2" />
-                    <span>Copy-Paste Ready</span>
-                  </div>
-                  <div className="flex items-center">
-                    <CheckCircle className="h-4 w-4 text-green-400 mr-2" />
-                    <span>Proven Results</span>
-                  </div>
+            {/* Buy Now CTA */}
+            <div className="max-w-2xl mx-auto mb-12">
+              <Button 
+                onClick={handleBuyNow}
+                size="lg" 
+                className="relative group bg-gradient-to-r from-blue-600 via-purple-600 to-blue-600 hover:from-blue-700 hover:via-purple-700 hover:to-blue-700 text-white font-bold text-xl px-12 py-6 rounded-xl shadow-2xl hover:shadow-blue-500/25 transition-all duration-500 hover:scale-105 border-0 bg-size-200 animate-gradient overflow-hidden whitespace-nowrap"
+              >
+                <div className="absolute inset-0 bg-white/20 transform -skew-x-12 translate-x-[-100%] group-hover:translate-x-[200%] transition-transform duration-700"></div>
+                <Rocket className="mr-3 h-6 w-6" />
+                Get All 50+ Templates Now
+                <ArrowRight className="ml-3 h-6 w-6 group-hover:translate-x-1 transition-transform duration-300" />
+              </Button>
+              
+              <div className="flex justify-center items-center space-x-8 mt-6 text-sm text-slate-400">
+                <div className="flex items-center">
+                  <CheckCircle className="h-4 w-4 text-green-400 mr-2" />
+                  <span>Instant Download</span>
+                </div>
+                <div className="flex items-center">
+                  <CheckCircle className="h-4 w-4 text-green-400 mr-2" />
+                  <span>Copy-Paste Ready</span>
+                </div>
+                <div className="flex items-center">
+                  <CheckCircle className="h-4 w-4 text-green-400 mr-2" />
+                  <span>Proven Results</span>
                 </div>
               </div>
-            ) : (
-              <div className="max-w-2xl mx-auto mb-12 p-8 bg-green-500/10 backdrop-blur-xl rounded-2xl border border-green-500/20">
-                <div className="text-center">
-                  <CheckCircle className="h-16 w-16 text-green-400 mx-auto mb-4" />
-                  <h3 className="text-2xl font-bold text-white mb-2">Check Your Email! 🎉</h3>
-                  <p className="text-green-200 text-lg mb-4">
-                    Your 50+ email templates library is on its way. Start building backlinks today!
-                  </p>
-                  <p className="text-slate-400">
-                    Look for an email from us with your instant download link.
-                  </p>
-                </div>
-              </div>
-            )}
+            </div>
 
             {/* What You Get Section */}
             <div className="max-w-4xl mx-auto mb-16 p-8 bg-white/5 backdrop-blur-xl rounded-2xl border border-white/10">
