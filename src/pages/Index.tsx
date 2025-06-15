@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { Star, Zap, TrendingUp, ArrowRight, Menu, X, CheckCircle, Target, Users, Clock, Shield, Award, Sparkles, ChevronDown, MousePointer, Search, Link, BarChart3, Rocket, Mail, FileText, Globe } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -32,12 +33,6 @@ const Index = () => {
     window.open('https://buy.polar.sh/polar_cl_xr19Csuoe1KnnHb256iQjEaKPesJQc3MxKgc442QHHz', '_blank');
   };
 
-  const stats = [
-    { number: "80K+", label: "Backlinks Generated" },
-    { number: "50+", label: "Proven Templates" },
-    { number: "67%", label: "Best Success Rate" }
-  ];
-
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-indigo-900 text-white overflow-hidden">
       {/* Animated Background Elements */}
@@ -70,8 +65,8 @@ const Index = () => {
                 </div>
               </div>
               <div>
-                <span className="text-3xl font-black bg-gradient-to-r from-white to-blue-200 bg-clip-text text-transparent">SEO FAST</span>
-                <div className="text-xs text-blue-300 font-medium">50+ Email Templates That Get Backlinks</div>
+                <span className="text-3xl font-black bg-gradient-to-r from-white to-blue-200 bg-clip-text text-transparent">beta-seo</span>
+                <div className="text-xs text-blue-300 font-medium">Email Templates That Get Backlinks</div>
               </div>
             </div>
 
@@ -89,41 +84,26 @@ const Index = () => {
       <section className="relative min-h-screen flex items-center justify-center px-6 pt-32">
         <div className="max-w-6xl mx-auto text-center">
           <div className="animate-fade-in">
-            {/* Social Proof Stats */}
-            <div className="flex justify-center items-center space-x-8 mb-12 opacity-70">
-              {stats.map((stat, index) => (
-                <div key={index} className="text-center">
-                  <div className="text-3xl md:text-4xl font-black bg-gradient-to-r from-white to-blue-200 bg-clip-text text-transparent">
-                    {stat.number}
-                  </div>
-                  <div className="text-xs text-slate-400 font-medium">{stat.label}</div>
-                </div>
-              ))}
-            </div>
-
             {/* Main Headline */}
             <div className="mb-12">
               <div className="inline-flex items-center px-6 py-3 rounded-full bg-gradient-to-r from-green-500/20 to-blue-500/20 border border-white/10 mb-8 backdrop-blur-xl">
                 <Sparkles className="h-4 w-4 text-green-400 mr-2" />
-                <span className="text-sm font-semibold text-green-300">Complete Copy-Paste Library • 67% Success Rates</span>
+                <span className="text-sm font-semibold text-green-300">Proven Email Templates Library</span>
               </div>
               
               <h1 className="mb-8 leading-[0.9] tracking-tight">
                 <div className="font-black text-5xl md:text-7xl xl:text-8xl bg-gradient-to-r from-white via-blue-200 to-purple-200 bg-clip-text text-transparent mb-6 drop-shadow-2xl">
-                  50+ Email Templates
+                  Email Templates
                 </div>
                 <div className="font-black text-5xl md:text-7xl xl:text-8xl bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent mb-8 drop-shadow-2xl">
                   That Get Backlinks
-                </div>
-                <div className="text-xl md:text-3xl font-bold text-slate-300 tracking-wide">
-                  The Complete <span className="text-green-400">Copy-Paste Library</span> for Link Building Success
                 </div>
               </h1>
             </div>
             
             <p className="text-xl md:text-2xl text-slate-300 mb-16 max-w-4xl mx-auto leading-relaxed font-light">
-              After analyzing <span className="text-white font-semibold">10,000+ successful campaigns</span>, we discovered that 85% of link building success 
-              comes down to your email approach. These <span className="text-green-400 font-semibold">proven templates generated 80K+ backlinks</span> with success rates up to 67%.
+              After analyzing <span className="text-white font-semibold">successful campaigns</span>, we discovered that most of link building success 
+              comes down to your email approach. These <span className="text-green-400 font-semibold">proven templates</span> are designed to get responses.
             </p>
 
             {/* Buy Now CTA */}
@@ -135,7 +115,7 @@ const Index = () => {
               >
                 <div className="absolute inset-0 bg-white/20 transform -skew-x-12 translate-x-[-100%] group-hover:translate-x-[200%] transition-transform duration-700"></div>
                 <Rocket className="mr-3 h-6 w-6" />
-                Get All 50+ Templates Now
+                Get All Templates Now
                 <ArrowRight className="ml-3 h-6 w-6 group-hover:translate-x-1 transition-transform duration-300" />
               </Button>
               
@@ -164,7 +144,7 @@ const Index = () => {
                     <div className="w-6 h-6 rounded-full bg-green-500 flex items-center justify-center mr-3">
                       <CheckCircle className="h-4 w-4 text-white" />
                     </div>
-                    <span className="text-slate-200">50+ proven email templates</span>
+                    <span className="text-slate-200">Proven email templates</span>
                   </div>
                   <div className="flex items-center">
                     <div className="w-6 h-6 rounded-full bg-green-500 flex items-center justify-center mr-3">
@@ -233,15 +213,15 @@ const Index = () => {
               </div>
             </div>
             <div>
-              <span className="text-3xl font-black text-white">SEO FAST</span>
-              <div className="text-sm text-slate-400">50+ Email Templates That Get Backlinks</div>
+              <span className="text-3xl font-black text-white">beta-seo</span>
+              <div className="text-sm text-slate-400">Email Templates That Get Backlinks</div>
             </div>
           </div>
           <p className="text-slate-400 mb-6 text-lg font-light">Stop sending emails that get ignored. Start building backlinks that actually work.</p>
           <div className="flex justify-center space-x-8 mb-8">
-            <div className="text-sm text-slate-500">© 2024 SEO FAST. All rights reserved.</div>
+            <div className="text-sm text-slate-500">© 2024 beta-seo. All rights reserved.</div>
             <div className="text-sm text-slate-500">•</div>
-            <div className="text-sm text-slate-500">80K+ backlinks generated</div>
+            <div className="text-sm text-slate-500">Proven email templates</div>
           </div>
         </div>
       </footer>
