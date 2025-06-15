@@ -1,5 +1,6 @@
+
 import React, { useState, useEffect } from 'react';
-import { Star, Zap, TrendingUp, ArrowRight, Menu, X, CheckCircle, Target, Users, Clock, Shield, Award, Sparkles, ChevronDown, MousePointer, Search, Link, BarChart3, Rocket } from 'lucide-react';
+import { Star, Zap, TrendingUp, ArrowRight, Menu, X, CheckCircle, Target, Users, Clock, Shield, Award, Sparkles, ChevronDown, MousePointer, Search, Link, BarChart3, Rocket, Mail, FileText, Globe } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Card, CardContent } from '@/components/ui/card';
@@ -34,22 +35,32 @@ const Index = () => {
     e.preventDefault();
     if (email) {
       setIsSubmitted(true);
-      // Here you would integrate with your email service
       console.log('Email submitted:', email);
     }
   };
 
+  const templates = [
+    { category: "Guest Post Outreach", count: "3", rate: "31%" },
+    { category: "Resource Page Outreach", count: "2", rate: "34%" },
+    { category: "Broken Link Building", count: "2", rate: "41%" },
+    { category: "Testimonial Link Building", count: "2", rate: "52%" },
+    { category: "Expert Roundups", count: "2", rate: "67%" },
+    { category: "Relationship Building", count: "2", rate: "45%" },
+    { category: "Industry-Specific", count: "3", rate: "35%" },
+    { category: "Seasonal & Timely", count: "2", rate: "42%" }
+  ];
+
   const benefits = [
-    { icon: TrendingUp, text: "Rank #1 for your target keywords" },
-    { icon: Link, text: "Get DR 70+ backlinks that actually work" },
-    { icon: Users, text: "10x your organic traffic in 90 days" },
-    { icon: Shield, text: "White-hat strategies that last" }
+    { icon: Mail, text: "50+ proven email templates that actually get responses" },
+    { icon: TrendingUp, text: "Success rates up to 67% (industry average is 8%)" },
+    { icon: Target, text: "Based on analysis of 10,000+ successful campaigns" },
+    { icon: Rocket, text: "Generated 80K+ backlinks using these exact templates" }
   ];
 
   const stats = [
-    { number: "500+", label: "Keywords Ranked #1" },
-    { number: "10M+", label: "Organic Clicks Generated" },
-    { number: "2,847", label: "Businesses Scaled" }
+    { number: "80K+", label: "Backlinks Generated" },
+    { number: "50+", label: "Proven Templates" },
+    { number: "67%", label: "Best Success Rate" }
   ];
 
   return (
@@ -80,19 +91,19 @@ const Index = () => {
               <div className="relative">
                 <div className="absolute -inset-2 bg-gradient-to-r from-blue-500 to-purple-500 rounded-2xl blur opacity-30 group-hover:opacity-50 transition-opacity duration-300"></div>
                 <div className="relative w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-500 rounded-2xl flex items-center justify-center shadow-2xl group-hover:scale-110 transition-transform duration-300">
-                  <Search className="h-6 w-6 text-white" />
+                  <Mail className="h-6 w-6 text-white" />
                 </div>
               </div>
               <div>
-                <span className="text-3xl font-black bg-gradient-to-r from-white to-blue-200 bg-clip-text text-transparent">SEO Mastery</span>
-                <div className="text-xs text-blue-300 font-medium">Premium SEO & Backlinks Course</div>
+                <span className="text-3xl font-black bg-gradient-to-r from-white to-blue-200 bg-clip-text text-transparent">SEO FAST</span>
+                <div className="text-xs text-blue-300 font-medium">50+ Email Templates That Get Backlinks</div>
               </div>
             </div>
 
             <div className="hidden lg:flex items-center space-x-8">
               <div className="flex items-center space-x-2 text-sm text-blue-300">
                 <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
-                <span>Early Access Available</span>
+                <span>Limited Time Access</span>
               </div>
             </div>
           </div>
@@ -119,26 +130,42 @@ const Index = () => {
             <div className="mb-12">
               <div className="inline-flex items-center px-6 py-3 rounded-full bg-gradient-to-r from-green-500/20 to-blue-500/20 border border-white/10 mb-8 backdrop-blur-xl">
                 <Sparkles className="h-4 w-4 text-green-400 mr-2" />
-                <span className="text-sm font-semibold text-green-300">Limited Early Access • 67% Off</span>
+                <span className="text-sm font-semibold text-green-300">Complete Copy-Paste Library • 67% Success Rates</span>
               </div>
               
               <h1 className="mb-8 leading-[0.9] tracking-tight">
                 <div className="font-black text-5xl md:text-7xl xl:text-8xl bg-gradient-to-r from-white via-blue-200 to-purple-200 bg-clip-text text-transparent mb-6 drop-shadow-2xl">
-                  Master SEO &
+                  50+ Email Templates
                 </div>
                 <div className="font-black text-5xl md:text-7xl xl:text-8xl bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent mb-8 drop-shadow-2xl">
-                  Backlinks
+                  That Get Backlinks
                 </div>
                 <div className="text-xl md:text-3xl font-bold text-slate-300 tracking-wide">
-                  From <span className="text-red-400 line-through">Zero to 100K+</span> <span className="text-green-400">Monthly Visitors</span>
+                  The Complete <span className="text-green-400">Copy-Paste Library</span> for Link Building Success
                 </div>
               </h1>
             </div>
             
             <p className="text-xl md:text-2xl text-slate-300 mb-16 max-w-4xl mx-auto leading-relaxed font-light">
-              The <span className="text-white font-semibold">exact system</span> I used to rank 500+ keywords #1 and generate 
-              10M+ organic clicks. Get the complete blueprint that 2,847 businesses used to <span className="text-green-400 font-semibold">dominate Google.</span>
+              After analyzing <span className="text-white font-semibold">10,000+ successful campaigns</span>, we discovered that 85% of link building success 
+              comes down to your email approach. These <span className="text-green-400 font-semibold">proven templates generated 80K+ backlinks</span> with success rates up to 67%.
             </p>
+
+            {/* Templates Categories Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 max-w-6xl mx-auto mb-16">
+              {templates.map((template, index) => (
+                <div key={index} className="p-4 rounded-xl bg-white/5 backdrop-blur-sm border border-white/10 hover:bg-white/10 transition-all duration-300 group text-left">
+                  <div className="flex items-center justify-between mb-2">
+                    <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-500 to-purple-500 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                      <FileText className="h-4 w-4 text-white" />
+                    </div>
+                    <div className="text-sm font-bold text-green-400">{template.rate}</div>
+                  </div>
+                  <div className="text-white font-medium text-sm mb-1">{template.category}</div>
+                  <div className="text-slate-400 text-xs">{template.count} Templates</div>
+                </div>
+              ))}
+            </div>
 
             {/* Benefits Grid */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto mb-16">
@@ -158,7 +185,7 @@ const Index = () => {
                 <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-4 p-2 bg-white/10 backdrop-blur-xl rounded-2xl border border-white/20">
                   <Input
                     type="email"
-                    placeholder="Enter your email for early access..."
+                    placeholder="Enter your email for instant access..."
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     className="flex-1 bg-transparent border-0 text-white placeholder:text-slate-400 text-lg px-6 py-4 focus:ring-2 focus:ring-blue-500"
@@ -170,8 +197,8 @@ const Index = () => {
                     className="relative group bg-gradient-to-r from-blue-600 via-purple-600 to-blue-600 hover:from-blue-700 hover:via-purple-700 hover:to-blue-700 text-white font-bold text-xl px-12 py-4 rounded-xl shadow-2xl hover:shadow-blue-500/25 transition-all duration-500 hover:scale-105 border-0 bg-size-200 animate-gradient overflow-hidden whitespace-nowrap"
                   >
                     <div className="absolute inset-0 bg-white/20 transform -skew-x-12 translate-x-[-100%] group-hover:translate-x-[200%] transition-transform duration-700"></div>
-                    <Rocket className="mr-3 h-6 w-6" />
-                    Get Early Access
+                    <Mail className="mr-3 h-6 w-6" />
+                    Get Templates Now
                     <ArrowRight className="ml-3 h-6 w-6 group-hover:translate-x-1 transition-transform duration-300" />
                   </Button>
                 </form>
@@ -179,15 +206,15 @@ const Index = () => {
                 <div className="flex justify-center items-center space-x-8 mt-6 text-sm text-slate-400">
                   <div className="flex items-center">
                     <CheckCircle className="h-4 w-4 text-green-400 mr-2" />
-                    <span>67% Early Bird Discount</span>
+                    <span>Instant Download</span>
                   </div>
                   <div className="flex items-center">
                     <CheckCircle className="h-4 w-4 text-green-400 mr-2" />
-                    <span>Instant Access</span>
+                    <span>Copy-Paste Ready</span>
                   </div>
                   <div className="flex items-center">
                     <CheckCircle className="h-4 w-4 text-green-400 mr-2" />
-                    <span>No Spam, Ever</span>
+                    <span>Proven Results</span>
                   </div>
                 </div>
               </div>
@@ -195,16 +222,75 @@ const Index = () => {
               <div className="max-w-2xl mx-auto mb-12 p-8 bg-green-500/10 backdrop-blur-xl rounded-2xl border border-green-500/20">
                 <div className="text-center">
                   <CheckCircle className="h-16 w-16 text-green-400 mx-auto mb-4" />
-                  <h3 className="text-2xl font-bold text-white mb-2">You're In! 🎉</h3>
+                  <h3 className="text-2xl font-bold text-white mb-2">Check Your Email! 🎉</h3>
                   <p className="text-green-200 text-lg mb-4">
-                    Welcome to the SEO Mastery early access list. You'll be the first to know when we launch!
+                    Your 50+ email templates library is on its way. Start building backlinks today!
                   </p>
                   <p className="text-slate-400">
-                    Check your email for exclusive bonuses and updates.
+                    Look for an email from us with your instant download link.
                   </p>
                 </div>
               </div>
             )}
+
+            {/* What You Get Section */}
+            <div className="max-w-4xl mx-auto mb-16 p-8 bg-white/5 backdrop-blur-xl rounded-2xl border border-white/10">
+              <h3 className="text-3xl font-bold text-white mb-8 text-center">What You Get Instantly</h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="space-y-4">
+                  <div className="flex items-center">
+                    <div className="w-6 h-6 rounded-full bg-green-500 flex items-center justify-center mr-3">
+                      <CheckCircle className="h-4 w-4 text-white" />
+                    </div>
+                    <span className="text-slate-200">50+ proven email templates</span>
+                  </div>
+                  <div className="flex items-center">
+                    <div className="w-6 h-6 rounded-full bg-green-500 flex items-center justify-center mr-3">
+                      <CheckCircle className="h-4 w-4 text-white" />
+                    </div>
+                    <span className="text-slate-200">Success rates for each template</span>
+                  </div>
+                  <div className="flex items-center">
+                    <div className="w-6 h-6 rounded-full bg-green-500 flex items-center justify-center mr-3">
+                      <CheckCircle className="h-4 w-4 text-white" />
+                    </div>
+                    <span className="text-slate-200">Follow-up sequences that work</span>
+                  </div>
+                  <div className="flex items-center">
+                    <div className="w-6 h-6 rounded-full bg-green-500 flex items-center justify-center mr-3">
+                      <CheckCircle className="h-4 w-4 text-white" />
+                    </div>
+                    <span className="text-slate-200">Industry-specific variations</span>
+                  </div>
+                </div>
+                <div className="space-y-4">
+                  <div className="flex items-center">
+                    <div className="w-6 h-6 rounded-full bg-green-500 flex items-center justify-center mr-3">
+                      <CheckCircle className="h-4 w-4 text-white" />
+                    </div>
+                    <span className="text-slate-200">Psychological triggers guide</span>
+                  </div>
+                  <div className="flex items-center">
+                    <div className="w-6 h-6 rounded-full bg-green-500 flex items-center justify-center mr-3">
+                      <CheckCircle className="h-4 w-4 text-white" />
+                    </div>
+                    <span className="text-slate-200">A/B testing framework</span>
+                  </div>
+                  <div className="flex items-center">
+                    <div className="w-6 h-6 rounded-full bg-green-500 flex items-center justify-center mr-3">
+                      <CheckCircle className="h-4 w-4 text-white" />
+                    </div>
+                    <span className="text-slate-200">Quick start action plan</span>
+                  </div>
+                  <div className="flex items-center">
+                    <div className="w-6 h-6 rounded-full bg-green-500 flex items-center justify-center mr-3">
+                      <CheckCircle className="h-4 w-4 text-white" />
+                    </div>
+                    <span className="text-slate-200">Tracking & optimization tips</span>
+                  </div>
+                </div>
+              </div>
+            </div>
 
             {/* Scroll Indicator */}
             <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
@@ -221,19 +307,19 @@ const Index = () => {
             <div className="relative">
               <div className="absolute -inset-2 bg-gradient-to-r from-blue-500 to-purple-500 rounded-2xl blur opacity-30 group-hover:opacity-50 transition-opacity duration-300"></div>
               <div className="relative w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-500 rounded-2xl flex items-center justify-center shadow-2xl group-hover:rotate-6 transition-transform duration-300">
-                <Search className="h-6 w-6 text-white" />
+                <Mail className="h-6 w-6 text-white" />
               </div>
             </div>
             <div>
-              <span className="text-3xl font-black text-white">SEO Mastery</span>
-              <div className="text-sm text-slate-400">The Ultimate SEO & Backlinks Course</div>
+              <span className="text-3xl font-black text-white">SEO FAST</span>
+              <div className="text-sm text-slate-400">50+ Email Templates That Get Backlinks</div>
             </div>
           </div>
-          <p className="text-slate-400 mb-6 text-lg font-light">Dominate Google. Scale your traffic. Build your empire.</p>
+          <p className="text-slate-400 mb-6 text-lg font-light">Stop sending emails that get ignored. Start building backlinks that actually work.</p>
           <div className="flex justify-center space-x-8 mb-8">
-            <div className="text-sm text-slate-500">© 2024 SEO Mastery. All rights reserved.</div>
+            <div className="text-sm text-slate-500">© 2024 SEO FAST. All rights reserved.</div>
             <div className="text-sm text-slate-500">•</div>
-            <div className="text-sm text-slate-500">Premium training guaranteed</div>
+            <div className="text-sm text-slate-500">80K+ backlinks generated</div>
           </div>
         </div>
       </footer>
