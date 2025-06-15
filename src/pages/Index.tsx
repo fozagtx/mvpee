@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
-import { Star, Zap, TrendingUp, ArrowRight, Menu, X, CheckCircle, Target, Users, Clock, Shield, Award, Sparkles, ChevronDown, MousePointer, Search, Link, BarChart3, Rocket, Mail, FileText, Globe } from 'lucide-react';
+import { Star, Zap, TrendingUp, ArrowRight, Menu, X, CheckCircle, Target, Users, Clock, Shield, Award, Sparkles, ChevronDown, MousePointer, Search, Link, BarChart3, Rocket, Mail, FileText, Globe, MessageSquare, Users2, Trophy } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Card, CardContent } from '@/components/ui/card';
@@ -34,46 +34,64 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-indigo-900 text-white overflow-hidden">
-      {/* Animated Background Elements */}
+    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 text-white overflow-hidden relative">
+      {/* Enhanced Background Elements */}
       <div className="fixed inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
+        <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))]"></div>
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-violet-500/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
+        <div className="absolute top-1/2 left-1/2 w-72 h-72 bg-emerald-500/5 rounded-full blur-2xl animate-pulse delay-500"></div>
         <div 
-          className="absolute w-6 h-6 bg-gradient-to-r from-blue-400 to-purple-400 rounded-full opacity-20 transition-all duration-300 ease-out"
+          className="absolute w-8 h-8 bg-gradient-to-r from-cyan-400 to-violet-400 rounded-full opacity-30 transition-all duration-500 ease-out blur-sm"
           style={{
-            left: mousePosition.x - 12,
-            top: mousePosition.y - 12,
+            left: mousePosition.x - 16,
+            top: mousePosition.y - 16,
             transform: 'translate3d(0, 0, 0)'
           }}
         ></div>
       </div>
 
+      {/* Floating particles */}
+      <div className="fixed inset-0 overflow-hidden pointer-events-none">
+        {[...Array(6)].map((_, i) => (
+          <div
+            key={i}
+            className="absolute w-2 h-2 bg-white/20 rounded-full animate-float"
+            style={{
+              left: `${20 + i * 15}%`,
+              top: `${30 + i * 10}%`,
+              animationDelay: `${i * 0.5}s`,
+              animationDuration: `${4 + i}s`
+            }}
+          />
+        ))}
+      </div>
+
       {/* Premium Navbar */}
       <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-700 ${
         scrolled 
-          ? 'bg-slate-900/80 backdrop-blur-2xl border-b border-white/10 shadow-2xl' 
+          ? 'bg-slate-900/90 backdrop-blur-2xl border-b border-white/10 shadow-2xl' 
           : 'bg-transparent'
       }`}>
         <div className="max-w-7xl mx-auto px-6 py-6">
           <div className="flex justify-between items-center">
             <div className="flex items-center space-x-4 group cursor-pointer">
               <div className="relative">
-                <div className="absolute -inset-2 bg-gradient-to-r from-blue-500 to-purple-500 rounded-2xl blur opacity-30 group-hover:opacity-50 transition-opacity duration-300"></div>
-                <div className="relative w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-500 rounded-2xl flex items-center justify-center shadow-2xl group-hover:scale-110 transition-transform duration-300">
-                  <Mail className="h-6 w-6 text-white" />
+                <div className="absolute -inset-3 bg-gradient-to-r from-cyan-500 via-violet-500 to-emerald-500 rounded-2xl blur opacity-30 group-hover:opacity-60 transition-opacity duration-500"></div>
+                <div className="relative w-14 h-14 bg-gradient-to-br from-cyan-500 via-violet-500 to-emerald-500 rounded-2xl flex items-center justify-center shadow-2xl group-hover:scale-110 transition-transform duration-500">
+                  <Zap className="h-7 w-7 text-white" />
                 </div>
               </div>
               <div>
-                <span className="text-3xl font-black bg-gradient-to-r from-white to-blue-200 bg-clip-text text-transparent">beta-seo</span>
-                <div className="text-xs text-blue-300 font-medium">Email Templates That Get Backlinks</div>
+                <span className="text-3xl font-black bg-gradient-to-r from-white via-cyan-200 to-violet-200 bg-clip-text text-transparent">beta-seo</span>
+                <div className="text-xs text-cyan-300 font-medium tracking-wide">Unlock Your Link Building Potential</div>
               </div>
             </div>
 
             <div className="hidden lg:flex items-center space-x-8">
-              <div className="flex items-center space-x-2 text-sm text-blue-300">
-                <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
-                <span>Limited Time Access</span>
+              <div className="flex items-center space-x-2 text-sm text-cyan-300">
+                <div className="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></div>
+                <span className="font-medium">Ready to Transform Your SEO</span>
               </div>
             </div>
           </div>
@@ -86,109 +104,141 @@ const Index = () => {
           <div className="animate-fade-in">
             {/* Main Headline */}
             <div className="mb-12">
-              <div className="inline-flex items-center px-6 py-3 rounded-full bg-gradient-to-r from-green-500/20 to-blue-500/20 border border-white/10 mb-8 backdrop-blur-xl">
-                <Sparkles className="h-4 w-4 text-green-400 mr-2" />
-                <span className="text-sm font-semibold text-green-300">Proven Email Templates Library</span>
+              <div className="inline-flex items-center px-8 py-4 rounded-full bg-gradient-to-r from-emerald-500/20 via-cyan-500/20 to-violet-500/20 border border-white/20 mb-12 backdrop-blur-xl">
+                <Trophy className="h-5 w-5 text-emerald-400 mr-3" />
+                <span className="text-sm font-bold text-emerald-300 tracking-wide">THE SECRET WEAPON OF TOP SEO AGENCIES</span>
               </div>
               
-              <h1 className="mb-8 leading-[0.9] tracking-tight">
-                <div className="font-black text-5xl md:text-7xl xl:text-8xl bg-gradient-to-r from-white via-blue-200 to-purple-200 bg-clip-text text-transparent mb-6 drop-shadow-2xl">
-                  Email Templates
+              <h1 className="mb-12 leading-[0.85] tracking-tight">
+                <div className="font-black text-6xl md:text-8xl xl:text-9xl bg-gradient-to-r from-white via-cyan-200 to-violet-200 bg-clip-text text-transparent mb-8 drop-shadow-2xl">
+                  Stop Getting
                 </div>
-                <div className="font-black text-5xl md:text-7xl xl:text-8xl bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent mb-8 drop-shadow-2xl">
-                  That Get Backlinks
+                <div className="font-black text-6xl md:text-8xl xl:text-9xl bg-gradient-to-r from-emerald-400 via-cyan-400 to-violet-400 bg-clip-text text-transparent mb-12 drop-shadow-2xl">
+                  Ignored
                 </div>
               </h1>
             </div>
             
-            <p className="text-xl md:text-2xl text-slate-300 mb-16 max-w-4xl mx-auto leading-relaxed font-light">
-              After analyzing <span className="text-white font-semibold">successful campaigns</span>, we discovered that most of link building success 
-              comes down to your email approach. These <span className="text-green-400 font-semibold">proven templates</span> are designed to get responses.
+            <p className="text-2xl md:text-3xl text-slate-200 mb-8 max-w-5xl mx-auto leading-relaxed font-light">
+              Transform your outreach from <span className="text-red-400 font-semibold line-through">spam</span> to 
+              <span className="text-emerald-400 font-bold"> irresistible opportunities</span>
             </p>
 
-            {/* Buy Now CTA */}
+            <p className="text-lg md:text-xl text-slate-300 mb-16 max-w-4xl mx-auto leading-relaxed">
+              While others struggle with 2-5% response rates, you'll be closing deals and building relationships 
+              that actually <span className="text-cyan-400 font-semibold">move the needle</span> for your business.
+            </p>
+
+            {/* Enhanced Features Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16 max-w-5xl mx-auto">
+              <div className="bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-xl rounded-2xl p-8 border border-white/10 hover:border-cyan-500/30 transition-all duration-500 hover:scale-105 group">
+                <MessageSquare className="h-12 w-12 text-cyan-400 mx-auto mb-4 group-hover:scale-110 transition-transform duration-300" />
+                <h3 className="text-xl font-bold text-white mb-3">Psychology-Driven</h3>
+                <p className="text-slate-300 text-sm leading-relaxed">Templates crafted using proven persuasion principles that trigger responses</p>
+              </div>
+              
+              <div className="bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-xl rounded-2xl p-8 border border-white/10 hover:border-violet-500/30 transition-all duration-500 hover:scale-105 group">
+                <Users2 className="h-12 w-12 text-violet-400 mx-auto mb-4 group-hover:scale-110 transition-transform duration-300" />
+                <h3 className="text-xl font-bold text-white mb-3">Relationship-First</h3>
+                <p className="text-slate-300 text-sm leading-relaxed">Build genuine connections that lead to long-term partnerships</p>
+              </div>
+              
+              <div className="bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-xl rounded-2xl p-8 border border-white/10 hover:border-emerald-500/30 transition-all duration-500 hover:scale-105 group">
+                <Target className="h-12 w-12 text-emerald-400 mx-auto mb-4 group-hover:scale-110 transition-transform duration-300" />
+                <h3 className="text-xl font-bold text-white mb-3">Results-Proven</h3>
+                <p className="text-slate-300 text-sm leading-relaxed">Every template tested and optimized for maximum conversion</p>
+              </div>
+            </div>
+
+            {/* Enhanced CTA */}
             <div className="max-w-2xl mx-auto mb-12">
               <Button 
                 onClick={handleBuyNow}
                 size="lg" 
-                className="relative group bg-gradient-to-r from-blue-600 via-purple-600 to-blue-600 hover:from-blue-700 hover:via-purple-700 hover:to-blue-700 text-white font-bold text-xl px-12 py-6 rounded-xl shadow-2xl hover:shadow-blue-500/25 transition-all duration-500 hover:scale-105 border-0 bg-size-200 animate-gradient overflow-hidden whitespace-nowrap"
+                className="relative group bg-gradient-to-r from-emerald-600 via-cyan-600 to-violet-600 hover:from-emerald-500 hover:via-cyan-500 hover:to-violet-500 text-white font-bold text-2xl px-16 py-8 rounded-2xl shadow-2xl hover:shadow-cyan-500/25 transition-all duration-700 hover:scale-110 border-0 bg-size-200 animate-gradient overflow-hidden"
               >
-                <div className="absolute inset-0 bg-white/20 transform -skew-x-12 translate-x-[-100%] group-hover:translate-x-[200%] transition-transform duration-700"></div>
-                <Rocket className="mr-3 h-6 w-6" />
-                Get All Templates Now
-                <ArrowRight className="ml-3 h-6 w-6 group-hover:translate-x-1 transition-transform duration-300" />
+                <div className="absolute inset-0 bg-white/20 transform -skew-x-12 translate-x-[-100%] group-hover:translate-x-[300%] transition-transform duration-1000"></div>
+                <Rocket className="mr-4 h-8 w-8" />
+                Get Your Unfair Advantage
+                <ArrowRight className="ml-4 h-8 w-8 group-hover:translate-x-2 transition-transform duration-300" />
               </Button>
               
-              <div className="flex justify-center items-center space-x-8 mt-6 text-sm text-slate-400">
-                <div className="flex items-center">
-                  <CheckCircle className="h-4 w-4 text-green-400 mr-2" />
-                  <span>Instant Download</span>
+              <div className="flex justify-center items-center space-x-12 mt-8 text-base text-slate-300">
+                <div className="flex items-center group">
+                  <CheckCircle className="h-5 w-5 text-emerald-400 mr-3 group-hover:scale-110 transition-transform duration-300" />
+                  <span className="group-hover:text-white transition-colors duration-300">Instant Access</span>
                 </div>
-                <div className="flex items-center">
-                  <CheckCircle className="h-4 w-4 text-green-400 mr-2" />
-                  <span>Copy-Paste Ready</span>
+                <div className="flex items-center group">
+                  <CheckCircle className="h-5 w-5 text-emerald-400 mr-3 group-hover:scale-110 transition-transform duration-300" />
+                  <span className="group-hover:text-white transition-colors duration-300">Copy & Deploy</span>
                 </div>
-                <div className="flex items-center">
-                  <CheckCircle className="h-4 w-4 text-green-400 mr-2" />
-                  <span>Proven Results</span>
+                <div className="flex items-center group">
+                  <CheckCircle className="h-5 w-5 text-emerald-400 mr-3 group-hover:scale-110 transition-transform duration-300" />
+                  <span className="group-hover:text-white transition-colors duration-300">Start Today</span>
                 </div>
               </div>
             </div>
 
-            {/* What You Get Section */}
-            <div className="max-w-4xl mx-auto mb-16 p-8 bg-white/5 backdrop-blur-xl rounded-2xl border border-white/10">
-              <h3 className="text-3xl font-bold text-white mb-8 text-center">What You Get Instantly</h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div className="space-y-4">
-                  <div className="flex items-center">
-                    <div className="w-6 h-6 rounded-full bg-green-500 flex items-center justify-center mr-3">
-                      <CheckCircle className="h-4 w-4 text-white" />
+            {/* Enhanced What You Get Section */}
+            <div className="max-w-5xl mx-auto mb-16 p-10 bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-2xl rounded-3xl border border-white/20 shadow-2xl">
+              <div className="text-center mb-10">
+                <h3 className="text-4xl font-black text-white mb-4 bg-gradient-to-r from-cyan-400 to-violet-400 bg-clip-text text-transparent">
+                  Your Complete Arsenal
+                </h3>
+                <p className="text-xl text-slate-300">Everything you need to dominate outreach, delivered instantly</p>
+              </div>
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div className="space-y-6">
+                  <div className="flex items-center group">
+                    <div className="w-8 h-8 rounded-full bg-gradient-to-r from-emerald-500 to-cyan-500 flex items-center justify-center mr-4 group-hover:scale-110 transition-transform duration-300">
+                      <CheckCircle className="h-5 w-5 text-white" />
                     </div>
-                    <span className="text-slate-200">Proven email templates</span>
+                    <span className="text-slate-200 text-lg group-hover:text-white transition-colors duration-300">Battle-tested email templates</span>
                   </div>
-                  <div className="flex items-center">
-                    <div className="w-6 h-6 rounded-full bg-green-500 flex items-center justify-center mr-3">
-                      <CheckCircle className="h-4 w-4 text-white" />
+                  <div className="flex items-center group">
+                    <div className="w-8 h-8 rounded-full bg-gradient-to-r from-emerald-500 to-cyan-500 flex items-center justify-center mr-4 group-hover:scale-110 transition-transform duration-300">
+                      <CheckCircle className="h-5 w-5 text-white" />
                     </div>
-                    <span className="text-slate-200">Success rates for each template</span>
+                    <span className="text-slate-200 text-lg group-hover:text-white transition-colors duration-300">Psychology trigger breakdowns</span>
                   </div>
-                  <div className="flex items-center">
-                    <div className="w-6 h-6 rounded-full bg-green-500 flex items-center justify-center mr-3">
-                      <CheckCircle className="h-4 w-4 text-white" />
+                  <div className="flex items-center group">
+                    <div className="w-8 h-8 rounded-full bg-gradient-to-r from-emerald-500 to-cyan-500 flex items-center justify-center mr-4 group-hover:scale-110 transition-transform duration-300">
+                      <CheckCircle className="h-5 w-5 text-white" />
                     </div>
-                    <span className="text-slate-200">Follow-up sequences that work</span>
+                    <span className="text-slate-200 text-lg group-hover:text-white transition-colors duration-300">Follow-up sequences that convert</span>
                   </div>
-                  <div className="flex items-center">
-                    <div className="w-6 h-6 rounded-full bg-green-500 flex items-center justify-center mr-3">
-                      <CheckCircle className="h-4 w-4 text-white" />
+                  <div className="flex items-center group">
+                    <div className="w-8 h-8 rounded-full bg-gradient-to-r from-emerald-500 to-cyan-500 flex items-center justify-center mr-4 group-hover:scale-110 transition-transform duration-300">
+                      <CheckCircle className="h-5 w-5 text-white" />
                     </div>
-                    <span className="text-slate-200">Industry-specific variations</span>
+                    <span className="text-slate-200 text-lg group-hover:text-white transition-colors duration-300">Industry-specific variations</span>
                   </div>
                 </div>
-                <div className="space-y-4">
-                  <div className="flex items-center">
-                    <div className="w-6 h-6 rounded-full bg-green-500 flex items-center justify-center mr-3">
-                      <CheckCircle className="h-4 w-4 text-white" />
+                <div className="space-y-6">
+                  <div className="flex items-center group">
+                    <div className="w-8 h-8 rounded-full bg-gradient-to-r from-violet-500 to-cyan-500 flex items-center justify-center mr-4 group-hover:scale-110 transition-transform duration-300">
+                      <CheckCircle className="h-5 w-5 text-white" />
                     </div>
-                    <span className="text-slate-200">Psychological triggers guide</span>
+                    <span className="text-slate-200 text-lg group-hover:text-white transition-colors duration-300">Personalization frameworks</span>
                   </div>
-                  <div className="flex items-center">
-                    <div className="w-6 h-6 rounded-full bg-green-500 flex items-center justify-center mr-3">
-                      <CheckCircle className="h-4 w-4 text-white" />
+                  <div className="flex items-center group">
+                    <div className="w-8 h-8 rounded-full bg-gradient-to-r from-violet-500 to-cyan-500 flex items-center justify-center mr-4 group-hover:scale-110 transition-transform duration-300">
+                      <CheckCircle className="h-5 w-5 text-white" />
                     </div>
-                    <span className="text-slate-200">A/B testing framework</span>
+                    <span className="text-slate-200 text-lg group-hover:text-white transition-colors duration-300">A/B testing strategies</span>
                   </div>
-                  <div className="flex items-center">
-                    <div className="w-6 h-6 rounded-full bg-green-500 flex items-center justify-center mr-3">
-                      <CheckCircle className="h-4 w-4 text-white" />
+                  <div className="flex items-center group">
+                    <div className="w-8 h-8 rounded-full bg-gradient-to-r from-violet-500 to-cyan-500 flex items-center justify-center mr-4 group-hover:scale-110 transition-transform duration-300">
+                      <CheckCircle className="h-5 w-5 text-white" />
                     </div>
-                    <span className="text-slate-200">Quick start action plan</span>
+                    <span className="text-slate-200 text-lg group-hover:text-white transition-colors duration-300">Implementation roadmap</span>
                   </div>
-                  <div className="flex items-center">
-                    <div className="w-6 h-6 rounded-full bg-green-500 flex items-center justify-center mr-3">
-                      <CheckCircle className="h-4 w-4 text-white" />
+                  <div className="flex items-center group">
+                    <div className="w-8 h-8 rounded-full bg-gradient-to-r from-violet-500 to-cyan-500 flex items-center justify-center mr-4 group-hover:scale-110 transition-transform duration-300">
+                      <CheckCircle className="h-5 w-5 text-white" />
                     </div>
-                    <span className="text-slate-200">Tracking & optimization tips</span>
+                    <span className="text-slate-200 text-lg group-hover:text-white transition-colors duration-300">Performance tracking guide</span>
                   </div>
                 </div>
               </div>
@@ -196,32 +246,34 @@ const Index = () => {
 
             {/* Scroll Indicator */}
             <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-              <ChevronDown className="h-8 w-8 text-white/50" />
+              <ChevronDown className="h-10 w-10 text-white/40" />
             </div>
           </div>
         </div>
       </section>
 
-      {/* Premium Footer */}
-      <footer className="relative px-6 py-20 bg-slate-900">
+      {/* Enhanced Footer */}
+      <footer className="relative px-6 py-24 bg-gradient-to-t from-slate-900 to-transparent">
         <div className="max-w-7xl mx-auto text-center">
-          <div className="flex items-center justify-center space-x-4 mb-8 group">
+          <div className="flex items-center justify-center space-x-4 mb-10 group">
             <div className="relative">
-              <div className="absolute -inset-2 bg-gradient-to-r from-blue-500 to-purple-500 rounded-2xl blur opacity-30 group-hover:opacity-50 transition-opacity duration-300"></div>
-              <div className="relative w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-500 rounded-2xl flex items-center justify-center shadow-2xl group-hover:rotate-6 transition-transform duration-300">
-                <Mail className="h-6 w-6 text-white" />
+              <div className="absolute -inset-3 bg-gradient-to-r from-cyan-500 via-violet-500 to-emerald-500 rounded-2xl blur opacity-40 group-hover:opacity-70 transition-opacity duration-500"></div>
+              <div className="relative w-16 h-16 bg-gradient-to-br from-cyan-500 via-violet-500 to-emerald-500 rounded-2xl flex items-center justify-center shadow-2xl group-hover:rotate-12 transition-transform duration-500">
+                <Zap className="h-8 w-8 text-white" />
               </div>
             </div>
             <div>
-              <span className="text-3xl font-black text-white">beta-seo</span>
-              <div className="text-sm text-slate-400">Email Templates That Get Backlinks</div>
+              <span className="text-4xl font-black bg-gradient-to-r from-white via-cyan-200 to-violet-200 bg-clip-text text-transparent">beta-seo</span>
+              <div className="text-base text-slate-400 font-medium">Your Link Building Success Partner</div>
             </div>
           </div>
-          <p className="text-slate-400 mb-6 text-lg font-light">Stop sending emails that get ignored. Start building backlinks that actually work.</p>
-          <div className="flex justify-center space-x-8 mb-8">
-            <div className="text-sm text-slate-500">© 2024 beta-seo. All rights reserved.</div>
-            <div className="text-sm text-slate-500">•</div>
-            <div className="text-sm text-slate-500">Proven email templates</div>
+          <p className="text-slate-300 mb-8 text-xl font-light max-w-2xl mx-auto leading-relaxed">
+            Stop playing the waiting game. Start building the relationships and backlinks that will transform your business.
+          </p>
+          <div className="flex justify-center space-x-12 mb-10 text-sm text-slate-500">
+            <div>© 2024 beta-seo. All rights reserved.</div>
+            <div>•</div>
+            <div>Transform your outreach today</div>
           </div>
         </div>
       </footer>
