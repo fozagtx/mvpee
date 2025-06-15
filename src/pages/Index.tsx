@@ -119,36 +119,10 @@ const Index = () => {
               </h1>
             </div>
             
-            <p className="text-2xl md:text-3xl text-slate-200 mb-8 max-w-5xl mx-auto leading-relaxed font-light">
-              Transform your outreach from <span className="text-red-400 font-semibold line-through">spam</span> to 
-              <span className="text-emerald-400 font-bold"> irresistible opportunities</span>
-            </p>
-
             <p className="text-lg md:text-xl text-slate-300 mb-16 max-w-4xl mx-auto leading-relaxed">
               While others struggle with 2-5% response rates, you'll be closing deals and building relationships 
               that actually <span className="text-cyan-400 font-semibold">move the needle</span> for your business.
             </p>
-
-            {/* Enhanced Features Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16 max-w-5xl mx-auto">
-              <div className="bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-xl rounded-2xl p-8 border border-white/10 hover:border-cyan-500/30 transition-all duration-500 hover:scale-105 group">
-                <MessageSquare className="h-12 w-12 text-cyan-400 mx-auto mb-4 group-hover:scale-110 transition-transform duration-300" />
-                <h3 className="text-xl font-bold text-white mb-3">Psychology-Driven</h3>
-                <p className="text-slate-300 text-sm leading-relaxed">Templates crafted using proven persuasion principles that trigger responses</p>
-              </div>
-              
-              <div className="bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-xl rounded-2xl p-8 border border-white/10 hover:border-violet-500/30 transition-all duration-500 hover:scale-105 group">
-                <Users2 className="h-12 w-12 text-violet-400 mx-auto mb-4 group-hover:scale-110 transition-transform duration-300" />
-                <h3 className="text-xl font-bold text-white mb-3">Relationship-First</h3>
-                <p className="text-slate-300 text-sm leading-relaxed">Build genuine connections that lead to long-term partnerships</p>
-              </div>
-              
-              <div className="bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-xl rounded-2xl p-8 border border-white/10 hover:border-emerald-500/30 transition-all duration-500 hover:scale-105 group">
-                <Target className="h-12 w-12 text-emerald-400 mx-auto mb-4 group-hover:scale-110 transition-transform duration-300" />
-                <h3 className="text-xl font-bold text-white mb-3">Results-Proven</h3>
-                <p className="text-slate-300 text-sm leading-relaxed">Every template tested and optimized for maximum conversion</p>
-              </div>
-            </div>
 
             {/* Enhanced CTA */}
             <div className="max-w-2xl mx-auto mb-12">
