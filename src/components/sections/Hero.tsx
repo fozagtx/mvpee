@@ -23,14 +23,14 @@ const Hero = () => {
             }`}
             style={{ transitionDelay: '200ms' }}
           >
-            WE CREATE
+            I BUILD COOL
             <br />
             <span 
               className="relative inline-block cursor-pointer transition-all duration-300"
               onMouseEnter={() => setIsHovered(true)}
               onMouseLeave={() => setIsHovered(false)}
             >
-              STORIES
+              STUFF
               <div 
                 className={`absolute bottom-0 left-0 h-1 bg-orange-500 transition-all duration-500 ease-out ${
                   isHovered ? 'w-full' : 'w-0'
@@ -47,8 +47,7 @@ const Hero = () => {
           }`}
           style={{ transitionDelay: '600ms' }}
         >
-          Where vision meets execution. We craft digital experiences 
-          that move people, shift perspectives, and drive results.
+          I build cool stuff for fun.
         </p>
 
         {/* CTA Button */}
