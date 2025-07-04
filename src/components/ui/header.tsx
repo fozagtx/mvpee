@@ -6,33 +6,30 @@ import { HeaderBase } from "./header-base";
 export function Header() {
   const leftContent = (
     <Link to="/" className="flex items-center gap-3">
-      <div className="w-8 h-8 bg-orange-500 rounded-lg flex items-center justify-center">
-        <span className="text-white font-bold text-sm">K</span>
+      <div className="w-8 h-8 bg-white rounded-md flex items-center justify-center">
+        <div className="w-4 h-4 bg-black rounded-sm" />
       </div>
-      <span className="text-xl font-medium hidden md:block">Kyonosuke</span>
     </Link>
   );
 
   const rightContent = (
-    <nav className="flex items-center gap-3">
-      <Link to="/contributors">
-        <Button variant="ghost" className="text-sm p-0">
-          Contributors
-        </Button>
+    <nav className="flex items-center gap-8">
+      <Link to="/discover" className="text-sm text-gray-300 hover:text-white transition-colors">
+        DISCOVER
       </Link>
-      <a href="https://github.com/0xkyon" target="_blank" rel="noopener noreferrer">
-        <Button size="sm" className="text-sm ml-4">
-          GitHub
-          <ArrowRight className="h-4 w-4" />
-        </Button>
-      </a>
+      <Link to="/careers" className="text-sm text-gray-300 hover:text-white transition-colors">
+        CAREERS
+      </Link>
+      <Link to="/manifesto" className="text-sm text-gray-300 hover:text-white transition-colors">
+        MANIFESTO
+      </Link>
     </nav>
   );
 
   return (
-    <div className="mx-4 md:mx-0">
+    <div className="relative z-20">
       <HeaderBase
-        className="bg-secondary border rounded-2xl max-w-3xl mx-auto mt-4 pl-4 pr-[14px]"
+        className="border-none bg-transparent max-w-7xl mx-auto mt-8 px-8"
         leftContent={leftContent}
         rightContent={rightContent}
       />
