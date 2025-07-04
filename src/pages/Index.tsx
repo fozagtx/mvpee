@@ -3,6 +3,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { ArrowRight, Play, ExternalLink } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
+import { Header } from '@/components/ui/header';
 import Hero from '@/components/sections/Hero';
 import ProjectShowcase from '@/components/sections/ProjectShowcase';
 import Services from '@/components/sections/Services';
@@ -50,6 +51,7 @@ const Index = () => {
         }}
       />
 
+      <Header />
       <Hero />
       <ProjectShowcase />
       <Services />
