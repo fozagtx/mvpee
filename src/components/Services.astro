@@ -1,0 +1,195 @@
+---
+const services = [
+	{
+		icon: "🎨",
+		title: "Design to Code",
+		description: "We build your Figma designs into fully functional websites using React, Tailwind, and deploy with Vercel or other providers."
+	},
+	{
+		icon: "☁️",
+		title: "Full Cloud Deployment",
+		description: "We deploy your apps in any cloud provider including Vercel, Supabase, Neon, PlanetScale, and more."
+	},
+	{
+		icon: "💻",
+		title: "Full-Stack Web Applications",
+		description: "We build full-stack web applications using React, Tailwind with backend using Node, GraphQL and databases from MongoDB to PostgreSQL."
+	},
+	{
+		icon: "📱",
+		title: "Full-Stack Mobile Applications",
+		description: "We build mobile applications using React Native with the same backend technologies. Single codebase for both Android and iOS."
+	}
+];
+---
+
+<section id="services" class="section">
+	<div class="container">
+		<h2 class="section-title">How we can help you</h2>
+		<p class="section-subtitle">We provide services that would help you build your own websites. Focus on marketing and other things required for your websites, while we take care of your technical requirements.</p>
+		
+		<div class="services-grid">
+			{services.map(service => (
+				<div class="service-card">
+					<div class="service-icon">{service.icon}</div>
+					<h3>{service.title}</h3>
+					<p>{service.description}</p>
+				</div>
+			))}
+		</div>
+	</div>
+</section>
+
+<style>
+	.section {
+		padding: 8rem 0;
+		background: var(--muted);
+		position: relative;
+	}
+	
+	.section::before {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		height: 100px;
+		background: linear-gradient(to bottom, var(--gradient), transparent);
+		opacity: 0.1;
+	}
+	
+	.section-title {
+		text-align: center;
+		font-size: 3rem;
+		font-weight: 900;
+		margin-bottom: 1rem;
+		color: var(--primary);
+		position: relative;
+		z-index: 1;
+	}
+	
+	.section-subtitle {
+		text-align: center;
+		font-size: 1.25rem;
+		color: var(--secondary);
+		margin-bottom: 4rem;
+		max-width: 800px;
+		margin-left: auto;
+		margin-right: auto;
+		line-height: 1.6;
+		position: relative;
+		z-index: 1;
+	}
+	
+	.services-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+		gap: 3rem;
+		margin-top: 4rem;
+		position: relative;
+		z-index: 1;
+	}
+	
+	.service-card {
+		background: white;
+		padding: 3rem;
+		border-radius: 20px;
+		box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+		border: 1px solid var(--border);
+		transition: all 0.4s ease;
+		text-align: center;
+		position: relative;
+		overflow: hidden;
+	}
+	
+	.service-card::before {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		height: 4px;
+		background: var(--gradient);
+		transform: scaleX(0);
+		transition: transform 0.3s ease;
+	}
+	
+	.service-card:hover::before {
+		transform: scaleX(1);
+	}
+	
+	.service-card:hover {
+		transform: translateY(-10px);
+		box-shadow: 0 30px 60px rgba(0,0,0,0.15);
+	}
+	
+	.service-icon {
+		width: 100px;
+		height: 100px;
+		background: var(--gradient);
+		border-radius: 50%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		margin: 0 auto 2rem;
+		color: white;
+		font-size: 2.5rem;
+		position: relative;
+	}
+	
+	.service-icon::after {
+		content: '';
+		position: absolute;
+		top: -5px;
+		left: -5px;
+		right: -5px;
+		bottom: -5px;
+		background: var(--gradient);
+		border-radius: 50%;
+		z-index: -1;
+		opacity: 0.3;
+		animation: pulse 2s infinite;
+	}
+	
+	.service-card h3 {
+		font-size: 1.75rem;
+		font-weight: 800;
+		margin-bottom: 1rem;
+		color: var(--primary);
+	}
+	
+	.service-card p {
+		color: var(--secondary);
+		line-height: 1.7;
+		font-size: 1.1rem;
+	}
+	
+	@keyframes pulse {
+		0%, 100% {
+			transform: scale(1);
+			opacity: 0.3;
+		}
+		50% {
+			transform: scale(1.1);
+			opacity: 0.5;
+		}
+	}
+	
+	@media (max-width: 768px) {
+		.section {
+			padding: 4rem 0;
+		}
+		
+		.section-title {
+			font-size: 2.5rem;
+		}
+		
+		.services-grid {
+			grid-template-columns: 1fr;
+		}
+		
+		.service-card {
+			padding: 2rem;
+		}
+	}
+</style> 

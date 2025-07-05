@@ -1,16 +1,282 @@
 ---
+// Import components
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
 
+// SEO and meta data
+const title = "MVP Builder - From Idea to Reality in Weeks";
+const description = "Transform your ideas into market-ready MVPs in weeks, not months. Expert development services for startups and entrepreneurs.";
 ---
 
 <html lang="en">
 	<head>
 		<meta charset="utf-8" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
+		<title>{title}</title>
+		<meta name="description" content={description} />
+		
+		<!-- Open Graph -->
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		<meta property="og:type" content="website" />
+		
+		<!-- Twitter Card -->
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:title" content={title} />
+		<meta name="twitter:description" content={description} />
+		
+		<!-- Preconnect to external resources -->
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+		
+		<style>
+			:root {
+				--primary: #000000;
+				--primary-dark: #1a1a1a;
+				--secondary: #666666;
+				--accent: #3b82f6;
+				--background: #ffffff;
+				--foreground: #000000;
+				--muted: #f8f9fa;
+				--border: #e5e7eb;
+			}
+			
+			* {
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+			}
+			
+			body {
+				font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+				line-height: 1.6;
+				color: var(--foreground);
+				background: var(--background);
+			}
+			
+			.container {
+				max-width: 1200px;
+				margin: 0 auto;
+				padding: 0 1rem;
+			}
+			
+			/* Hero Section */
+			.hero {
+				padding: 8rem 0 6rem;
+				text-align: center;
+				background: var(--background);
+				color: var(--foreground);
+			}
+			
+			.hero h1 {
+				font-size: clamp(3rem, 6vw, 5rem);
+				font-weight: 900;
+				margin-bottom: 1.5rem;
+				line-height: 1.1;
+				color: var(--primary);
+			}
+			
+			.hero .subtitle {
+				font-size: 1.5rem;
+				margin-bottom: 2rem;
+				color: var(--secondary);
+				font-weight: 400;
+			}
+			
+			.hero .description {
+				font-size: 1.25rem;
+				margin-bottom: 3rem;
+				color: var(--secondary);
+				max-width: 600px;
+				margin-left: auto;
+				margin-right: auto;
+			}
+			
+			.btn {
+				display: inline-block;
+				padding: 1rem 2.5rem;
+				background: var(--primary);
+				color: white;
+				text-decoration: none;
+				border-radius: 8px;
+				font-weight: 600;
+				transition: all 0.3s ease;
+				border: none;
+				cursor: pointer;
+				font-size: 1.125rem;
+			}
+			
+			.btn:hover {
+				transform: translateY(-2px);
+				box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+				background: var(--primary-dark);
+			}
+			
+			.btn-secondary {
+				background: transparent;
+				border: 2px solid var(--primary);
+				color: var(--primary);
+				margin-left: 1rem;
+			}
+			
+			.btn-secondary:hover {
+				background: var(--primary);
+				color: white;
+			}
+			
+			/* Features Section */
+			.features {
+				padding: 6rem 0;
+				background: var(--muted);
+			}
+			
+			.features-grid {
+				display: grid;
+				grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+				gap: 3rem;
+				margin-top: 4rem;
+			}
+			
+			.feature-card {
+				background: white;
+				padding: 2.5rem;
+				border-radius: 12px;
+				text-align: center;
+				box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+				border: 1px solid var(--border);
+				transition: all 0.3s ease;
+			}
+			
+			.feature-card:hover {
+				transform: translateY(-5px);
+				box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+			}
+			
+			.feature-icon {
+				width: 80px;
+				height: 80px;
+				background: var(--accent);
+				border-radius: 50%;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				margin: 0 auto 1.5rem;
+				color: white;
+				font-size: 2rem;
+			}
+			
+			.feature-card h3 {
+				font-size: 1.5rem;
+				font-weight: 700;
+				margin-bottom: 1rem;
+				color: var(--primary);
+			}
+			
+			.feature-card p {
+				color: var(--secondary);
+				line-height: 1.6;
+				font-size: 1.1rem;
+			}
+			
+			/* Why Choose Us Section */
+			.why-choose {
+				padding: 6rem 0;
+				background: white;
+			}
+			
+			.why-grid {
+				display: grid;
+				grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+				gap: 3rem;
+				margin-top: 4rem;
+			}
+			
+			.why-card {
+				padding: 2rem;
+				border-left: 4px solid var(--accent);
+				background: var(--muted);
+				border-radius: 0 8px 8px 0;
+			}
+			
+			.why-card h3 {
+				font-size: 1.5rem;
+				font-weight: 700;
+				margin-bottom: 1rem;
+				color: var(--primary);
+			}
+			
+			.why-card p {
+				color: var(--secondary);
+				line-height: 1.6;
+			}
+			
+			/* Responsive */
+			@media (max-width: 768px) {
+				.hero {
+					padding: 4rem 0 3rem;
+				}
+				
+				.btn-secondary {
+					margin-left: 0;
+					margin-top: 1rem;
+					display: block;
+				}
+				
+				.features, .why-choose {
+					padding: 3rem 0;
+				}
+			}
+		</style>
 	</head>
 	<body>
-		<h1>Astro</h1>
+		<!-- Header -->
+		<Header />
+
+		<!-- Hero Section -->
+		<section class="hero">
+			<div class="container">
+				<h1>From Idea to Reality</h1>
+				<div class="subtitle">Websites • Startup • MVP</div>
+				<p class="description">We help building your amazing product ideas in weeks, not months.</p>
+				<div>
+					<a href="#contact" class="btn">Get Started Now</a>
+					<a href="#services" class="btn btn-secondary">Learn More</a>
+				</div>
+			</div>
+		</section>
+       <!-- Footer -->
+		<Footer />
+
+		<script>
+			// Smooth scrolling for navigation links
+			document.querySelectorAll('a[href^="#"]').forEach((anchor: Element) => {
+				anchor.addEventListener('click', (e: Event) => {
+					e.preventDefault();
+					const href = (anchor as HTMLAnchorElement).getAttribute('href');
+					const target = document.querySelector(href || '');
+					if (target) {
+						target.scrollIntoView({
+							behavior: 'smooth',
+							block: 'start'
+						});
+					}
+				});
+			});
+
+			// Add scroll effect to header
+			window.addEventListener('scroll', () => {
+				const header = document.querySelector('.header') as HTMLElement;
+				if (header) {
+					if (window.scrollY > 100) {
+						header.style.background = 'rgba(255, 255, 255, 0.95)';
+					} else {
+						header.style.background = 'var(--background)';
+					}
+				}
+			});
+		</script>
 	</body>
 </html>
