@@ -1,5 +1,6 @@
 
 import React from 'react';
+import { SquareDot } from '@/components/ui/square-dot';
 
 const Index = () => {
   return (
@@ -69,6 +70,14 @@ const Index = () => {
           </div>
         </div>
       </section>
+
+      {/* Decorative Square Dots */}
+      <div className="relative">
+        <SquareDot position="topLeft" className="top-20 left-20" />
+        <SquareDot position="topRight" className="top-32 right-32" />
+        <SquareDot position="bottomLeft" className="bottom-40 left-40" size="lg" />
+        <SquareDot position="bottomRight" className="bottom-20 right-20" size="sm" />
+      </div>
     </div>
   );
 };
