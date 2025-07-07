@@ -113,7 +113,7 @@ export default function Home() {
       {/* Studio Ghibli-inspired dreamy background */}
       <div className="absolute inset-0 -z-10">
         {/* Sky/field gradient */}
-        <div className="w-full h-full bg-gradient-to-br from-[#b7eaff] via-[#d0f5d8] to-[#f9e7c2]" />
+        <div className="w-full h-full bg-gradient-to-br from-[#595c5e] via-[#6e8b75] to-[#f9e7c2]" />
         {/* Dreamy haze */}
         <div className="absolute inset-0 bg-gradient-radial from-white/60 via-transparent to-transparent opacity-80" />
         {/* Painterly clouds */}
@@ -123,7 +123,7 @@ export default function Home() {
         <div className="absolute bottom-[-5%] right-[10%] w-[45vw] h-[20vw] bg-white/50 rounded-full blur-3xl opacity-50" />
       </div>
       <main className="flex-1 flex flex-col items-center justify-center py-12 px-4">
-        <h1 className="text-4xl font-bold mb-8 text-center">Blog to semantic link in seconds</h1>
+        <h1 className="text-4xl font-bold mb-8 text-center font-sans">Blog to semantic link in seconds</h1>
         <div className="w-full max-w-xl flex flex-col rounded-2xl shadow-inner bg-gray-50 p-8">
           <PromptInput isLoading={loading} value={content} onValueChange={setContent} onSubmit={handleSubmit} maxHeight={120}>
             <div className={`w-full flex flex-col gap-2 items-stretch`}>
