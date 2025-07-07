@@ -99,26 +99,22 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col relative overflow-hidden bg-[#0f172a]">
-      {/* Lovable-style radial gradient overlay */}
-      <div className="pointer-events-none absolute inset-0 -z-10">
-        <div className="absolute inset-0 w-full h-full bg-[radial-gradient(ellipse_at_bottom,_60%_60%,_#334155_0%,_#0f172a_60%,_#fb7185_100%)]" />
-      </div>
+    <div className="min-h-screen flex flex-col relative overflow-hidden bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-[#0f172a] via-[#1e293b] to-[#fb7185] text-black">
       <main className="flex-1 flex flex-col items-center justify-center py-12 px-4">
-        <h1 className="text-5xl md:text-6xl font-extrabold mb-4 text-center font-sans text-white drop-shadow-lg flex items-center justify-center gap-2">
+        <h1 className="text-5xl md:text-6xl font-extrabold mb-4 text-center font-sans drop-shadow-lg flex items-center justify-center gap-2">
           Blog to semantic link <span className="text-4xl md:text-5xl">💖</span> in seconds
         </h1>
-        <p className="text-lg md:text-xl text-slate-300 mb-10 text-center font-sans">Create SEO-friendly links for your blog posts instantly.</p>
+        <p className="text-lg md:text-xl text-black mb-10 text-center font-sans">Create SEO-friendly links for your blog posts instantly.</p>
         <div className="w-full max-w-2xl flex flex-col items-center">
           <div className="w-full flex flex-col items-center justify-center">
-            <div className="w-full max-w-xl bg-[#18181b] rounded-3xl shadow-2xl px-4 sm:px-8 py-6 mx-auto">
+            <div className="w-full max-w-xl bg-[#18181b] rounded-3xl shadow-2xl px-4 sm:px-8 py-6 mx-auto text-black">
               <PromptInput isLoading={loading} value={content} onValueChange={setContent} onSubmit={handleSubmit} maxHeight={120}>
                 <div className="w-full flex flex-col gap-3 items-stretch">
                   <PromptInputTextarea
                     ref={inputRef}
                     placeholder="Ask SEOMINT to create a semantic link for your blog..."
                     disabled={loading}
-                    className="w-full min-h-[56px] md:min-h-[56px] max-h-[120px] resize-none overflow-auto text-lg px-6 py-5 rounded-2xl border-none bg-[#23232a] text-white placeholder:text-slate-400 shadow-none focus:ring-2 focus:ring-pink-300 focus:border-pink-400 transition-all font-sans"
+                    className="w-full min-h-[56px] md:min-h-[56px] max-h-[120px] resize-none overflow-auto text-lg px-6 py-5 rounded-2xl border-none bg-[#23232a] text-black placeholder:text-slate-400 shadow-none focus:ring-2 focus:ring-pink-300 focus:border-pink-400 transition-all font-sans"
                   />
                   <PromptInputActions className="flex justify-end mt-2">
                     <Button
