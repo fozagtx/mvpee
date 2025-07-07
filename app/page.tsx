@@ -111,14 +111,14 @@ export default function Home() {
         <p className="text-lg md:text-xl text-slate-300 mb-10 text-center font-sans">Create SEO-friendly links for your blog posts instantly.</p>
         <div className="w-full max-w-2xl flex flex-col items-center">
           <div className="w-full flex flex-col items-center justify-center">
-            <div className="w-full max-w-2xl bg-[#18181b] rounded-3xl shadow-2xl px-6 py-8 flex flex-col items-center justify-center">
+            <div className="w-full max-w-xl bg-[#18181b] rounded-3xl shadow-2xl px-4 sm:px-8 py-6 mx-auto">
               <PromptInput isLoading={loading} value={content} onValueChange={setContent} onSubmit={handleSubmit} maxHeight={120}>
                 <div className="w-full flex flex-col gap-3 items-stretch">
                   <PromptInputTextarea
                     ref={inputRef}
                     placeholder="Ask SEOMINT to create a semantic link for your blog..."
                     disabled={loading}
-                    className="w-full min-h-[56px] md:min-h-[56px] max-h-[120px] resize-none overflow-auto text-lg px-6 py-4 rounded-2xl border-none bg-[#23232a] text-white placeholder:text-slate-400 shadow-none focus:ring-2 focus:ring-pink-300 focus:border-pink-400 transition-all font-sans"
+                    className="w-full min-h-[56px] md:min-h-[56px] max-h-[120px] resize-none overflow-auto text-lg px-6 py-5 rounded-2xl border-none bg-[#23232a] text-white placeholder:text-slate-400 shadow-none focus:ring-2 focus:ring-pink-300 focus:border-pink-400 transition-all font-sans"
                   />
                   <PromptInputActions className="flex justify-end mt-2">
                     <Button
