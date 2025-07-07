@@ -1,5 +1,5 @@
 import React from 'react'
-import { HeaderBase } from "@/app/components/Header-base"
+import { HeaderBase } from "@/components/Header-base"
 
 
 const leftContent = (
@@ -17,8 +17,7 @@ const rightContent = (
 
 export default function Header()  {
   return (
-
-    <HeaderBase className='font-bold text-balance'
+   <HeaderBase className='font-bold text-balance'
     leftContent={leftContent}
     rightContent={rightContent}
     />
