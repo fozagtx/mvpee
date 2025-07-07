@@ -39,21 +39,11 @@ export default function Home() {
   const [showToast, setShowToast] = useState(false);
   const [toastMessage, setToastMessage] = useState("");
   const { width, height } = useWindowSize();
-  const [inputRows, setInputRows] = useState(1);
   const inputRef = React.useRef<HTMLTextAreaElement>(null);
 
   // Helper to count words
   const wordCount = content.trim().split(/\s+/).filter(Boolean).length;
   const isTooShort = wordCount > 0 && wordCount < 300;
-
-  // Dynamically update input rows based on content
-  React.useEffect(() => {
-    if (inputRef.current) {
-      const lineHeight = 28; // px, matches text-lg/leading-7
-      const lines = Math.floor(inputRef.current.scrollHeight / lineHeight);
-      setInputRows(Math.max(1, lines));
-    }
-  }, [content]);
 
   const handleSubmit = async () => {
     if (!content.trim()) return;
@@ -109,64 +99,47 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col relative overflow-hidden">
-      {/* Studio Ghibli-inspired dreamy background */}
-      <div className="absolute inset-0 -z-10">
-        {/* Sky/field gradient */}
-        <div className="w-full h-full bg-gradient-to-br from-[#595c5e] via-[#6e8b75] to-[#f9e7c2]" />
-        {/* Dreamy haze */}
-        <div className="absolute inset-0 bg-gradient-radial from-white/60 via-transparent to-transparent opacity-80" />
-        {/* Painterly clouds */}
-        <div className="absolute top-[-10%] left-[10%] w-[40vw] h-[18vw] bg-white/60 rounded-full blur-3xl opacity-70" />
-        <div className="absolute top-[20%] right-[5%] w-[30vw] h-[12vw] bg-[#f9e7c2]/60 rounded-full blur-2xl opacity-60" />
-        <div className="absolute bottom-[10%] left-[5%] w-[35vw] h-[14vw] bg-[#d0f5d8]/60 rounded-full blur-2xl opacity-60" />
-        <div className="absolute bottom-[-5%] right-[10%] w-[45vw] h-[20vw] bg-white/50 rounded-full blur-3xl opacity-50" />
+    <div className="min-h-screen flex flex-col relative overflow-hidden bg-[#0f172a]">
+      {/* Lovable-style radial gradient overlay */}
+      <div className="pointer-events-none absolute inset-0 -z-10">
+        <div className="absolute inset-0 w-full h-full bg-[radial-gradient(ellipse_at_bottom,_60%_60%,_#334155_0%,_#0f172a_60%,_#fb7185_100%)]" />
       </div>
       <main className="flex-1 flex flex-col items-center justify-center py-12 px-4">
-        <h1 className="text-4xl font-bold mb-8 text-center font-sans">Blog to semantic link in seconds</h1>
-        <div className="w-full max-w-xl flex flex-col rounded-2xl shadow-inner bg-gray-50 p-8">
-          <PromptInput isLoading={loading} value={content} onValueChange={setContent} onSubmit={handleSubmit} maxHeight={120}>
-            <div className={`w-full flex flex-col gap-2 items-stretch`}>
-              <div className="relative w-full">
-                <PromptInputTextarea
-                  ref={inputRef}
-                  placeholder="Paste your blog content here..."
-                  disabled={loading}
-                  className="min-h-[56px] md:min-h-[56px] max-h-[120px] resize-none overflow-auto flex-1 text-lg px-4 py-3 rounded-xl border border-gray-300 bg-white shadow-sm focus:ring-2 focus:ring-blue-200 focus:border-blue-400 transition-all pr-24"
-                  style={{paddingRight: inputRows <= 2 ? '6rem' : undefined}}
-                />
-                {inputRows <= 2 && (
-                  <PromptInputActions className="absolute right-2 top-1/2 -translate-y-1/2 flex-none flex items-center">
+        <h1 className="text-5xl md:text-6xl font-extrabold mb-4 text-center font-sans text-white drop-shadow-lg flex items-center justify-center gap-2">
+          Blog to semantic link <span className="text-4xl md:text-5xl">💖</span> in seconds
+        </h1>
+        <p className="text-lg md:text-xl text-slate-300 mb-10 text-center font-sans">Create SEO-friendly links for your blog posts instantly.</p>
+        <div className="w-full max-w-2xl flex flex-col items-center">
+          <div className="w-full flex flex-col items-center justify-center">
+            <div className="w-full max-w-2xl bg-[#18181b] rounded-3xl shadow-2xl px-6 py-8 flex flex-col items-center justify-center">
+              <PromptInput isLoading={loading} value={content} onValueChange={setContent} onSubmit={handleSubmit} maxHeight={120}>
+                <div className="w-full flex flex-col gap-3 items-stretch">
+                  <PromptInputTextarea
+                    ref={inputRef}
+                    placeholder="Ask SEOMINT to create a semantic link for your blog..."
+                    disabled={loading}
+                    className="w-full min-h-[56px] md:min-h-[56px] max-h-[120px] resize-none overflow-auto text-lg px-6 py-4 rounded-2xl border-none bg-[#23232a] text-white placeholder:text-slate-400 shadow-none focus:ring-2 focus:ring-pink-300 focus:border-pink-400 transition-all font-sans"
+                  />
+                  <PromptInputActions className="flex justify-end mt-2">
                     <Button
                       onClick={handleSubmit}
                       disabled={loading || !content.trim() || isTooShort}
-                      className="h-10 px-5 text-base rounded-lg shadow-md"
+                      className="h-10 px-8 text-base rounded-xl shadow-md bg-gradient-to-r from-pink-500 to-orange-400 text-white font-bold border-none hover:from-pink-400 hover:to-orange-300"
                     >
                       {loading ? <Loader variant="dots" size="sm" /> : "Crawl"}
                     </Button>
                   </PromptInputActions>
-                )}
-              </div>
-              {inputRows > 2 && (
-                <PromptInputActions className="flex-none flex items-center justify-end mt-1">
-                  <Button
-                    onClick={handleSubmit}
-                    disabled={loading || !content.trim() || isTooShort}
-                    className="h-10 px-5 text-base rounded-lg shadow-md"
-                  >
-                    {loading ? <Loader variant="dots" size="sm" /> : "Crawl"}
-                  </Button>
-                </PromptInputActions>
+                </div>
+              </PromptInput>
+              {inputError && (
+                <div className="text-center text-red-500 animate-shake mt-2">{inputError}</div>
+              )}
+              <div className="text-xs text-gray-500 mt-1 text-center">{wordCount} / 300 words minimum</div>
+              {error && !modalOpen && (
+                <div className="text-center text-red-500 animate-shake mt-2">{error}</div>
               )}
             </div>
-          </PromptInput>
-          {inputError && (
-            <div className="text-center text-red-500 animate-shake mt-2">{inputError}</div>
-          )}
-          <div className="text-xs text-gray-500 mt-1 text-center">{wordCount} / 300 words minimum</div>
-          {error && !modalOpen && (
-            <div className="text-center text-red-500 animate-shake mt-2">{error}</div>
-          )}
+          </div>
         </div>
         <Modal open={modalOpen} onClose={handleCloseModal}>
           {showConfetti && <Confetti width={width} height={height} numberOfPieces={180} recycle={false} gravity={0.25} colors={["#FFEB3B","#FF9800","#F44336","#FFD600","#FF5252"]} />}
