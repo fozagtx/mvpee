@@ -1,11 +1,18 @@
 import { NextRequest, NextResponse } from 'next/server';
+import { z } from 'zod';
+
+const SemanticLinkRequestSchema = z.object({
+  content: z.string().min(1, 'Content is required'),
+});
 
 export async function POST(req: NextRequest) {
   try {
-    const { content } = await req.json();
-    if (!content || typeof content !== 'string') {
-      return NextResponse.json({ error: 'Missing or invalid blog content.' }, { status: 400 });
+    const json = await req.json();
+    const parseResult = SemanticLinkRequestSchema.safeParse(json);
+    if (!parseResult.success) {
+      return NextResponse.json({ error: 'Invalid request', details: parseResult.error.errors }, { status: 400 });
     }
+    const { content } = parseResult.data;
 
     // Prepare prompt for Mistral AI
     const prompt = `Generate a short, semantic, SEO-friendly blog link (slug) for the following blog content. The link should use hyphens and be similar to: hire-js-developer.\n\nBlog Content:\n${content}`;
