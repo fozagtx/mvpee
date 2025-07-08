@@ -102,22 +102,19 @@ export default function Home() {
     <div className="min-h-screen flex flex-col relative overflow-hidden bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-[#0f172a] via-[#1e293b] to-[#fb7185] text-black">
       <main className="flex-1 flex flex-col items-center justify-center py-8 px-2 sm:py-12 sm:px-4">
         <h1 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold mb-4 text-center font-sans drop-shadow-lg flex flex-wrap items-center justify-center gap-2 leading-tight break-words">
-          <span>Blog to semantic link</span>
-          <span className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl whitespace-nowrap">��</span>
-          <span className="hidden xs:inline">in seconds</span>
-          <span className="inline xs:hidden block w-full text-center">in seconds</span>
+        <h1 className="scroll-m-20 text-center text-4xl font-extrabold tracking-tight text-balance">  Blog to semantic link </h1>
         </h1>
         <p className="text-base xs:text-lg sm:text-xl md:text-xl text-black mb-6 sm:mb-10 text-center font-sans">Create SEO-friendly links for your blog posts instantly.</p>
         <div className="w-full max-w-full sm:max-w-2xl flex flex-col items-center">
           <div className="w-full flex flex-col items-center justify-center">
-            <div className="w-full max-w-full sm:max-w-xl bg-[#18181b] rounded-3xl shadow-2xl px-2 sm:px-6 py-4 sm:py-6 mx-auto text-black">
+            <div className="w-full max-w-full sm:max-w-xl bg-white rounded-3xl shadow-2xl px-2 sm:px-6 py-4 sm:py-6 mx-auto text-black">
               <PromptInput isLoading={loading} value={content} onValueChange={setContent} onSubmit={handleSubmit} maxHeight={120}>
                 <div className="w-full flex flex-col gap-3 items-stretch">
                   <PromptInputTextarea
                     ref={inputRef}
                     placeholder="Ask SEOMINT to create a semantic link for your blog..."
                     disabled={loading}
-                    className="w-full min-h-[48px] sm:min-h-[56px] max-h-[120px] resize-none overflow-auto text-base sm:text-lg px-3 sm:px-6 py-3 sm:py-5 rounded-2xl border-none bg-[#23232a] text-black placeholder:text-slate-400 shadow-none focus:ring-2 focus:ring-pink-300 focus:border-pink-400 transition-all font-sans"
+                    className="w-full min-h-[48px] sm:min-h-[56px] max-h-[120px] resize-none overflow-auto text-base sm:text-lg px-3 sm:px-6 py-3 sm:py-5 rounded-2xl border-none bg-white text-black placeholder:text-slate-400 shadow-none focus:ring-2 focus:ring-pink-300 focus:border-pink-400 transition-all font-sans"
                   />
                   <PromptInputActions className="flex justify-end mt-2">
                     <Button
