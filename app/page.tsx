@@ -10,6 +10,7 @@ import React, { useState } from "react";
 import { Toast } from "../components/ui/toast";
 import Confetti from "react-confetti";
 import { useWindowSize } from "react-use";
+import Header from "../components/Header";
 
 function Modal({ open, onClose, children }: { open: boolean; onClose: () => void; children: React.ReactNode }) {
   if (!open) return null;
@@ -102,6 +103,7 @@ export default function Home() {
 
   return (
     <>
+      <Header />
       <ShaderBackground />
       <div className="relative z-10 min-h-screen flex flex-col overflow-hidden bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-[#0f172a] via-[#1e293b] to-[#fb7185] text-black">
         <main className="flex-1 flex flex-col items-center justify-center py-8 px-2 sm:py-12 sm:px-4">
@@ -111,14 +113,14 @@ export default function Home() {
           <p className="text-base xs:text-lg sm:text-xl md:text-xl text-white mb-6 sm:mb-10 text-center font-sans">Create SEO-friendly links for your blog posts instantly.</p>
           <div className="w-full max-w-full sm:max-w-2xl flex flex-col items-center">
             <div className="w-full flex flex-col items-center justify-center">
-              <div className="w-full max-w-full sm:max-w-xl bg-white rounded-3xl shadow-2xl px-2 sm:px-6 py-4 sm:py-6 mx-auto text-black">
+              <div className="w-full max-w-full sm:max-w-xl bg-white/10 backdrop-blur-md border border-white/20 rounded-3xl shadow-2xl px-2 sm:px-6 py-4 sm:py-6 mx-auto text-black">
                 <PromptInput isLoading={loading} value={content} onValueChange={setContent} onSubmit={handleSubmit} maxHeight={120}>
                   <div className="w-full flex flex-col gap-3 items-stretch">
                     <PromptInputTextarea
                       ref={inputRef}
                       placeholder="create a semantic link for your blog..."
                       disabled={loading}
-                      className="w-full min-h-[48px] sm:min-h-[56px] max-h-[120px] resize-none overflow-auto text-base sm:text-lg px-3 sm:px-6 py-3 sm:py-5 rounded-2xl border-none bg-white text-black placeholder:text-slate-400 shadow-none focus:ring-2 focus:ring-pink-300 focus:border-pink-400 transition-all font-sans"
+                      className="w-full min-h-[48px] sm:min-h-[56px] max-h-[120px] resize-none overflow-auto text-base sm:text-lg px-3 sm:px-6 py-3 sm:py-5 rounded-2xl border border-white/20 bg-white/10 text-black placeholder:text-slate-600 shadow-none focus:ring-2 focus:ring-pink-400 focus:border-pink-400 transition-all font-sans backdrop-blur"
                     />
                     <PromptInputActions className="flex justify-end mt-2">
                        <Button
@@ -134,7 +136,7 @@ export default function Home() {
                 {inputError && (
                   <div className="text-center text-red-500 animate-shake mt-2">{inputError}</div>
                 )}
-                <div className="text-xs text-gray-500 mt-1 text-center">{wordCount} / 300 words minimum</div>
+                <div className="text-xs text-white mt-1 text-center">{wordCount} / 300 words minimum</div>
                 {error && !modalOpen && (
                   <div className="text-center text-red-500 animate-shake mt-2">{error}</div>
                 )}

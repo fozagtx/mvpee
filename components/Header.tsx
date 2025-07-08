@@ -1,27 +1,16 @@
-import React from 'react'
-import { HeaderBase } from "@/components/Header-base"
+"use client";
+import React from "react";
 
-
-const leftContent = (
-    <h1 className='mr-8 text-2xl text-black font-mono'>MVPE</h1>
-)
-
-const rightContent = (
-         <nav className='flex justify-center font-mono'>
-        <ul className='text-2xl text-black'>
-            <li>Cal</li>
-        </ul>
-    </nav>
-   )
-
-
-export default function Header()  {
+export default function Header() {
   return (
-   <HeaderBase className='font-bold text-balance'
-    leftContent={leftContent}
-    rightContent={rightContent}
-    />
-   
-  )
+    <header className="fixed top-4 left-1/2 z-20 transform -translate-x-1/2 bg-white/10 backdrop-blur-md border border-white/20 shadow-md rounded-full px-8 py-2 flex items-center justify-center" style={{minWidth: 'max-content', maxWidth: '90vw'}}>
+      {/* Centered Navigation */}
+      <nav className="flex items-center gap-8">
+        <span className="text-xl font-bold tracking-tight text-white drop-shadow">mvpee</span>
+        <a href="#" className="text-white/90 hover:text-pink-400 font-medium transition">Docs</a>
+        <a href="#" className="text-white/90 hover:text-pink-400 font-medium transition">About</a>
+      </nav>
+    </header>
+  );
 }
 
