@@ -2,6 +2,7 @@
 
 // import Header from "../components/Header";
 import { Loader } from "../components/ui/loader";
+import { CircleArrowUp } from "lucide-react";
 import { PromptInput, PromptInputTextarea, PromptInputActions } from "../components/ui/prompt-input";
 import { Button } from "../components/ui/button";
 import React, { useState } from "react";
@@ -117,12 +118,12 @@ export default function Home() {
                     className="w-full min-h-[48px] sm:min-h-[56px] max-h-[120px] resize-none overflow-auto text-base sm:text-lg px-3 sm:px-6 py-3 sm:py-5 rounded-2xl border-none bg-white text-black placeholder:text-slate-400 shadow-none focus:ring-2 focus:ring-pink-300 focus:border-pink-400 transition-all font-sans"
                   />
                   <PromptInputActions className="flex justify-end mt-2">
-                    <Button
+                     <Button
                       onClick={handleSubmit}
                       disabled={loading || !content.trim() || isTooShort}
                       className="h-10 w-full sm:w-auto px-6 sm:px-8 text-base rounded-xl shadow-md bg-gradient-to-r from-pink-500 to-orange-400 text-white font-bold border-none hover:from-pink-400 hover:to-orange-300"
                     >
-                      {loading ? <Loader variant="dots" size="sm" /> : "Crawl"}
+                      {loading ? <Loader variant="dots" size="sm" /> :<CircleArrowUp size={28} />}
                     </Button>
                   </PromptInputActions>
                 </div>
