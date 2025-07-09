@@ -7,10 +7,10 @@ import remarkGfm from "remark-gfm"
 import { CodeBlock, CodeBlockCode } from "./code-block"
 
 export type MarkdownProps = {
-  children: React.ReactNode;
-  id?: string;
-  className?: string;
-  components?: Partial<Components>;
+  children: string
+  id?: string
+  className?: string
+  components?: Partial<Components>
 }
 
 function parseMarkdownIntoBlocks(markdown: string): string[] {
@@ -89,7 +89,7 @@ function MarkdownComponent({
 }: MarkdownProps) {
   const generatedId = useId()
   const blockId = id ?? generatedId
-  const blocks = useMemo(() => parseMarkdownIntoBlocks(children as string), [children])
+  const blocks = useMemo(() => parseMarkdownIntoBlocks(children), [children])
 
   return (
     <div className={className}>

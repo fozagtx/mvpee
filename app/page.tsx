@@ -11,24 +11,8 @@ import { Toast } from "../components/ui/toast";
 import Confetti from "react-confetti";
 import { useWindowSize } from "react-use";
 import Header from "../components/Header";
-
-function Modal({ open, onClose, children }: { open: boolean; onClose: () => void; children: React.ReactNode }) {
-  if (!open) return null;
-  return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-[6px]">
-      <div className="bg-white rounded-xl shadow-lg p-6 min-w-[320px] max-w-[90vw] relative flex flex-col items-center justify-center focus:outline-none" tabIndex={-1}>
-        <button
-          className="absolute top-2 right-2 text-gray-400 hover:text-gray-700 text-xl font-bold"
-          onClick={onClose}
-          aria-label="Close"
-        >
-          ×
-        </button>
-        {children}
-      </div>
-    </div>
-  );
-}
+import Modal from "../components/page/Modal";
+import { Markdown } from "@/components/ui/markdown";
 
 export default function Home() {
   const [content, setContent] = useState("");
@@ -44,38 +28,33 @@ export default function Home() {
   const { width, height } = useWindowSize();
   const inputRef = React.useRef<HTMLTextAreaElement>(null);
 
-  // Helper to count words
-  const wordCount = content.trim().split(/\s+/).filter(Boolean).length;
-  const isTooShort = wordCount > 0 && wordCount < 300;
+  // Remove word count restriction
+  // const wordCount = content.trim().split(/\s+/).filter(Boolean).length;
+  // const isTooShort = wordCount > 0 && wordCount < 300;
 
   const handleSubmit = async () => {
     if (!content.trim()) return;
-    if (wordCount < 300) {
-      setInputError("Blog content must be at least 300 words.");
-      return;
-    } else {
-      setInputError("");
-    }
+    setInputError("");
     setLoading(true);
     setError("");
     setGeneratedLink("");
     setModalOpen(true);
     setCopied(false);
     try {
-      const res = await fetch("/api/semantic-link", {
+      const res = await fetch("/api/getLink", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ content }),
+        body: JSON.stringify({ prompt: content, targetLanguage: "English" }),
       });
       const data = await res.json();
-      if (res.ok && data.semanticLink) {
-        setGeneratedLink(data.semanticLink);
+      if (res.ok && data.article) {
+        setGeneratedLink(data.article);
         setShowConfetti(true);
-        setToastMessage("Semantic link generated! 🎉");
+        setToastMessage("Blog content generated! 🎉");
         setShowToast(true);
         setTimeout(() => setShowConfetti(false), 2200);
       } else {
-        setError(data.error || "Failed to generate link.");
+        setError(data.error || "Failed to generate blog content.");
       }
     } catch {
       setError("Network error.");
@@ -118,14 +97,14 @@ export default function Home() {
                   <div className="w-full flex flex-col gap-3 items-stretch">
                     <PromptInputTextarea
                       ref={inputRef}
-                      placeholder="create a semantic link for your blog..."
+                      placeholder="Enter your blog topic or prompt..."
                       disabled={loading}
                       className="w-full min-h-[48px] sm:min-h-[56px] max-h-[120px] resize-none overflow-auto text-base sm:text-lg px-3 sm:px-6 py-3 sm:py-5 rounded-2xl border border-white/20 bg-white/10 text-black placeholder:text-slate-600 shadow-none focus:ring-2 focus:ring-pink-400 focus:border-pink-400 transition-all font-sans backdrop-blur"
                     />
                     <PromptInputActions className="flex justify-end mt-2">
                        <Button
                         onClick={handleSubmit}
-                        disabled={loading || !content.trim() || isTooShort}
+                        disabled={loading || !content.trim()}
                         className="h-10 w-full sm:w-auto px-6 sm:px-8 text-base rounded-xl shadow-md bg-gradient-to-r from-pink-500 to-orange-400 text-white font-bold border-none hover:from-pink-400 hover:to-orange-300"
                       >
                         {loading ? <Loader variant="dots" size="sm" /> :<CircleArrowUp size={28} />}
@@ -136,7 +115,7 @@ export default function Home() {
                 {inputError && (
                   <div className="text-center text-red-500 animate-shake mt-2">{inputError}</div>
                 )}
-                <div className="text-xs text-white mt-1 text-center">{wordCount} / 300 words minimum</div>
+                {/* Removed word count display */}
                 {error && !modalOpen && (
                   <div className="text-center text-red-500 animate-shake mt-2">{error}</div>
                 )}
@@ -148,17 +127,19 @@ export default function Home() {
             {loading && (
               <div className="flex flex-col items-center justify-center min-h-[120px]">
                 <Loader variant="typing" size="md" text="Generating..." />
-                <div className="mt-2 text-gray-500 text-sm">Generating your semantic link...</div>
+                <div className="mt-2 text-gray-500 text-sm">Generating blog content, please wait...</div>
               </div>
             )}
-            {!loading && generatedLink && (
-              <div className="flex flex-col items-center justify-center min-h-[120px]">
-                <div className="text-lg font-semibold mb-2">Your Semantic Link</div>
-                <div className="bg-gray-100 rounded px-4 py-2 text-center text-primary font-mono text-base break-all mb-4 select-all">
-                  {generatedLink}
+            {!loading && generatedLink && typeof generatedLink === 'string' && generatedLink.trim().length > 0 && (
+              <div className="flex flex-col items-center justify-center min-h-[120px] w-full">
+                <div className="text-lg font-semibold mb-2">Your Generated Blog Content</div>
+                <div className="bg-white text-black rounded-xl px-4 py-2 text-left mb-4 shadow-lg border border-white/20 max-h-[60vh] overflow-auto w-full">
+                  <Markdown className="prose prose-h1:text-2xl prose-h2:text-xl prose-h3:text-lg prose-h4:text-base prose-h5:text-sm prose-h6:text-xs">
+                    {generatedLink}
+                  </Markdown>
                 </div>
                 <Button onClick={handleCopy} className="mb-2 w-full">
-                  {copied ? "Copied!" : "Copy Link"}
+                  {copied ? "Copied!" : "Copy Blog Content"}
                 </Button>
                 <Button variant="secondary" onClick={handleCloseModal} className="w-full">Close</Button>
               </div>
