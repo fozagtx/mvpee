@@ -1,7 +1,6 @@
 "use client";
 
-import dynamic from "next/dynamic";
-const ShaderBackground = dynamic(() => import("../components/ShaderBackground"), { ssr: false });
+import ShaderBackground from "../components/ShaderBackground";
 import { Loader } from "../components/ui/loader";
 import { CircleArrowUp } from "lucide-react";
 import { PromptInput, PromptInputTextarea, PromptInputActions } from "../components/ui/prompt-input";
@@ -10,7 +9,6 @@ import React, { useState } from "react";
 import { Toast } from "../components/ui/toast";
 import Confetti from "react-confetti";
 import { useWindowSize } from "react-use";
-import Header from "../components/Header";
 import Modal from "../components/page/Modal";
 import { Markdown } from "@/components/ui/markdown";
 
@@ -82,7 +80,6 @@ export default function Home() {
 
   return (
     <>
-      <Header />
       <ShaderBackground />
       <div className="relative z-10 min-h-screen flex flex-col overflow-hidden bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-[#0f172a] via-[#1e293b] to-[#fb7185] text-black">
         <main className="flex-1 flex flex-col items-center justify-center py-8 px-2 sm:py-12 sm:px-4">
@@ -158,6 +155,7 @@ export default function Home() {
             duration={1800}
           />
         </main>
+       
       </div>
     </>
   );
