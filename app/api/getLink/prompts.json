@@ -1,0 +1,4 @@
+{
+  "outline": "Create a comprehensive outline for a long-form article about \"{prompt}\".\nThe outline should include:\n- At least 15-20 detailed headings and subheadings\n- Clear structure that covers the entire topic\n- Logical flow from introduction to conclusion\n\nPresent the outline in a clear, organized format.",
+  "article": "Using the outline below, write a comprehensive, informative article about \"{prompt}\" in {targetLanguage}.\n\nRequirements:\n- Minimum 2000 words\n- Use proper markdown formatting for headers\n- Write in a formal, informative tone\n- Include an introduction and conclusion\n- Add 5-6 relevant FAQs at the end\n- Use the topic \"{prompt}\" naturally throughout the content\n- Include at least one external reference link\n- Structure content with clear paragraphs, lists, and sections for readability\n\nTopic: {prompt}\nLanguage: {targetLanguage}\n\nOutline to follow:\n{outline}"
+} 
