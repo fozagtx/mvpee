@@ -10,7 +10,7 @@ const ArticleRequestSchema = z.object({
 });
 
 async function callMistral(prompt: string, systemPrompt: string): Promise<string> {
-  const mistralRes = await fetch('https://api.mistral.ai/v1/chat/completions', {
+  const res = await fetch('https://api.mistral.ai/v1/chat/completions', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -27,13 +27,13 @@ async function callMistral(prompt: string, systemPrompt: string): Promise<string
     }),
   });
 
-  if (!mistralRes.ok) {
-    const error = await mistralRes.text();
-    throw new Error(`Mistral API error: ${mistralRes.status} - ${error}`);
+  if (!res.ok) {
+    const error = await res.text();
+    throw new Error(`Mistral API error: ${res.status} - ${error}`);
   }
 
-  const mistralData = await mistralRes.json();
-  return mistralData.choices?.[0]?.message?.content?.trim() || '';
+  const data = await res.json();
+  return data.choices?.[0]?.message?.content?.trim() || '';
 }
 
 export async function POST(req: NextRequest) {

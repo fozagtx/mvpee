@@ -7,33 +7,23 @@ import { PromptInput, PromptInputTextarea, PromptInputActions } from "../compone
 import { Button } from "../components/ui/button";
 import React, { useState } from "react";
 import { Toast } from "../components/ui/toast";
-import { EditorPreview } from "../components/page/EditorPreview";
 
 export default function Home() {
   const [content, setContent] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [modalOpen, setModalOpen] = useState(false);
-  const [generatedLink, setGeneratedLink] = useState("");
   const [inputError, setInputError] = useState("");
   const [showToast, setShowToast] = useState(false);
   const [toastMessage, setToastMessage] = useState("");
   const inputRef = React.useRef<HTMLTextAreaElement>(null);
-  // Add state to control split view
-  const [showEditor, setShowEditor] = useState(false);
-
-  // Remove word count restriction
-  // const wordCount = content.trim().split(/\s+/).filter(Boolean).length;
-  // const isTooShort = wordCount > 0 && wordCount < 300;
 
   const handleSubmit = async () => {
     if (!content.trim()) return;
     setInputError("");
     setLoading(true);
     setError("");
-    setGeneratedLink("");
     setModalOpen(true);
-    setShowEditor(false);
     try {
       const res = await fetch("/api/getLink", {
         method: "POST",
@@ -42,10 +32,8 @@ export default function Home() {
       });
       const data = await res.json();
       if (res.ok && data.article) {
-        setGeneratedLink(data.article);
         setToastMessage("Blog content generated! 🎉");
         setShowToast(true);
-        setShowEditor(true);
         setModalOpen(false);
       } else {
         setError(data.error || "Failed to generate blog content.");
@@ -68,11 +56,11 @@ export default function Home() {
           <p className="text-base xs:text-lg sm:text-xl md:text-xl text-white mb-6 sm:mb-10 text-center font-sans">Produce SEO-optimized blog content instantly</p>
           {loading && (
             <div className="flex flex-col items-center justify-center min-h-[120px]">
-              <Loader variant="typing" size="md" text="Generating..." />
+              <Loader variant="typing" size="md" text="Producing..." />
               <div className="mt-2 text-gray-500 text-sm">producing blog content, please wait...</div>
             </div>
           )}
-          {!showEditor && !loading && (
+          {!loading && (
             <div className="w-full max-w-full sm:max-w-2xl flex flex-col items-center">
               <div className="w-full flex flex-col items-center justify-center">
                 <div className="w-full max-w-full sm:max-w-xl bg-white/10 backdrop-blur-md border border-white/20 rounded-3xl shadow-2xl px-2 sm:px-6 py-4 sm:py-6 mx-auto text-black">
@@ -98,24 +86,10 @@ export default function Home() {
                   {inputError && (
                     <div className="text-center text-red-500 animate-shake mt-2">{inputError}</div>
                   )}
-                  {/* Removed word count display */}
                   {error && !modalOpen && (
                     <div className="text-center text-red-500 animate-shake mt-2">{error}</div>
                   )}
                 </div>
-              </div>
-            </div>
-          )}
-          {showEditor && generatedLink && !loading && (
-            <div className="fixed inset-0 z-20 flex flex-col items-center justify-center bg-white">
-              <button
-                className="absolute top-4 left-4 z-30 px-4 py-2 bg-black text-white rounded-lg shadow hover:bg-gray-800 transition"
-                onClick={() => setShowEditor(false)}
-              >
-                ← Back to Main Page
-              </button>
-              <div className="w-full h-full flex-1 flex items-center justify-center">
-                <EditorPreview content={generatedLink} fullHeight />
               </div>
             </div>
           )}
