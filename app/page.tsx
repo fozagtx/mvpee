@@ -64,7 +64,7 @@ export default function Home() {
             <div className="w-full max-w-full sm:max-w-2xl flex flex-col items-center">
               <div className="w-full flex flex-col items-center justify-center">
                 <div className="w-full max-w-full sm:max-w-xl bg-white/10 backdrop-blur-md border border-white/20 rounded-3xl shadow-2xl px-2 sm:px-6 py-4 sm:py-6 mx-auto text-black">
-                  <PromptInput isLoading={loading} value={content} onValueChange={setContent} onSubmit={handleSubmit} maxHeight={120}>
+                  <PromptInput isLoading={loading} value={content} onValueChange={setContent} onSubmit={handleSubmit} maxHeight={150}>
                     <div className="w-full flex flex-col gap-3 items-stretch">
                       <PromptInputTextarea
                         ref={inputRef}

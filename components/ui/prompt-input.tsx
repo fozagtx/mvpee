@@ -81,11 +81,28 @@ function PromptInput({
       >
         <div
           className={cn(
-            "border-input bg-background rounded-3xl border p-2 shadow-xs",
+            "relative border-2 border-purple-400 rounded-2xl bg-white/90 dark:bg-neutral-900/90 shadow-md flex flex-col p-0 w-full",
             className
           )}
         >
-          {children}
+          {/* + Context button */}
+          <button
+            type="button"
+            className="absolute top-1 left-2 text-xs font-medium bg-white/90 border border-white/70 text-purple-700 px-2 py-0.5 rounded-md shadow-sm hover:bg-white transition z-10"
+            style={{ pointerEvents: 'auto' }}
+          >
+            + Context
+          </button>
+          <div className="pt-8 pb-2 px-4">
+            {children}
+          </div>
+          {/* Options row */}
+          <div className="flex items-center justify-between border-t border-purple-100 dark:border-purple-900 px-3 py-1 bg-white/60 dark:bg-neutral-900/60 rounded-b-lg">
+            <div />
+            <div className="flex items-center gap-2">
+              {/* Globe icon removed */}
+            </div>
+          </div>
         </div>
       </PromptInputContext.Provider>
     </TooltipProvider>
@@ -131,10 +148,10 @@ function PromptInputTextarea({
       onChange={(e) => setValue(e.target.value)}
       onKeyDown={handleKeyDown}
       className={cn(
-        "bg-white text-neutral-900 placeholder:text-neutral-500 dark:bg-neutral-900 dark:text-white dark:placeholder:text-neutral-400 min-h-[44px] w-full resize-none border-none shadow-none outline-none focus-visible:ring-0 focus-visible:ring-offset-0",
+        "w-full min-h-[56px] max-h-[160px] resize-none border-none bg-transparent text-lg text-neutral-900 dark:text-white placeholder:text-neutral-400 focus-visible:ring-0 focus-visible:ring-offset-0 p-0 shadow-none font-sans",
         className
       )}
-      rows={1}
+      rows={2}
       disabled={disabled}
       {...props}
     />
