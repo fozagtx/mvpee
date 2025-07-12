@@ -7,7 +7,7 @@ import { PromptInput, PromptInputTextarea, PromptInputActions } from "../compone
 import { Button } from "../components/ui/button";
 import React, { useState } from "react";
 import { Toast } from "../components/ui/toast";
-import { EditorPreview } from "../components/page/EditorPreview";
+import { EditorPreview } from "../components/EditorPreview";
 
 export default function Home() {
   const [content, setContent] = useState("");
