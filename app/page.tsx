@@ -1,4 +1,4 @@
-"use client";
+"use client"
 
 import ShaderBackground from "../components/ShaderBackground";
 import { Loader } from "../components/ui/loader";
@@ -130,4 +130,3 @@ export default function Home() {
     </>
   );
 }
-
