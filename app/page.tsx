@@ -5,9 +5,11 @@ import { Loader } from "../components/ui/loader";
 import { CircleArrowUp } from "lucide-react";
 import { PromptInput, PromptInputTextarea, PromptInputActions } from "../components/ui/prompt-input";
 import { Button } from "../components/ui/button";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Toast } from "../components/ui/toast";
 import { EditorPreview } from "../components/EditorPreview";
+
+export const runtime = 'nodejs';
 
 export default function Home() {
   const [content, setContent] = useState("");
@@ -21,6 +23,11 @@ export default function Home() {
   const inputRef = React.useRef<HTMLTextAreaElement>(null);
   // Add state to control split view
   const [showEditor, setShowEditor] = useState(false);
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
 
   // Remove word count restriction
   // const wordCount = content.trim().split(/\s+/).filter(Boolean).length;
@@ -56,6 +63,17 @@ export default function Home() {
       setLoading(false);
     }
   };
+
+  if (!isClient) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-[#0f172a] via-[#1e293b] to-[#fb7185] text-white">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-white mx-auto"></div>
+          <p className="mt-4 text-lg">Loading...</p>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <>

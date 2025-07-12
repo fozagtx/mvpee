@@ -1,8 +1,18 @@
 "use client";
 import { ShaderGradientCanvas, ShaderGradient } from "@shadergradient/react";
-import React from "react";
+import React, { useState, useEffect } from "react";
 
 export default function ShaderBackground() {
+	const [isClient, setIsClient] = useState(false);
+
+	useEffect(() => {
+		setIsClient(true);
+	}, []);
+
+	if (!isClient) {
+		return null;
+	}
+
 	return (
 		<ShaderGradientCanvas
 			style={{

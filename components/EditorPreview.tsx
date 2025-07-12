@@ -1,14 +1,6 @@
 "use client";
 
-import React, { useEffect, useRef } from "react";
-import EditorJS from "@editorjs/editorjs";
-import Header from "@editorjs/header";
-import List from "@editorjs/list";
-import Quote from "@editorjs/quote";
-import Delimiter from "@editorjs/delimiter";
-import Code from "@editorjs/code";
-import Table from "@editorjs/table";
-import InlineCode from "@editorjs/inline-code";
+import React, { useEffect, useRef, useState } from "react";
 
 interface EditorPreviewProps {
   content: string;
@@ -17,40 +9,59 @@ interface EditorPreviewProps {
 }
 
 export const EditorPreview: React.FC<EditorPreviewProps> = ({ content, onContentChange, fullHeight }) => {
-  const editorRef = useRef<EditorJS | null>(null);
+  const editorRef = useRef<{ save: () => Promise<unknown>; destroy: () => void } | null>(null);
   const holderRef = useRef<HTMLDivElement>(null);
-  const [, setEditorContent] = React.useState(content);
+  const [, setEditorContent] = useState(content);
+  const [isClient, setIsClient] = useState(false);
 
   useEffect(() => {
-    if (!holderRef.current) return;
-    if (editorRef.current) return;
-    editorRef.current = new EditorJS({
-      holder: holderRef.current,
-      data: {
-        blocks: [
-          {
-            type: "paragraph",
-            data: { text: content },
-          },
-        ],
-      },
-      tools: {
-        header: Header,
-        list: List,
-        quote: Quote,
-        delimiter: Delimiter,
-        code: Code,
-        table: Table,
-        inlineCode: InlineCode,
-      },
-      onChange: async () => {
-        const data = await editorRef.current?.save();
-        setEditorContent(JSON.stringify(data));
-        onContentChange?.(JSON.stringify(data));
-      },
-      autofocus: true,
-      minHeight: 0,
-    });
+    setIsClient(true);
+  }, []);
+
+  useEffect(() => {
+    if (!isClient || !holderRef.current || editorRef.current) return;
+
+    const initEditor = async () => {
+      const EditorJS = (await import("@editorjs/editorjs")).default;
+      const Header = (await import("@editorjs/header")).default;
+      const List = (await import("@editorjs/list")).default;
+      const Quote = (await import("@editorjs/quote")).default;
+      const Delimiter = (await import("@editorjs/delimiter")).default;
+      const Code = (await import("@editorjs/code")).default;
+      const Table = (await import("@editorjs/table")).default;
+      const InlineCode = (await import("@editorjs/inline-code")).default;
+
+      editorRef.current = new EditorJS({
+        holder: holderRef.current!,
+        data: {
+          blocks: [
+            {
+              type: "paragraph",
+              data: { text: content },
+            },
+          ],
+        },
+        tools: {
+          header: Header,
+          list: List,
+          quote: Quote,
+          delimiter: Delimiter,
+          code: Code,
+          table: Table,
+          inlineCode: InlineCode,
+        },
+        onChange: async () => {
+          const data = await editorRef.current?.save();
+          setEditorContent(JSON.stringify(data));
+          onContentChange?.(JSON.stringify(data));
+        },
+        autofocus: true,
+        minHeight: 0,
+      });
+    };
+
+    initEditor();
+
     return () => {
       if (editorRef.current) {
         try {
@@ -61,8 +72,7 @@ export const EditorPreview: React.FC<EditorPreviewProps> = ({ content, onContent
         editorRef.current = null;
       }
     };
-    // eslint-disable-next-line
-  }, []);
+  }, [isClient, content, onContentChange]);
 
   useEffect(() => {
     setEditorContent(content);
