@@ -6,9 +6,6 @@ import Quote from "@editorjs/quote";
 import Delimiter from "@editorjs/delimiter";
 import Code from "@editorjs/code";
 import Table from "@editorjs/table";
-import LinkTool from "@editorjs/link";
-import ImageTool from "@editorjs/image";
-import Marker from "@editorjs/marker";
 import InlineCode from "@editorjs/inline-code";
 
 interface EditorPreviewProps {
@@ -20,7 +17,7 @@ interface EditorPreviewProps {
 export const EditorPreview: React.FC<EditorPreviewProps> = ({ content, onContentChange, fullHeight }) => {
   const editorRef = useRef<EditorJS | null>(null);
   const holderRef = useRef<HTMLDivElement>(null);
-  const [editorContent, setEditorContent] = React.useState(content);
+  const [, setEditorContent] = React.useState(content);
 
   useEffect(() => {
     if (!holderRef.current) return;
@@ -36,28 +33,12 @@ export const EditorPreview: React.FC<EditorPreviewProps> = ({ content, onContent
         ],
       },
       tools: {
-        header: {
-          class: Header,
-          inlineToolbar: true,
-          config: {
-            levels: [1, 2, 3],
-            defaultLevel: 2,
-          },
-        },
-        list: {
-          class: List,
-          inlineToolbar: true,
-        },
-        quote: {
-          class: Quote,
-          inlineToolbar: true,
-        },
+        header: Header,
+        list: List,
+        quote: Quote,
         delimiter: Delimiter,
         code: Code,
         table: Table,
-        linkTool: LinkTool,
-        image: ImageTool,
-        marker: Marker,
         inlineCode: InlineCode,
       },
       onChange: async () => {
@@ -69,15 +50,13 @@ export const EditorPreview: React.FC<EditorPreviewProps> = ({ content, onContent
       minHeight: 0,
     });
     return () => {
-      if (editorRef.current && typeof editorRef.current.destroy === "function") {
-        const maybePromise = editorRef.current.destroy();
-        if (maybePromise && typeof maybePromise.then === "function") {
-          maybePromise.then(() => {
-            editorRef.current = null;
-          });
-        } else {
-          editorRef.current = null;
+      if (editorRef.current) {
+        try {
+          editorRef.current.destroy();
+        } catch (error) {
+          console.error("Error destroying editor:", error);
         }
+        editorRef.current = null;
       }
     };
     // eslint-disable-next-line
