@@ -49,12 +49,14 @@ export default function Home() {
       });
       const data = await res.json();
       if (res.ok && data.article) {
+        console.log("Blog generated successfully:", data.article.substring(0, 100) + "...");
         setGeneratedLink(data.article);
         setToastMessage("Blog content generated! 🎉");
         setShowToast(true);
         setShowEditor(true);
         setModalOpen(false);
       } else {
+        console.error("API error:", data);
         setError(data.error || "Failed to generate blog content.");
       }
     } catch {
@@ -128,13 +130,24 @@ export default function Home() {
             <div className="fixed inset-0 z-20 flex flex-col items-center justify-center bg-white">
               <button
                 className="absolute top-4 left-4 z-30 px-4 py-2 bg-black text-white rounded-lg shadow hover:bg-gray-800 transition"
-                onClick={() => setShowEditor(false)}
+                onClick={() => {
+                  console.log("Closing editor");
+                  setShowEditor(false);
+                }}
               >
                 ← Back to Main Page
               </button>
               <div className="w-full h-full flex-1 flex items-center justify-center">
                 <EditorPreview content={generatedLink} fullHeight />
               </div>
+            </div>
+          )}
+          {/* Debug info */}
+          {process.env.NODE_ENV === 'development' && (
+            <div className="fixed bottom-4 right-4 bg-black text-white p-2 text-xs rounded">
+              showEditor: {showEditor.toString()}<br/>
+              hasContent: {(generatedLink && generatedLink.length > 0).toString()}<br/>
+              loading: {loading.toString()}
             </div>
           )}
           <Toast
