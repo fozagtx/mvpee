@@ -29,10 +29,6 @@ export default function Home() {
     setIsClient(true);
   }, []);
 
-  // Remove word count restriction
-  // const wordCount = content.trim().split(/\s+/).filter(Boolean).length;
-  // const isTooShort = wordCount > 0 && wordCount < 300;
-
   const handleSubmit = async () => {
     if (!content.trim()) return;
     setInputError("");
@@ -140,14 +136,6 @@ export default function Home() {
               <div className="w-full h-full flex-1 flex items-center justify-center">
                 <EditorPreview content={generatedLink} fullHeight />
               </div>
-            </div>
-          )}
-          {/* Debug info */}
-          {process.env.NODE_ENV === 'development' && (
-            <div className="fixed bottom-4 right-4 bg-black text-white p-2 text-xs rounded">
-              showEditor: {showEditor.toString()}<br/>
-              hasContent: {(generatedLink && generatedLink.length > 0).toString()}<br/>
-              loading: {loading.toString()}
             </div>
           )}
           <Toast
