@@ -81,13 +81,13 @@ function PromptInput({
 			>
 				<div
 					className={cn(
-						"relative border-2 border-purple-400 rounded-2xl bg-white/90 dark:bg-neutral-900/90 shadow-md flex flex-col p-0 w-full",
+						"relative rounded-2xl bg-white/5 shadow-md flex flex-col p-0 w-full",
 						className,
 					)}
 				>
 					<div className="pt-8 pb-2 px-4">{children}</div>
 					{/* Options row */}
-					<div className="flex items-center justify-between border-t border-purple-100 dark:border-purple-900 px-3 py-1 bg-white/60 dark:bg-neutral-900/60 rounded-b-lg">
+					<div className="flex items-center justify-between px-3 py-1 bg-white/5 rounded-b-lg">
 						<div />
 						<div className="flex items-center gap-2">
 							{/* Globe icon removed */}
@@ -138,7 +138,7 @@ function PromptInputTextarea({
 			onChange={(e) => setValue(e.target.value)}
 			onKeyDown={handleKeyDown}
 			className={cn(
-				"w-full min-h-[56px] max-h-[160px] resize-none border-none bg-transparent text-lg text-neutral-900 dark:text-white placeholder:text-neutral-400 focus-visible:ring-0 focus-visible:ring-offset-0 p-0 shadow-none font-sans",
+				"w-full min-h-[56px] max-h-[160px] resize-none border-none bg-transparent text-lg text-neutral-900 dark:text-black border-3 placeholder:text-neutral-400 focus-visible:ring-0 focus-visible:ring-offset-0 p-0 shadow-none font-sans",
 				className,
 			)}
 			rows={2}

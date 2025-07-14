@@ -35,7 +35,7 @@ export default function Header({ user }: HeaderProps) {
 				}`}>
 					{/* Logo on Left */}
 					<span className="text-xl font-bold tracking-tight text-black font-mono">
-						mvpee
+						MVPE
 					</span>
 
 					{/* Navigation Links on Right */}

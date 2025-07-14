@@ -69,7 +69,7 @@ export default function Home() {
       <div className="min-h-screen flex items-center justify-center bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-[#0f172a] via-[#1e293b] to-[#fb7185] text-white">
         <div className="text-center">
           <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-white mx-auto"></div>
-          <p className="mt-4 text-lg">Loading...</p>
+          <p className="mt-4 text-lg text-black">Loading...</p>
         </div>
       </div>
     );
@@ -78,7 +78,7 @@ export default function Home() {
   return (
     <>
       <Header user={user} />
-      <div className="relative z-10 min-h-screen flex flex-col overflow-hidden bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-[#0f172a] via-[#1e293b] to-[#fb7185]">
+      <div className="relative z-10 min-h-screen flex flex-col overflow-hidden bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-[#0f172a] via-[#1e293b] to-[#fb7185] border">
         <main className="flex-1 flex flex-col items-center justify-center py-8 px-2 sm:py-12 sm:px-4">
           <div className="space-y-2 text-center">
             <h1 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold mb-4 text-center font-mono tracking-tight">
@@ -95,21 +95,21 @@ export default function Home() {
             </div>
           )}
           {!showEditor && !loading && (
-            <div className="w-full max-w-xl mx-auto space-x-2">
+            <div className="w-full max-w-xl mx-auto border rounded-2xl">
                 <PromptInput isLoading={loading} value={content} onValueChange={setContent} onSubmit={handleSubmit} maxHeight={120}>
-                  <div className="w-full flex flex-col gap-3 items-stretch relative">
+                  <div className="w-full flex flex-col items-stretch relative">
                     <div className="relative">
                       <PromptInputTextarea
                         ref={inputRef}
                         placeholder="Enter your blog topic ..."
                         disabled={loading}
-                        className="w-full min-h-[48px] sm:min-h-[56px] max-h-[120px] resize-none overflow-auto text-base sm:text-lg px-3 sm:px-6 py-3 sm:py-5 pr-[120px] rounded-2xl border border-white/20 bg-background/10 text-white placeholder:text-white/60 shadow-none focus:ring-2 focus:ring-accent focus:border-accent transition-all font-sans backdrop-blur"
+                        className="w-full min-h-[48px] sm:min-h-[56px] max-h-[120px] resize-none overflow-auto text-base sm:text-lg px-3 sm:px-6 py-3 sm:py-5 pr-[120px] border-2 text-black placeholder:text-black/60 shadow-none focus:ring-2 focus:ring-black focus:border-black transition-all font-sans backdrop-blur"
                       />
-                      <div className="absolute right-3 bottom-3">
+                      <div className="absolute right-3 bottom-3 text-black">
                         <Button
                           onClick={handleSubmit}
                           disabled={loading || !content.trim()}
-                          className="h-12 w-auto px-6 text-base rounded-xl shadow-md bg-gradient-to-r from-accent to-accent-foreground text-white font-bold border-none hover:from-accent/90 hover:to-accent-foreground/90 font-mono flex items-center justify-center"
+                          className="h-12 w-auto px-6 text-base rounded-full shadow-md bg-gradient-to-r from-accent to-accent-foreground text-black font-bold border-none hover:from-accent/90 hover:to-accent-foreground/90 font-mono flex items-center justify-center"
                         >
                           {loading ? <Loader variant="dots" size="md" /> :<CircleArrowUp size={28} className="transform hover:translate-y-[-2px] transition-transform" />}
                         </Button>
