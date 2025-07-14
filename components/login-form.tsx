@@ -1,8 +1,10 @@
+"use client";
+
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
-import  * as z  from "zod"
+import * as z from "zod"
 import { zodResolver } from "@hookform/resolvers/zod"
-import  { useForm, SubmitHandler } from "react-hook-form"
+import { useForm } from "react-hook-form"
 import {
   Card,
   CardContent,
@@ -25,14 +27,20 @@ export function LoginForm({
   className,
   ...props
 }: React.ComponentProps<"div">) {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors }
+  } = useForm<SignupSchemaType>({
+    resolver: zodResolver(SignupSchema),
+    defaultValues: {
+      email: "",
+      password: ""
+    }
+  });
 
- 
 
-  const { register, handleSubmit, formState:{errors} 
-} = useForm<SignupSchemaType>({resolver:zodResolver(SignupSchema)});
-
-
-const onSubmit: SubmitHandler<SignupSchemaType> = (data) => console.log(data);
+const onSubmit = (data: SignupSchemaType) => console.log(data);
 
  return (
     <div className={cn("flex flex-col gap-6", className)} {...props}>
@@ -60,7 +68,11 @@ const onSubmit: SubmitHandler<SignupSchemaType> = (data) => console.log(data);
                     required
                     {...register("email")}
                   />
-                  {errors.email && <span>{errors.email.message}</span>}
+                  {errors.email && (
+                    <span className="text-sm text-destructive font-mono">
+                      {errors.email.message}
+                    </span>
+                  )}
                 </div>
                 <div className="grid gap-3">
                   <div className="flex items-center">
@@ -72,8 +84,17 @@ const onSubmit: SubmitHandler<SignupSchemaType> = (data) => console.log(data);
                       Forgot your password?
                     </a>
                   </div>
-                  <Input id="password" type="password" required {...register("password")} />
-                  {errors.password && <span> {errors.password.message}</span>}
+                  <Input 
+                    id="password" 
+                    type="password" 
+                    required 
+                    {...register("password")} 
+                  />
+                  {errors.password && (
+                    <span className="text-sm text-destructive font-mono">
+                      {errors.password.message}
+                    </span>
+                  )}
                 </div>
                 
                 <Button type="submit" className="w-full">

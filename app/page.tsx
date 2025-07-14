@@ -8,6 +8,7 @@ import { Button } from "../components/ui/button";
 import React, { useState, useEffect } from "react";
 import { Toast } from "../components/ui/toast";
 import { EditorPreview } from "../components/EditorPreview";
+import Header from "../components/Header";
 
 export const runtime = 'nodejs';
 
@@ -20,6 +21,7 @@ export default function Home() {
   const [inputError, setInputError] = useState("");
   const [showToast, setShowToast] = useState(false);
   const [toastMessage, setToastMessage] = useState("");
+  const [user, setUser] = useState(null);
   const inputRef = React.useRef<HTMLTextAreaElement>(null);
   // Add state to control split view
   const [showEditor, setShowEditor] = useState(false);
@@ -38,7 +40,7 @@ export default function Home() {
     setModalOpen(true);
     setShowEditor(false);
     try {
-      const res = await fetch("/api/getLink", {
+      const res = await fetch("/api/gen", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ prompt: content, targetLanguage: "English" }),
@@ -75,6 +77,7 @@ export default function Home() {
 
   return (
     <>
+      <Header user={user} />
       <div className="relative z-10 min-h-screen flex flex-col overflow-hidden bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-[#0f172a] via-[#1e293b] to-[#fb7185]">
         <main className="flex-1 flex flex-col items-center justify-center py-8 px-2 sm:py-12 sm:px-4">
           <div className="space-y-2 text-center">
@@ -92,7 +95,7 @@ export default function Home() {
             </div>
           )}
           {!showEditor && !loading && (
-            <div className="w-full max-w-xl mx-auto">
+            <div className="w-full max-w-xl mx-auto space-x-2">
                 <PromptInput isLoading={loading} value={content} onValueChange={setContent} onSubmit={handleSubmit} maxHeight={120}>
                   <div className="w-full flex flex-col gap-3 items-stretch relative">
                     <div className="relative">
@@ -124,18 +127,21 @@ export default function Home() {
             </div>
           )}
           {showEditor && generatedLink && !loading && (
-            <div className="fixed inset-0 z-20 flex flex-col items-center justify-center bg-background">
+            <div className="fixed inset-0 z-20 flex flex-col bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-[#0f172a] via-[#1e293b] to-[#fb7185]">
+              <div className="absolute inset-0 backdrop-blur-sm bg-background/5"></div>
               <button
-                className="absolute top-4 left-4 z-30 px-4 py-2 bg-accent text-white rounded-lg shadow hover:bg-accent/90 transition font-mono"
+                className="absolute top-4 left-4 z-30 px-6 py-3 bg-background/10 backdrop-blur-md border border-white/20 text-white rounded-2xl shadow-lg hover:bg-accent/20 transition-all duration-300 font-mono flex items-center gap-2"
                 onClick={() => {
                   console.log("Closing editor");
                   setShowEditor(false);
                 }}
               >
-                ← Back to Main Page
+                ← Back
               </button>
-              <div className="w-full h-full flex-1 flex items-center justify-center">
-                <EditorPreview content={generatedLink} fullHeight />
+              <div className="relative z-20 w-full h-full flex-1 flex items-center justify-center p-4 sm:p-8">
+                <div className="w-full max-w-5xl h-full bg-background/10 backdrop-blur-md border border-white/20 rounded-3xl shadow-2xl overflow-hidden">
+                  <EditorPreview content={generatedLink} fullHeight />
+                </div>
               </div>
             </div>
           )}
