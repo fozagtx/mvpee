@@ -1,9 +1,9 @@
 "use client"
 
-import ShaderBackground from "../components/ShaderBackground";
+
 import { Loader } from "../components/ui/loader";
 import { CircleArrowUp } from "lucide-react";
-import { PromptInput, PromptInputTextarea, PromptInputActions } from "../components/ui/prompt-input";
+import { PromptInput, PromptInputTextarea } from "../components/ui/prompt-input";
 import { Button } from "../components/ui/button";
 import React, { useState, useEffect } from "react";
 import { Toast } from "../components/ui/toast";
@@ -75,57 +75,58 @@ export default function Home() {
 
   return (
     <>
-      <ShaderBackground />
-      <div className="relative z-10 min-h-screen flex flex-col overflow-hidden bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-[#0f172a] via-[#1e293b] to-[#fb7185] text-black">
+      <div className="relative z-10 min-h-screen flex flex-col overflow-hidden bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-[#0f172a] via-[#1e293b] to-[#fb7185]">
         <main className="flex-1 flex flex-col items-center justify-center py-8 px-2 sm:py-12 sm:px-4">
-          <h1 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold mb-4 text-center font-sans drop-shadow-lg flex flex-wrap items-center justify-center gap-2 leading-tight break-words">
-            <h1 className="scroll-m-20 text-center text-white text-4xl font-extrabold tracking-tight text-balance">Produce a blog</h1>
-          </h1>
-          <p className="text-base xs:text-lg sm:text-xl md:text-xl text-white mb-6 sm:mb-10 text-center font-sans">Produce SEO-optimized blog content instantly</p>
+          <div className="space-y-2 text-center">
+            <h1 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold mb-4 text-center font-mono tracking-tight">
+              <span className="text-black inline-block">Produce a blog</span>
+            </h1>
+            <p className="text-base xs:text-lg sm:text-xl md:text-2xl text-black font-sans tracking-normal max-w-[600px] mx-auto">
+              Produce SEO-optimized blog content instantly
+            </p>
+          </div>
           {loading && (
             <div className="flex flex-col items-center justify-center min-h-[120px]">
               <Loader variant="typing" size="md" text="Generating..." />
-              <div className="mt-2 text-gray-500 text-sm">producing blog content, please wait...</div>
+              <div className="mt-2 text-white/700 text-sm font-sans ">producing blog content, please wait...</div>
             </div>
           )}
           {!showEditor && !loading && (
-            <div className="w-full max-w-full sm:max-w-2xl flex flex-col items-center">
-              <div className="w-full flex flex-col items-center justify-center">
-                <div className="w-full max-w-full sm:max-w-xl bg-white/10 backdrop-blur-md border border-white/20 rounded-3xl shadow-2xl px-2 sm:px-6 py-4 sm:py-6 mx-auto text-black">
-                  <PromptInput isLoading={loading} value={content} onValueChange={setContent} onSubmit={handleSubmit} maxHeight={120}>
-                    <div className="w-full flex flex-col gap-3 items-stretch">
+            <div className="w-full max-w-xl mx-auto">
+                <PromptInput isLoading={loading} value={content} onValueChange={setContent} onSubmit={handleSubmit} maxHeight={120}>
+                  <div className="w-full flex flex-col gap-3 items-stretch relative">
+                    <div className="relative">
                       <PromptInputTextarea
                         ref={inputRef}
                         placeholder="Enter your blog topic ..."
                         disabled={loading}
-                        className="w-full min-h-[48px] sm:min-h-[56px] max-h-[120px] resize-none overflow-auto text-base sm:text-lg px-3 sm:px-6 py-3 sm:py-5 rounded-2xl border border-white/20 bg-white/10 text-black placeholder:text-slate-600 shadow-none focus:ring-2 focus:ring-pink-400 focus:border-pink-400 transition-all font-sans backdrop-blur"
+                        className="w-full min-h-[48px] sm:min-h-[56px] max-h-[120px] resize-none overflow-auto text-base sm:text-lg px-3 sm:px-6 py-3 sm:py-5 pr-[120px] rounded-2xl border border-white/20 bg-background/10 text-white placeholder:text-white/60 shadow-none focus:ring-2 focus:ring-accent focus:border-accent transition-all font-sans backdrop-blur"
                       />
-                      <PromptInputActions className="flex justify-end mt-2">
-                         <Button
+                      <div className="absolute right-3 bottom-3">
+                        <Button
                           onClick={handleSubmit}
                           disabled={loading || !content.trim()}
-                          className="h-10 w-full sm:w-auto px-6 sm:px-8 text-base rounded-xl shadow-md bg-gradient-to-r from-pink-500 to-orange-400 text-white font-bold border-none hover:from-pink-400 hover:to-orange-300"
+                          className="h-12 w-auto px-6 text-base rounded-xl shadow-md bg-gradient-to-r from-accent to-accent-foreground text-white font-bold border-none hover:from-accent/90 hover:to-accent-foreground/90 font-mono flex items-center justify-center"
                         >
-                          {loading ? <Loader variant="dots" size="sm" /> :<CircleArrowUp size={28} />}
+                          {loading ? <Loader variant="dots" size="md" /> :<CircleArrowUp size={28} className="transform hover:translate-y-[-2px] transition-transform" />}
                         </Button>
-                      </PromptInputActions>
+                      </div>
                     </div>
-                  </PromptInput>
-                  {inputError && (
-                    <div className="text-center text-red-500 animate-shake mt-2">{inputError}</div>
-                  )}
-                  {/* Removed word count display */}
-                  {error && !modalOpen && (
-                    <div className="text-center text-red-500 animate-shake mt-2">{error}</div>
-                  )}
-                </div>
-              </div>
+                  </div>
+                </PromptInput>
+                {inputError && (
+                  <div className="text-center text-destructive animate-shake mt-2 font-sans">{inputError}</div>
+                )}
+                {error && !modalOpen && (
+                  <div className="text-center text-destructive animate-shake mt-2 font-sans">{error}</div>
+                )}
+           
             </div>
           )}
           {showEditor && generatedLink && !loading && (
-            <div className="fixed inset-0 z-20 flex flex-col items-center justify-center bg-white">
+            <div className="fixed inset-0 z-20 flex flex-col items-center justify-center bg-background">
               <button
-                className="absolute top-4 left-4 z-30 px-4 py-2 bg-black text-white rounded-lg shadow hover:bg-gray-800 transition"
+                className="absolute top-4 left-4 z-30 px-4 py-2 bg-accent text-white rounded-lg shadow hover:bg-accent/90 transition font-mono"
                 onClick={() => {
                   console.log("Closing editor");
                   setShowEditor(false);
