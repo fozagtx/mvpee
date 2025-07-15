@@ -2,7 +2,6 @@
 
 import Header from "@/components/Header";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import Link from "next/link";
 
 export default function DocsPage() {
   return (

@@ -20,14 +20,10 @@ export default function Header({ user }: HeaderProps) {
 
 	return (
 		<header
-			className={`fixed top-0 left-0 right-0 z-20 transition-all duration-300 ${
-				scrolled ? 'py-2' : 'py-4'
-			}`}
-			style={{ 
-				background: "linear-gradient(to bottom, rgba(255,255,255,0.1), rgba(255,255,255,0.05))",
-				backdropFilter: "blur(8px)",
-				WebkitBackdropFilter: "blur(8px)"
-			}}
+			className={`fixed top-0 left-0 right-0 z-20 transition-all duration-300 
+				bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-[#0f172a] via-[#1e293b] to-[#fb7185] 
+				border-b border-white/10
+				${scrolled ? 'py-2' : 'py-4'}`}
 		>
 			<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 				<div className={`flex justify-between items-center transition-all duration-300 ${

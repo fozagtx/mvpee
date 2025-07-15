@@ -8,7 +8,6 @@ import { useForm } from "react-hook-form"
 import {
   Card,
   CardContent,
-  CardDescription,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card"
@@ -47,9 +46,6 @@ const onSubmit = (data: SignupSchemaType) => console.log(data);
       <Card>
         <CardHeader className="text-center">
           <CardTitle className="text-xl">Welcome back</CardTitle>
-          <CardDescription>
-           Together lets fix the future of seo
-          </CardDescription>
         </CardHeader>
         <CardContent>
           <form  onSubmit={handleSubmit(onSubmit)}>
