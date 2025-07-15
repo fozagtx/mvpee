@@ -1,116 +1,153 @@
 "use client";
 
-import { cn } from "@/lib/utils"
-import { Button } from "@/components/ui/button"
-import * as z from "zod"
-import { zodResolver } from "@hookform/resolvers/zod"
-import { useForm } from "react-hook-form"
+import { useState } from "react";
+import { useRouter } from "next/navigation";
+import { signIn } from "@/app/auth/client";
+import { cn } from "@/lib/utils";
+import { Button } from "@/components/ui/button";
+import * as z from "zod";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm } from "react-hook-form";
 import {
   Card,
   CardContent,
+  CardDescription,
+  CardFooter,
   CardHeader,
   CardTitle,
-} from "@/components/ui/card"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
+} from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import Link from "next/link";
+import { Toast } from "@/components/ui/toast";
 
+const LoginSchema = z.object({
+  email: z.string().email("Please enter a valid email"),
+  password: z.string().min(1, "Password is required"),
+});
 
-const SignupSchema = z.object({
-  email: z.string().email("You need top enter a valid email"),
-  password: z.string().min(3, "enter a valid password more that 3 ").max(20, "enter a passowrd less that 20 char")
-})
-
-type SignupSchemaType = z.infer< typeof SignupSchema>; 
+type LoginSchemaType = z.infer<typeof LoginSchema>;
 
 export function LoginForm({
   className,
   ...props
 }: React.ComponentProps<"div">) {
+  const [isLoading, setIsLoading] = useState(false);
+  const router = useRouter();
+  const [toastState, setToastState] = useState<{
+    open: boolean;
+    title: string;
+    description: string;
+  }>({ open: false, title: "", description: "" });
+
   const {
     register,
     handleSubmit,
-    formState: { errors }
-  } = useForm<SignupSchemaType>({
-    resolver: zodResolver(SignupSchema),
+    formState: { errors },
+  } = useForm<LoginSchemaType>({
+    resolver: zodResolver(LoginSchema),
     defaultValues: {
       email: "",
-      password: ""
-    }
+      password: "",
+    },
   });
 
+  const onSubmit = async (data: LoginSchemaType) => {
+    setIsLoading(true);
+    try {
+      const response = await signIn.email({
+        email: data.email,
+        password: data.password,
+      });
+      if (!response) {
+        throw new Error(`response.error`);
+      }
+      setToastState({
+        open: true,
+        title: "Success",
+        description: "Login successful!",
+      });
+      router.push("/");
+    } catch (error) {
+      setToastState({
+        open: true,
+        title: "Error",
+        description:
+          error instanceof Error ? error.message : "An unknown error occurred.",
+      });
+    } finally {
+      setIsLoading(false);
+    }
+  };
 
-const onSubmit = (data: SignupSchemaType) => console.log(data);
-
- return (
+  return (
     <div className={cn("flex flex-col gap-6", className)} {...props}>
+      <Toast
+        open={toastState.open}
+        onOpenChange={(open) => setToastState({ ...toastState, open })}
+        title={toastState.title}
+        description={toastState.description}
+      />
       <Card>
         <CardHeader className="text-center">
-          <CardTitle className="text-xl">Welcome back</CardTitle>
+          <CardTitle className="text-xl font-mono">Welcome Back</CardTitle>
+          <CardDescription>
+            Enter your credentials to access your account
+          </CardDescription>
         </CardHeader>
         <CardContent>
-          <form  onSubmit={handleSubmit(onSubmit)}>
+          <form onSubmit={handleSubmit(onSubmit)}>
             <div className="grid gap-6">
-              <div className="flex flex-col gap-4">
+              <div className="grid gap-3">
+                <Label htmlFor="email">Email</Label>
+                <Input
+                  id="email"
+                  type="email"
+                  placeholder="m@example.com"
+                  disabled={isLoading}
+                  {...register("email")}
+                  className={cn(errors.email && "border-destructive")}
+                />
+                {errors.email && (
+                  <span className="text-sm text-destructive font-mono">
+                    {errors.email.message}
+                  </span>
+                )}
               </div>
-              <div className="after:border-border relative text-center text-sm after:absolute after:inset-0 after:top-1/2 after:z-0 after:flex after:items-center after:border-t">
+              <div className="grid gap-3">
+                <Label htmlFor="password">Password</Label>
+                <Input
+                  id="password"
+                  type="password"
+                  disabled={isLoading}
+                  {...register("password")}
+                  className={cn(errors.password && "border-destructive")}
+                />
+                {errors.password && (
+                  <span className="text-sm text-destructive font-mono">
+                    {errors.password.message}
+                  </span>
+                )}
               </div>
-              <div className="grid gap-6">
-                <div className="grid gap-3">
-                  <Label htmlFor="email">Email</Label>
-                  <Input
-                    id="email"
-                    type="email"
-                    placeholder="m@example.com"
-                    required
-                    {...register("email")}
-                  />
-                  {errors.email && (
-                    <span className="text-sm text-destructive font-mono">
-                      {errors.email.message}
-                    </span>
-                  )}
-                </div>
-                <div className="grid gap-3">
-                  <div className="flex items-center">
-                    <Label htmlFor="password">Password</Label>
-                    <a
-                      href="#"
-                      className="ml-auto text-sm underline-offset-4 hover:underline"
-                    >
-                      Forgot your password?
-                    </a>
-                  </div>
-                  <Input 
-                    id="password" 
-                    type="password" 
-                    required 
-                    {...register("password")} 
-                  />
-                  {errors.password && (
-                    <span className="text-sm text-destructive font-mono">
-                      {errors.password.message}
-                    </span>
-                  )}
-                </div>
-                
-                <Button type="submit" className="w-full">
-                  Login
-                </Button>
-              </div>
-              <div className="text-center text-sm">
-                Don&apos;t have an account?{" "}
-                <a href="#" className="underline underline-offset-4">
-                  Sign up
-                </a>
-              </div>
+              <Button type="submit" className="w-full" disabled={isLoading}>
+                {isLoading ? "Signing In..." : "Sign In"}
+              </Button>
             </div>
           </form>
         </CardContent>
+        <CardFooter className="flex flex-col gap-4">
+          <div className="text-center text-sm">
+            Don&apos;t have an account?{" "}
+            <Link href="/signup" className="text-primary hover:underline underline-offset-4">
+              Sign up
+            </Link>
+          </div>
+        </CardFooter>
       </Card>
       <div className="text-muted-foreground *:[a]:hover:text-primary text-center text-xs text-balance *:[a]:underline *:[a]:underline-offset-4">
         By clicking continue, you agree to our <a href="#">Terms of Service</a>{" "}
         and <a href="#">Privacy Policy</a>.
       </div>
     </div>
-  )
+  );
 }

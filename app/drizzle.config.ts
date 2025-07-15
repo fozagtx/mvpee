@@ -12,7 +12,7 @@ if (!process.env.DATABASE_URL) {
 }
 
 export default {
-	schema: "./lib/shema.ts",
+	schema: "./db/src/schema.ts",
 	dialect: "postgresql",
 	migrations: {
 		table: "drizzle_migrations",
@@ -20,6 +20,6 @@ export default {
 	dbCredentials: {
 		url: process.env.DATABASE_URL,
 	},
-	out: "/.migrations",
+	out: "../drizzle",
 	strict: process.env.NODE_ENV === "production",
 } satisfies Config;

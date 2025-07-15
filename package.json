@@ -6,7 +6,12 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "drizzle:generate": "drizzle-kit generate",
+    "drizzle:migrate": "drizzle-kit migrate"
+  },
+  "drizzle-kit": {
+    "config": "app/drizzle.config.ts"
   },
   "dependencies": {
     "@editorjs/code": "^2.9.3",

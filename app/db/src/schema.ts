@@ -5,6 +5,7 @@ import { randomUUID } from "crypto";
 export const users = pgTable("users", {
 	id: text("id").primaryKey().$defaultFn(() => randomUUID()),
 	name: text("name").notNull(),
+	password: text("password").notNull(),
 	email: text("email").notNull().unique(),
 	emailVerified: boolean("email_verified")
 		.$defaultFn(() => false)

@@ -1,35 +1,42 @@
 "use client";
 
-import { cn } from "@/lib/utils"
-import { Button } from "@/components/ui/button"
-import * as z from "zod"
-import { zodResolver } from "@hookform/resolvers/zod"
-import { useForm } from "react-hook-form"
+import { useState } from "react";
+import { cn } from "@/lib/utils";
+import { Button } from "@/components/ui/button";
+import * as z from "zod";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm } from "react-hook-form";
 import {
   Card,
   CardContent,
   CardDescription,
   CardHeader,
   CardTitle,
-} from "@/components/ui/card"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
-import { useRouter } from "next/navigation"
-import Link from "next/link"
+} from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { useRouter } from "next/navigation";
+import Link from "next/link";
+import { signUp } from "@/app/auth/client";
+import { Toast } from "@/components/ui/toast";
 
-const SignupSchema = z.object({
-  email: z.string().email("Please enter a valid email"),
-  password: z.string()
-    .min(8, "Password must be at least 8 characters")
-    .max(100, "Password must be less than 100 characters")
-    .regex(/[A-Z]/, "Password must contain at least one uppercase letter")
-    .regex(/[a-z]/, "Password must contain at least one lowercase letter")
-    .regex(/[0-9]/, "Password must contain at least one number"),
-  confirmPassword: z.string()
-}).refine((data) => data.password === data.confirmPassword, {
-  message: "Passwords do not match",
-  path: ["confirmPassword"]
-});
+const SignupSchema = z
+  .object({
+    name: z.string().min(2, "Name must be at least 2 characters"),
+    email: z.string().email("Please enter a valid email"),
+    password: z
+      .string()
+      .min(8, "Password must be at least 8 characters")
+      .max(100, "Password must be less than 100 characters")
+      .regex(/[A-Z]/, "Password must contain at least one uppercase letter")
+      .regex(/[a-z]/, "Password must contain at least one lowercase letter")
+      .regex(/[0-9]/, "Password must contain at least one number"),
+    confirmPassword: z.string(),
+  })
+  .refine((data) => data.password === data.confirmPassword, {
+    message: "Passwords do not match",
+    path: ["confirmPassword"],
+  });
 
 type SignupSchemaType = z.infer<typeof SignupSchema>;
 
@@ -38,62 +45,97 @@ export function SignupForm({
   ...props
 }: React.ComponentProps<"div">) {
   const router = useRouter();
+  const [isLoading, setIsLoading] = useState(false);
+  const [toastState, setToastState] = useState<{
+    open: boolean;
+    title: string;
+    description: string;
+  }>({ open: false, title: "", description: "" });
+
   const {
     register,
     handleSubmit,
-    formState: { errors, isSubmitting }
+    formState: { errors },
   } = useForm<SignupSchemaType>({
     resolver: zodResolver(SignupSchema),
     defaultValues: {
+      name: "",
       email: "",
       password: "",
-      confirmPassword: ""
-    }
+      confirmPassword: "",
+    },
   });
 
   const onSubmit = async (data: SignupSchemaType) => {
+    setIsLoading(true);
     try {
-      const response = await fetch("/api/auth/signup", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          email: data.email,
-          password: data.password
-        })
+      const response = await signUp.email({
+        name: data.name,
+        email: data.email,
+        password: data.password,
       });
 
-      const result = await response.json();
-
-      if (!response.ok) {
-        throw new Error(result.error || "Something went wrong");
+      if (response.error) {
+        throw new Error(`response.error`);
       }
 
-      // Redirect to login page on successful signup
-      router.push("/login");
+      setToastState({
+        open: true,
+        title: "Success",
+        description: "Account created successfully!",
+      });
+      router.push("/");
     } catch (error) {
-      console.error("Signup error:", error);
-      // You might want to show an error message to the user here
+      setToastState({
+        open: true,
+        title: "Error",
+        description:
+          error instanceof Error ? error.message : "An unknown error occurred.",
+      });
+    } finally {
+      setIsLoading(false);
     }
   };
 
   return (
     <div className={cn("flex flex-col gap-6", className)} {...props}>
+      <Toast
+        open={toastState.open}
+        onOpenChange={(open) => setToastState({ ...toastState, open })}
+        title={toastState.title}
+        description={toastState.description}
+      />
       <Card>
         <CardHeader className="text-center">
           <CardTitle className="text-xl font-mono">Create an Account</CardTitle>
-          <CardDescription>
-            Join us to enhance your SEO game
-          </CardDescription>
+          <CardDescription>Join us to enhance your SEO game</CardDescription>
         </CardHeader>
         <CardContent>
           <form onSubmit={handleSubmit(onSubmit)}>
             <div className="grid gap-6">
+              <div className="grid gap-3">
+                <Label htmlFor="name">Name</Label>
+                <Input
+                  id="name"
+                  type="text"
+                  placeholder="Your Name"
+                  disabled={isLoading}
+                  {...register("name")}
+                  className={cn(errors.name && "border-destructive")}
+                />
+                {errors.name && (
+                  <span className="text-sm text-destructive font-mono">
+                    {errors.name.message}
+                  </span>
+                )}
+              </div>
               <div className="grid gap-3">
                 <Label htmlFor="email">Email</Label>
                 <Input
                   id="email"
                   type="email"
                   placeholder="m@example.com"
+                  disabled={isLoading}
                   {...register("email")}
                   className={cn(errors.email && "border-destructive")}
                 />
@@ -108,6 +150,7 @@ export function SignupForm({
                 <Input
                   id="password"
                   type="password"
+                  disabled={isLoading}
                   {...register("password")}
                   className={cn(errors.password && "border-destructive")}
                 />
@@ -122,6 +165,7 @@ export function SignupForm({
                 <Input
                   id="confirmPassword"
                   type="password"
+                  disabled={isLoading}
                   {...register("confirmPassword")}
                   className={cn(errors.confirmPassword && "border-destructive")}
                 />
@@ -131,12 +175,8 @@ export function SignupForm({
                   </span>
                 )}
               </div>
-              <Button 
-                type="submit" 
-                className="w-full"
-                disabled={isSubmitting}
-              >
-                {isSubmitting ? "Creating Account..." : "Sign Up"}
+              <Button type="submit" className="w-full" disabled={isLoading}>
+                {isLoading ? "Creating Account..." : "Sign Up"}
               </Button>
               <div className="text-center text-sm">
                 Already have an account?{" "}
