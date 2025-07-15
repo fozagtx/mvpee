@@ -19,8 +19,8 @@ const cameraPlain = {
 };
 
 export const metadata: Metadata = {
-	title: "getSeoLink",
-	description: "get seo descriptive links",
+	title: "n8n for seo",
+	description: "add a great seo presence for your saas , gain users on autopilot .",
 };
 
 export default function RootLayout({

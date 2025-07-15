@@ -19,12 +19,11 @@ export default function Header({ user }: HeaderProps) {
 	}, []);
 
 	return (
-		<header
-			className={`fixed top-0 left-0 right-0 z-20 transition-all duration-300 
-				bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-[#0f172a] via-[#1e293b] to-[#fb7185] 
-				border-b border-white/10
-				${scrolled ? 'py-2' : 'py-4'}`}
-		>
+	   <header
+		   className={`fixed top-0 left-0 right-0 z-20 transition-all duration-300 
+			   bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-[#0f172a] via-[#1e293b] to-[#fb7185] 
+			   ${scrolled ? 'py-2' : 'py-4'}`}
+	   >
 			<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 				<div className={`flex justify-between items-center transition-all duration-300 ${
 					scrolled ? 'gap-4' : 'gap-8'
@@ -40,7 +39,7 @@ export default function Header({ user }: HeaderProps) {
 							href="/docs"
 							className="h-10 px-4 text-sm font-mono flex items-center justify-center transition-all border border-input bg-background hover:bg-accent hover:text-accent-foreground focus-visible:ring-ring"
 						>
-							Docs
+							Demo
 						</Link>
 						<Link
 							href="/about"
