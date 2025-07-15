@@ -117,7 +117,21 @@ export default function Home() {
                           className="w-full min-h-[48px] sm:min-h-[56px] max-h-[120px] resize-none overflow-auto text-base sm:text-lg px-3 sm:px-6 py-3 sm:py-5 pr-[120px] border-2 text-black placeholder:text-black/60 shadow-none focus:ring-2 focus:ring-black focus:border-black transition-all font-sans backdrop-blur"
                         />
                         <div className="absolute right-3 bottom-3 text-black">
-                          {loading ? <Loader variant="dots" size="md" /> : <CircleArrowUp size={28} className="transform hover:translate-y-[-2px] transition-transform" />}
+                          {loading ? (
+                            <Loader variant="dots" size="md" />
+                          ) : (
+                            <button
+                              type="button"
+                              aria-label="Generate preview"
+                              onClick={handleSubmit}
+                              className="focus:outline-none"
+                            >
+                              <CircleArrowUp
+                                size={28}
+                                className="transform hover:translate-y-[-2px] transition-transform cursor-pointer"
+                              />
+                            </button>
+                          )}
                         </div>
                       </div>
                     </div>
