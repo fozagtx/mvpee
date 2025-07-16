@@ -8,11 +8,13 @@ import { CircleArrowUp } from "lucide-react";
 import Header from "../components/Header";
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
+import { useEffect } from "react";
 import { Toast } from "../components/ui/toast";
 
 export const runtime = 'nodejs';
 
 export default function Home() {
+  const [isClient, setIsClient] = useState(false)
   const [content, setContent] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
@@ -23,6 +25,13 @@ export default function Home() {
   const [user] = useState(null);
   const inputRef = React.useRef<HTMLTextAreaElement>(null);
   const router = useRouter();
+  const isOnline = useOnlineStatus();
+
+useEffect(() => {
+  setIsClient(true)
+}, []);
+
+if(!isClient) return null;
 
 
   const handleSubmit = async () => {
@@ -56,7 +65,6 @@ export default function Home() {
   };
 
 
-  const isOnline = useOnlineStatus();
 
   return (
     <>

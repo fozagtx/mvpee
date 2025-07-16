@@ -28,6 +28,7 @@ export async function POST(request: Request) {
     const newUser = await db.insert(users).values({
       email,
       name: email.split("@")[0],
+      password: hashedPassword,
       emailVerified: false,
       image: null
     }).returning();
@@ -37,7 +38,6 @@ export async function POST(request: Request) {
     const newAccount = await db.insert(accounts).values({
       id: randomUUID(),
       userId: newUser[0].id,
-      password: hashedPassword,
       accountId: "local",
       providerId: "credentials",
       createdAt: new Date(),
