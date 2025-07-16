@@ -71,6 +71,8 @@ export default function Header() {
 						) : (
 							<Link
 								href="/login"
+								target="_blank"
+								rel="noopener noreferrer"
 								className="h-10 px-4 text-sm font-mono flex items-center justify-center transition-all border border-input bg-background hover:bg-accent hover:text-accent-foreground focus-visible:ring-ring"
 							>
 								Sign in

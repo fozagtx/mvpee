@@ -54,28 +54,64 @@ export function LoginForm({
 
   const onSubmit = async (data: LoginSchemaType) => {
     setIsLoading(true);
-    const { error } = await signIn.email({
-      email: data.email,
-      password: data.password,
-    });
+    
+    try {
+      // First try to sign in
+      const { error: signInError } = await signIn.email({
+        email: data.email,
+        password: data.password,
+      });
 
-    setIsLoading(false);
+      if (signInError) {
+        // If sign in fails, try to create account
+        const response = await fetch('/api/auth/signin', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            email: data.email,
+            password: data.password
+          })
+        });
 
-    if (error) {
+        if (!response.ok) {
+          const error = await response.json();
+          setToastState({
+            open: true,
+            title: "Error",
+            description: error.error || "Failed to create account",
+          });
+          return;
+        }
+
+        // If account creation was successful, session is already set by backend
+        // No need to call signIn.email again since session cookie is set
+        const userData = await response.json();
+        
+        setToastState({
+          open: true,
+          title: "Success",
+          description: "Login successful!",
+        });
+        router.push("/");
+      } else {
+        setToastState({
+          open: true,
+          title: "Success",
+          description: "Login successful!",
+        });
+        router.push("/");
+      }
+    } catch (error) {
       setToastState({
         open: true,
         title: "Error",
-        description: error.message,
+        description: "An unexpected error occurred. Please try again.",
       });
-      return;
+    } finally {
+      setIsLoading(false);
     }
-
-    setToastState({
-      open: true,
-      title: "Success",
-      description: "Login successful!",
-    });
-    router.push("/");
   };
 
   return (
@@ -127,20 +163,13 @@ export function LoginForm({
                   </span>
                 )}
               </div>
-              <Button type="submit" className="w-full" disabled={isLoading}>
+              <Button type="submit" className="w-full border bg-black text-white" disabled={isLoading}>
                 {isLoading ? "Signing In..." : "Sign In"}
               </Button>
             </div>
           </form>
         </CardContent>
-        <CardFooter className="flex flex-col gap-4">
-          <div className="text-center text-sm">
-            Don&apos;t have an account?{" "}
-            <Link href="/signup" className="text-primary hover:underline underline-offset-4">
-              Sign up
-            </Link>
-          </div>
-        </CardFooter>
+        <CardFooter className="flex flex-col gap-4"></CardFooter>
       </Card>
       <div className="text-muted-foreground *:[a]:hover:text-primary text-center text-xs text-balance *:[a]:underline *:[a]:underline-offset-4">
         By clicking continue, you agree to our <a href="#">Terms of Service</a>{" "}

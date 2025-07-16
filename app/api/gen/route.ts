@@ -99,17 +99,10 @@ export async function POST(req: NextRequest) {
 
 		const articleContent = await callMistral(articlePrompt, systemPrompt);
 
-		const [newArticle] = await db
-			.insert(articles)
-			.values({
-				prompt,
-				outline,
-				article: articleContent,
-			})
-			.returning();
-
+		// Return the generated article and outline directly without storing in DB
 		return NextResponse.json({
-			id: newArticle.id,
+			outline,
+			article: articleContent,
 			success: true,
 		});
 	} catch (error) {
