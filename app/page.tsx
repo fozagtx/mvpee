@@ -1,5 +1,6 @@
 "use client"
 
+import useOnlineStatus  from "../app/hooks/useOnline"
 import { Loader } from "../components/ui/loader";
 import { PromptInput } from "../components/ui/prompt-input";
 import { Textarea } from "../components/ui/textarea";
@@ -55,12 +56,14 @@ export default function Home() {
   };
 
 
+  const isOnline = useOnlineStatus();
+
   return (
     <>
       <Header user={user} />
       <div className="relative z-10 min-h-screen flex flex-col overflow-hidden bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-[#0f172a] via-[#1e293b] to-[#fb7185]">
         <div className="absolute inset-0 bg-black/[0.05] [mask-image:url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNiIgaGVpZ2h0PSI2IiB2aWV3Qm94PSIwIDAgNiA2IiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9ImJsYWNrIi8+PC9zdmc+)] [mask-repeat:repeat]" aria-hidden="true" />
-        
+        <p className="text-blue">{isOnline? 'online': 'offline'}</p>
         <main className="flex-1 flex flex-col items-center justify-center min-h-screen py-16">
           <div className="w-full max-w-7xl mx-auto px-8 min-h-[calc(100vh-8rem)] flex flex-col items-center justify-between border border-gray-200/20 rounded-lg relative">
             <div className="flex-1 w-full flex flex-col items-center justify-center space-y-12">
