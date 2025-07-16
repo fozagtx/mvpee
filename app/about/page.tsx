@@ -7,7 +7,7 @@ import Link from "next/link";
 export default function AboutPage() {
   return (
     <>
-      <Header user={null} />
+      <Header />
       <div className="relative z-10 min-h-screen flex flex-col overflow-hidden bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-[#0f172a] via-[#1e293b] to-[#fb7185]">
         <main className="flex-1 flex flex-col items-center justify-center py-8 px-4 sm:px-6 lg:px-8">
           <div className="w-full max-w-4xl mx-auto">

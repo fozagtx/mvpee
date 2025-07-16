@@ -63,9 +63,31 @@ export const verifications = pgTable("verifications", {
 	),
 }).enableRLS();
 
+export const articles = pgTable("articles", {
+	id: text("id").primaryKey().$defaultFn(() => randomUUID()),
+	prompt: text("prompt").notNull(),
+	outline: text("outline").notNull(),
+	article: text("article").notNull(),
+	userId: text("user_id").references(() => users.id, { onDelete: "cascade" }),
+	createdAt: timestamp("created_at")
+		.$defaultFn(() => new Date())
+		.notNull(),
+	updatedAt: timestamp("updated_at")
+		.$defaultFn(() => new Date())
+		.notNull(),
+});
+
 export const usersRelations = relations(users, ({ many }) => ({
 	accounts: many(accounts),
 	sessions: many(sessions),
+	articles: many(articles),
+}));
+
+export const articlesRelations = relations(articles, ({ one }) => ({
+	author: one(users, {
+		fields: [articles.userId],
+		references: [users.id],
+	}),
 }));
 
 export const accountsRelations = relations(accounts, ({ one }) => ({

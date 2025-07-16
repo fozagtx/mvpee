@@ -2,6 +2,9 @@ import { NextRequest, NextResponse } from "next/server";
 import { z } from "zod";
 import prompts from "./prompts.json";
 import { interpolatePrompt } from "./utils";
+import { db } from "@/app/db/src";
+import { articles } from "@/app/db/src/schema";
+import { eq } from "drizzle-orm";
 
 const ArticleRequestSchema = z.object({
 	prompt: z.string().min(1).max(500),
@@ -38,6 +41,33 @@ async function callMistral(
 	return data.choices?.[0]?.message?.content?.trim() || "";
 }
 
+export async function GET(req: NextRequest) {
+	try {
+		const { searchParams } = new URL(req.url);
+		const id = searchParams.get("id");
+
+		if (!id) {
+			return NextResponse.json({ error: "ID is required" }, { status: 400 });
+		}
+
+		const article = await db.query.articles.findFirst({
+			where: eq(articles.id, id),
+		});
+
+		if (!article) {
+			return NextResponse.json({ error: "Article not found" }, { status: 404 });
+		}
+
+		return NextResponse.json(article);
+	} catch (error) {
+		console.error("Article retrieval error:", error);
+		return NextResponse.json(
+			{ error: "Internal server error", message: "Something went wrong" },
+			{ status: 500 },
+		);
+	}
+}
+
 export async function POST(req: NextRequest) {
 	try {
 		const json = await req.json();
@@ -67,11 +97,19 @@ export async function POST(req: NextRequest) {
 			outline,
 		});
 
-		const article = await callMistral(articlePrompt, systemPrompt);
+		const articleContent = await callMistral(articlePrompt, systemPrompt);
+
+		const [newArticle] = await db
+			.insert(articles)
+			.values({
+				prompt,
+				outline,
+				article: articleContent,
+			})
+			.returning();
 
 		return NextResponse.json({
-			outline,
-			article,
+			id: newArticle.id,
 			success: true,
 		});
 	} catch (error) {

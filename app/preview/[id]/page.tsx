@@ -19,8 +19,12 @@ export default function PreviewPage() {
       try {
         const res = await fetch(`/api/gen?id=${id}`);
         if (!res.ok) throw new Error("Failed to fetch preview");
-        const data = await res.text();
-        setTextStream(data);
+        const data = await res.json();
+        if (data.article) {
+          setTextStream(data.article);
+        } else {
+          throw new Error("Invalid response format");
+        }
       } catch (err: unknown) {
         setError(err instanceof Error ? err.message : "Unknown error");
       } finally {
@@ -32,7 +36,7 @@ export default function PreviewPage() {
 
   return (
     <>
-      <Header user={null} />
+      <Header />
       <div className="relative z-10 min-h-screen flex flex-col overflow-hidden bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-[#0f172a] via-[#1e293b] to-[#fb7185]">
         <main className="flex-1 flex flex-col items-center justify-center min-h-screen py-16">
           <div className="w-full max-w-5xl mx-auto px-8 min-h-[calc(100vh-8rem)] flex flex-col items-center justify-center border border-gray-200/20 rounded-lg relative">
