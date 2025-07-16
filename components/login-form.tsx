@@ -56,53 +56,27 @@ export function LoginForm({
     setIsLoading(true);
     
     try {
-      // First try to sign in
+      // Sign in the user
       const { error: signInError } = await signIn.email({
         email: data.email,
         password: data.password,
       });
 
       if (signInError) {
-        // If sign in fails, try to create account
-        const response = await fetch('/api/auth/signin', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({
-            email: data.email,
-            password: data.password
-          })
-        });
-
-        if (!response.ok) {
-          const error = await response.json();
-          setToastState({
-            open: true,
-            title: "Error",
-            description: error.error || "Failed to create account",
-          });
-          return;
-        }
-
-        // If account creation was successful, session is already set by backend
-        // No need to call signIn.email again since session cookie is set
-        const userData = await response.json();
-        
         setToastState({
           open: true,
-          title: "Success",
-          description: "Login successful!",
+          title: "Error",
+          description: "Invalid credentials",
         });
-        router.push("/");
-      } else {
-        setToastState({
-          open: true,
-          title: "Success",
-          description: "Login successful!",
-        });
-        router.push("/");
+        return;
       }
+
+      setToastState({
+        open: true,
+        title: "Success",
+        description: "Login successful!",
+      });
+      router.push("/");
     } catch (error) {
       setToastState({
         open: true,

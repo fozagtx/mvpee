@@ -6,8 +6,9 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
 const getInitials = (email: string) => {
   if (!email) return "";
+  // Extract first 3 characters before @ and convert to uppercase
   const namePart = email.split('@')[0];
-  return namePart.substring(0, 2).toUpperCase();
+  return namePart.substring(0, 3).toUpperCase();
 };
 
 export default function Header() {
@@ -23,6 +24,13 @@ export default function Header() {
 		window.addEventListener('scroll', handleScroll);
 		return () => window.removeEventListener('scroll', handleScroll);
 	}, []);
+
+	// Force re-render when session data changes
+	React.useEffect(() => {
+		if (data?.session?.id) {
+			setScrolled(prev => !prev); // Force a re-render
+		}
+	}, [data?.session?.id]);
 
 	return (
 	   <header
@@ -55,15 +63,18 @@ export default function Header() {
 						</Link>
 						{isPending ? (
 								<div>Loading...</div>
-							) : data?.user ? (
+							) : data?.session?.id ? (
 							<div className="flex items-center gap-4">
-								<Avatar>
-									<AvatarImage src={user?.image ?? ''} alt={user?.name ?? ''} />
-									<AvatarFallback>{getInitials(user?.email ?? '')}</AvatarFallback>
-								</Avatar>
+								<div className="relative">
+									<Avatar className="bg-gradient-to-r from-[#0f172a] via-[#1e293b] to-[#fb7185] h-10 w-10">
+										<AvatarImage src={user?.image ?? ''} alt={user?.name ?? ''} />
+										<AvatarFallback className="text-white font-bold text-lg">{getInitials(user?.email ?? '')}</AvatarFallback>
+									</Avatar>
+									<div className="absolute -bottom-1 -right-1 w-3 h-3 bg-red-500 rounded-full border-2 border-white"></div>
+								</div>
 								<Link
 									href="/api/auth/signout"
-									className="h-10 px-4 text-sm font-mono flex items-center justify-center transition-all border border-input bg-background hover:bg-accent hover:text-accent-foreground focus-visible:ring-ring"
+									className="h-10 px-4 text-sm font-mono flex items-center justify-center transition-all border border-red-500 bg-red-50 text-red-500 hover:bg-red-100 hover:text-red-600 focus-visible:ring-red-500"
 								>
 									Sign out
 								</Link>
@@ -75,7 +86,7 @@ export default function Header() {
 								rel="noopener noreferrer"
 								className="h-10 px-4 text-sm font-mono flex items-center justify-center transition-all border border-input bg-background hover:bg-accent hover:text-accent-foreground focus-visible:ring-ring"
 							>
-								Sign in
+								Dashboard
 							</Link>
 						)}
 					</nav>
