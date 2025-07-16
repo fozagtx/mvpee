@@ -37,8 +37,8 @@ export function LoginForm({
   const [toastState, setToastState] = useState<{
     open: boolean;
     title: string;
-    description: string;
-  }>({ open: false, title: "", description: "" });
+    description: string | undefined;
+  }>({ open: false, title: "", description: undefined });
 
   const {
     register,
@@ -54,30 +54,28 @@ export function LoginForm({
 
   const onSubmit = async (data: LoginSchemaType) => {
     setIsLoading(true);
-    try {
-      const response = await signIn.email({
-        email: data.email,
-        password: data.password,
-      });
-      if (!response) {
-        throw new Error(`response.error`);
-      }
-      setToastState({
-        open: true,
-        title: "Success",
-        description: "Login successful!",
-      });
-      router.push("/");
-    } catch (error) {
+    const { error } = await signIn.email({
+      email: data.email,
+      password: data.password,
+    });
+
+    setIsLoading(false);
+
+    if (error) {
       setToastState({
         open: true,
         title: "Error",
-        description:
-          error instanceof Error ? error.message : "An unknown error occurred.",
+        description: error.message,
       });
-    } finally {
-      setIsLoading(false);
+      return;
     }
+
+    setToastState({
+      open: true,
+      title: "Success",
+      description: "Login successful!",
+    });
+    router.push("/");
   };
 
   return (

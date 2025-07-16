@@ -29,7 +29,7 @@ export default function RootLayout({
 	children: React.ReactNode;
 }) {
 	return (
-		<html lang="en">
+		<html lang="en" suppressHydrationWarning>
 			<head>
 				<Script
 					src="//unpkg.com/react-scan/dist/auto.global.js"
@@ -37,7 +37,7 @@ export default function RootLayout({
 					crossOrigin="anonymous"
 				/>
 			</head>
-			<body
+			<body suppressHydrationWarning
 				className={`${geistSans.variable} ${geistMono.variable} ${cameraPlain.variable} antialiased`}
 			>
 				{children}

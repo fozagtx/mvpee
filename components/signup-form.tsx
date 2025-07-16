@@ -68,33 +68,29 @@ export function SignupForm({
 
   const onSubmit = async (data: SignupSchemaType) => {
     setIsLoading(true);
-    try {
-      const response = await signUp.email({
-        name: data.name,
-        email: data.email,
-        password: data.password,
-      });
+    const { error } = await signUp.email({
+      name: data.name,
+      email: data.email,
+      password: data.password,
+    });
 
-      if (response.error) {
-        throw new Error(`response.error`);
-      }
+    setIsLoading(false);
 
-      setToastState({
-        open: true,
-        title: "Success",
-        description: "Account created successfully!",
-      });
-      router.push("/");
-    } catch (error) {
+    if (error) {
       setToastState({
         open: true,
         title: "Error",
-        description:
-          error instanceof Error ? error.message : "An unknown error occurred.",
+        description: typeof error.message === 'string' ? error.message : "An unknown error occurred.",
       });
-    } finally {
-      setIsLoading(false);
+      return;
     }
+
+    setToastState({
+      open: true,
+      title: "Success",
+      description: "Account created successfully! Please sign in.",
+    });
+    router.push("/login");
   };
 
   return (
@@ -108,7 +104,6 @@ export function SignupForm({
       <Card>
         <CardHeader className="text-center">
           <CardTitle className="text-xl font-mono">Create an Account</CardTitle>
-          <CardDescription>Join us to enhance your SEO game</CardDescription>
         </CardHeader>
         <CardContent>
           <form onSubmit={handleSubmit(onSubmit)}>

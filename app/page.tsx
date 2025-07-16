@@ -22,7 +22,7 @@ export default function Home() {
   const [inputError, setInputError] = useState("");
   const [showToast, setShowToast] = useState(false);
   const [toastMessage, setToastMessage] = useState("");
-  const [user] = useState(null);
+
   const inputRef = React.useRef<HTMLTextAreaElement>(null);
   const router = useRouter();
   const isOnline = useOnlineStatus();
@@ -68,7 +68,7 @@ if(!isClient) return null;
 
   return (
     <>
-      <Header user={user} />
+      <Header />
       <div className="relative z-10 min-h-screen flex flex-col overflow-hidden bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-[#0f172a] via-[#1e293b] to-[#fb7185]">
         <div className="absolute inset-0 bg-black/[0.05] [mask-image:url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNiIgaGVpZ2h0PSI2IiB2aWV3Qm94PSIwIDAgNiA2IiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9ImJsYWNrIi8+PC9zdmc+)] [mask-repeat:repeat]" aria-hidden="true" />
         <p className="text-blue">{isOnline? 'online': 'offline'}</p>

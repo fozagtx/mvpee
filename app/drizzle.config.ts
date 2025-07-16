@@ -1,25 +1,17 @@
 import type { Config } from "drizzle-kit";
 import * as dotenv from "dotenv";
 
-if (process.env.NODE_ENV === "production") {
-	dotenv.config({ path: "env.production" });
-} else {
-	dotenv.config({ path: "env.local" });
-}
+dotenv.config({ path: ".env" });
 
 if (!process.env.DATABASE_URL) {
-	throw new Error(`no database env provided`);
+  throw new Error("DATABASE_URL is not set in .env file");
 }
 
 export default {
-	schema: "./db/src/schema.ts",
-	dialect: "postgresql",
-	migrations: {
-		table: "drizzle_migrations",
-	},
-	dbCredentials: {
-		url: process.env.DATABASE_URL,
-	},
-	out: "../drizzle",
-	strict: process.env.NODE_ENV === "production",
+  schema: "./app/db/src/schema.ts",
+  dialect: "postgresql",
+  dbCredentials: {
+    url: process.env.DATABASE_URL,
+  },
+  out: "./drizzle",
 } satisfies Config;

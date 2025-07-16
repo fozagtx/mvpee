@@ -1,12 +1,18 @@
 "use client";
 import React from "react";
 import Link from "next/link";
+import { useSession } from "@/app/auth/client";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
-interface HeaderProps {
-	user: { id: string; email: string } | null;
-}
+const getInitials = (email: string) => {
+  if (!email) return "";
+  const namePart = email.split('@')[0];
+  return namePart.substring(0, 2).toUpperCase();
+};
 
-export default function Header({ user }: HeaderProps) {
+export default function Header() {
+	const { data, isPending } = useSession();
+	const user = data?.user;
 	const [scrolled, setScrolled] = React.useState(false);
 
 	React.useEffect(() => {
@@ -47,13 +53,21 @@ export default function Header({ user }: HeaderProps) {
 						>
 							About
 						</Link>
-						{user ? (
-							<Link
-								href="/api/auth/signout"
-								className="h-10 px-4 text-sm font-mono flex items-center justify-center transition-all border border-input bg-background hover:bg-accent hover:text-accent-foreground focus-visible:ring-ring"
-							>
-								Sign out
-							</Link>
+						{isPending ? (
+								<div>Loading...</div>
+							) : data?.user ? (
+							<div className="flex items-center gap-4">
+								<Avatar>
+									<AvatarImage src={user?.image ?? ''} alt={user?.name ?? ''} />
+									<AvatarFallback>{getInitials(user?.email ?? '')}</AvatarFallback>
+								</Avatar>
+								<Link
+									href="/api/auth/signout"
+									className="h-10 px-4 text-sm font-mono flex items-center justify-center transition-all border border-input bg-background hover:bg-accent hover:text-accent-foreground focus-visible:ring-ring"
+								>
+									Sign out
+								</Link>
+							</div>
 						) : (
 							<Link
 								href="/login"
