@@ -4,6 +4,7 @@ import { useQuery } from "@tanstack/react-query";
 import { trpc } from "@/utils/trpc";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
+import Loading  from "@/components/loader";
 
 export default function Dashboard() {
   const router = useRouter();
@@ -18,7 +19,7 @@ export default function Dashboard() {
   }, [session, isPending]);
 
   if (isPending) {
-    return <div>Loading...</div>;
+    return <Loading />;
   }
 
   return (
