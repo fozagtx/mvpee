@@ -11,6 +11,9 @@ const leftContent = (
       <Link href="/dashboard" className="font-mono px-2">
        MVPE
       </Link>
+      <Link href="/prompt-optimizer" className="font-mono px-2">
+       Prompt Optimizer
+      </Link>
       <Link href="/about" className="font-mono px-2">
        About
       </Link>
