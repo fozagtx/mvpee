@@ -1,29 +1,34 @@
 {
-  "name": "mvpe",
+  "name": "prompt-optimizer",
+  "version": "0.1.0",
   "private": true,
-  "workspaces": [
-    "apps/*",
-    "packages/*"
-  ],
   "scripts": {
-    "dev": "turbo dev",
-    "build": "turbo build",
-    "check-types": "turbo check-types",
-    "dev:native": "turbo -F native dev",
-    "dev:web": "turbo -F web dev",
-    "dev:server": "turbo -F server dev",
-    "db:push": "turbo -F server db:push",
-    "db:studio": "turbo -F server db:studio",
-    "db:generate": "turbo -F server db:generate",
-    "db:migrate": "turbo -F server db:migrate",
-    "db:start": "turbo -F server db:start",
-    "db:watch": "turbo -F server db:watch",
-    "db:stop": "turbo -F server db:stop",
-    "db:down": "turbo -F server db:down"
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
   },
-  "dependencies": {},
+  "dependencies": {
+    "next": "15.3.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "@ai-sdk/mistral": "^1.0.3",
+    "ai": "^4.0.0",
+    "zod": "^4.0.2",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "lucide-react": "^0.487.0",
+    "next-themes": "^0.4.6",
+    "sonner": "^2.0.5",
+    "tailwind-merge": "^3.3.1",
+    "radix-ui": "^1.4.2"
+  },
   "devDependencies": {
-    "turbo": "^2.5.4"
-  },
-  "packageManager": "bun@1.2.4"
+    "@tailwindcss/postcss": "^4.1.10",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "tailwindcss": "^4.1.10",
+    "typescript": "^5"
+  }
 }
