@@ -53,7 +53,8 @@ The API is running at [http://localhost:3000](http://localhost:3000).
 mvpe/
 ├── apps/
 │   ├── web/         # Frontend application (Next.js)
-│   └── server/      # Backend API (Next, TRPC)
+│   ├── server/      # Backend API (Next, TRPC)
+│   └── landing/     # Landing page (Astro) - Whop templates sales page
 ```
 
 ## Available Scripts
@@ -65,3 +66,17 @@ mvpe/
 - `bun check-types`: Check TypeScript types across all apps
 - `bun db:push`: Push schema changes to database
 - `bun db:studio`: Open database studio UI
+
+### Landing Page (Astro)
+
+The landing page is located in `apps/landing/` and can be run independently:
+
+```bash
+cd apps/landing
+npm install
+npm run dev
+```
+
+Visit [http://localhost:4321](http://localhost:4321) to see the landing page.
+
+For more details, see [apps/landing/README.md](apps/landing/README.md).
