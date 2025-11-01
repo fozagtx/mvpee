@@ -1,28 +1,24 @@
 {
   "name": "landing",
-  "type": "module",
   "version": "0.0.1",
+  "private": true,
   "scripts": {
-    "dev": "astro dev",
-    "build": "astro build",
-    "preview": "astro preview",
-    "astro": "astro",
-    "check-types": "astro check",
-    "lint": "echo 'No linting configured'"
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
   },
   "dependencies": {
-    "@astrojs/react": "^4.4.0",
-    "@tailwindcss/vite": "^4.1.16",
+    "@tailwindcss/postcss": "^4.1.16",
     "@types/react": "^19.2.2",
     "@types/react-dom": "^19.2.2",
-    "@whop/frosted-ui": "^0.0.1-canary.24",
-    "astro": "^5.15.1",
+    "next": "^15.3.0",
     "react": "^19.2.0",
-    "react-dom": "^19.2.0",
-    "tailwindcss": "^4.1.16"
+    "react-dom": "^19.2.0"
   },
   "devDependencies": {
-    "@astrojs/check": "^0.9.5",
+    "@types/node": "^20",
+    "tailwindcss": "^4.1.16",
     "typescript": "^5.9.3"
   }
 }
