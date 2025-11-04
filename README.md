@@ -1,27 +1,29 @@
-# Whop Templates Landing Page
+# SaaS Info Hub - Landing Page
 
-A conversion-focused landing page built with Next.js to sell premium Whop app templates.
+A modern, high-converting landing page built with SvelteKit and Tailwind CSS for collecting leads and providing free SaaS resources.
 
 ## Features
 
-- ⚡ **Lightning Fast** - Built with Next.js 15 for optimal performance
-- 🎨 **Beautiful Design** - Modern, professional design with Tailwind CSS 4
+- ⚡ **Lightning Fast** - Built with SvelteKit for optimal performance
+- 🎨 **Beautiful Design** - Modern, professional design with Tailwind CSS 3
 - 📱 **Fully Responsive** - Perfect on all devices
-- 💰 **Conversion Optimized** - Every element designed to drive sales
+- 💰 **Conversion Optimized** - Lead capture form with validation
 - 🚀 **Easy to Customize** - Simple component structure
+- 🎯 **SEO Ready** - Optimized for search engines
 
-## Pricing Structure
+## Tech Stack
 
-- **Starter**: $4.99 - Perfect for getting started
-- **Pro**: $9.99 - For serious entrepreneurs (Most Popular)
-- **Ultimate**: $19.99 - Everything you need to dominate
+- [SvelteKit](https://kit.svelte.dev/) - The fastest way to build Svelte apps
+- [Svelte 5](https://svelte.dev/) - Cybernetically enhanced web apps with runes
+- [Tailwind CSS 3](https://tailwindcss.com/) - Utility-first CSS framework
+- [TypeScript](https://www.typescriptlang.org/) - Type safety
 
 ## Getting Started
 
 ### Prerequisites
 
 - Node.js 18+
-- npm, yarn, or bun
+- npm, yarn, or pnpm
 
 ### Installation
 
@@ -35,7 +37,9 @@ npm install
 npm run dev
 ```
 
-Visit [http://localhost:3000](http://localhost:3000) to see the landing page.
+Visit [http://localhost:5173](http://localhost:5173) to see the landing page.
+
+The page will auto-reload when you make changes.
 
 ### Build
 
@@ -43,77 +47,137 @@ Visit [http://localhost:3000](http://localhost:3000) to see the landing page.
 npm run build
 ```
 
-The optimized production build will be generated in the `.next/` directory.
+The optimized production build will be generated in the `build/` directory.
 
-### Production
+### Preview Production Build
 
 ```bash
-npm run start
+npm run preview
 ```
 
 ## Project Structure
 
 ```
 /
-├── public/              # Static assets (favicon, etc.)
 ├── src/
-│   ├── app/            # Next.js App Router
-│   │   ├── globals.css # Global styles with Tailwind
-│   │   ├── layout.tsx  # Root layout
-│   │   └── page.tsx    # Main landing page
-│   └── components/     # React components
-│       ├── Header.tsx
-│       ├── Hero.tsx
-│       ├── Features.tsx
-│       ├── Templates.tsx
-│       ├── Pricing.tsx
-│       ├── Testimonials.tsx
-│       ├── CTA.tsx
-│       └── Footer.tsx
-├── next.config.ts      # Next.js configuration
-├── tailwind.config.ts  # Tailwind configuration
+│   ├── lib/
+│   │   └── components/     # Svelte components
+│   │       ├── Header.svelte
+│   │       ├── Hero.svelte
+│   │       ├── Features.svelte
+│   │       ├── HowItWorks.svelte
+│   │       ├── Benefits.svelte
+│   │       ├── LeadForm.svelte
+│   │       ├── Testimonials.svelte
+│   │       ├── CTA.svelte
+│   │       └── Footer.svelte
+│   ├── routes/
+│   │   ├── +layout.svelte  # Root layout
+│   │   └── +page.svelte    # Homepage
+│   ├── app.html           # HTML template
+│   └── app.css            # Global styles
+├── static/                 # Static assets
+├── svelte.config.js       # SvelteKit config
+├── tailwind.config.js     # Tailwind config
+├── vite.config.ts         # Vite config
 └── package.json
 ```
 
 ## Customization
 
-### Update Pricing
+### Update Content
 
-Edit `src/components/Pricing.tsx` to modify pricing plans.
+All components are located in `src/lib/components/`. Simply edit the Svelte files to update content:
 
-### Change Content
-
-- **Hero Section**: `src/components/Hero.tsx`
-- **Features**: `src/components/Features.tsx`
-- **Templates**: `src/components/Templates.tsx`
-- **Testimonials**: `src/components/Testimonials.tsx`
+- **Hero Section**: `src/lib/components/Hero.svelte`
+- **Features**: `src/lib/components/Features.svelte`
+- **Lead Form**: `src/lib/components/LeadForm.svelte`
+- **Testimonials**: `src/lib/components/Testimonials.svelte`
 
 ### Styling
 
-The project uses Tailwind CSS 4. Global styles are in `src/app/globals.css`.
+The project uses Tailwind CSS 3. Global styles are in `src/app.css`.
 
-## Technologies Used
+### Lead Form Integration
 
-- [Next.js 15](https://nextjs.org) - React framework
-- [React 19](https://react.dev) - UI library
-- [Tailwind CSS 4](https://tailwindcss.com) - Utility-first CSS framework
-- [TypeScript](https://www.typescriptlang.org) - Type safety
+The lead form in `LeadForm.svelte` currently simulates a submission. To integrate with your backend:
+
+1. Update the `handleSubmit` function in `LeadForm.svelte`
+2. Add your API endpoint
+3. Handle the response
+
+Example:
+
+```typescript
+async function handleSubmit(e: Event) {
+  e.preventDefault();
+  loading = true;
+
+  try {
+    const response = await fetch('/api/subscribe', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ name, email })
+    });
+
+    if (response.ok) {
+      submitted = true;
+    }
+  } catch (error) {
+    console.error(error);
+  } finally {
+    loading = false;
+  }
+}
+```
 
 ## Deployment
 
-This Next.js app can be easily deployed to:
+This SvelteKit app can be easily deployed to:
 
 - **Vercel** (Recommended) - Zero configuration deployment
-- Netlify
-- Cloudflare Pages
-- Any Node.js hosting service
+- **Netlify**
+- **Cloudflare Pages**
+- **Any Node.js hosting service**
 
 ### Deploy to Vercel
 
-The easiest way to deploy is with [Vercel](https://vercel.com):
+```bash
+npm i -g vercel
+vercel
+```
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/your-username/your-repo)
+Or connect your GitHub repository to Vercel for automatic deployments.
+
+### Adapter Configuration
+
+The project uses `@sveltejs/adapter-auto` which automatically selects the right adapter for your deployment platform.
+
+For specific platforms, you can change the adapter in `svelte.config.js`:
+
+- Vercel: `@sveltejs/adapter-vercel`
+- Netlify: `@sveltejs/adapter-netlify`
+- Cloudflare Pages: `@sveltejs/adapter-cloudflare`
+- Static: `@sveltejs/adapter-static`
+
+## Performance
+
+This SvelteKit application is optimized for maximum performance:
+
+- Minimal JavaScript shipped to the client
+- Automatic code splitting
+- Optimized asset loading
+- Server-side rendering
+- Progressive enhancement
 
 ## License
 
-Proprietary - All rights reserved
+MIT License - feel free to use this for your projects!
+
+## Support
+
+For issues or questions, please open an issue on GitHub.
+
+---
+
+Built with ❤️ using SvelteKit
