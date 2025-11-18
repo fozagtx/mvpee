@@ -18,13 +18,21 @@
                         fill="#3B82F6"
                     />
                     <path
-                        d="M8 12H16M12 8V16"
+                        d="M7 12L10 15L17 8"
                         stroke="white"
                         stroke-width="2"
                         stroke-linecap="round"
+                        stroke-linejoin="round"
                     />
+                    <circle cx="16" cy="16" r="2" fill="white"/>
                 </svg>
-                <span class="logo-text">SupaDB</span>
+                <span class="logo-text">AI Solutions</span>
+            </div>
+            <div class="nav-links">
+                <a href="#services" class="nav-link">Services</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#contact" class="nav-link">Contact</a>
+                <button class="btn-primary">Get Started</button>
             </div>
         </nav>
     </div>
@@ -57,6 +65,12 @@
         height: 24px;
     }
 
+    .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 32px;
+    }
+
     .nav-link {
         color: var(--text-light);
         font-weight: 500;
@@ -66,5 +80,30 @@
 
     .nav-link:hover {
         color: var(--text);
+    }
+
+    .btn-primary {
+        padding: 10px 20px;
+        background: var(--primary);
+        color: white;
+        border-radius: 6px;
+        font-weight: 500;
+        font-size: 14px;
+        transition: all 0.2s;
+    }
+
+    .btn-primary:hover {
+        background: var(--primary-dark);
+        transform: translateY(-1px);
+    }
+
+    @media (max-width: 768px) {
+        .nav-links {
+            gap: 16px;
+        }
+
+        .nav-link {
+            display: none;
+        }
     }
 </style>
