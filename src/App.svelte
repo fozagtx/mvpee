@@ -1,17 +1,18 @@
 <script>
-  import Header from './components/Header.svelte';
   import Hero from './components/Hero.svelte';
-  import Features from './components/Features.svelte';
+  import Testimonial from './components/Testimonial.svelte';
 </script>
 
 <main>
-  <Header />
   <Hero />
-  <Features />
+  <Testimonial />
 </main>
 
 <style>
   main {
     min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
 </style>
