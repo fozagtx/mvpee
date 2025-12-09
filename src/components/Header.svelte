@@ -24,7 +24,7 @@
                         stroke-linecap="round"
                     />
                 </svg>
-                <span class="logo-text">SupaDB</span>
+                <span class="logo-text">AI Learning Hub</span>
             </div>
         </nav>
     </div>
@@ -57,14 +57,4 @@
         height: 24px;
     }
 
-    .nav-link {
-        color: var(--text-light);
-        font-weight: 500;
-        font-size: 15px;
-        transition: color 0.2s;
-    }
-
-    .nav-link:hover {
-        color: var(--text);
-    }
 </style>

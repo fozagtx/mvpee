@@ -1,71 +1,61 @@
 <script>
-    const resources = [
+    const learningAreas = [
         {
-            title: "Seo Resources",
-            description:
-                "Access how Airbnb tackles Seo to launch your SaaS faster.",
-            downloads: "0.0k",
-            size: "Loading...",
+            title: "AI Coding",
+            description: "Mastering development with Claude, GitHub Copilot, and Cursor. Building projects with AI assistance.",
+            status: "Active Learning",
+            progress: "Building with AI",
+            icon: "code"
         },
         {
-            title: "Distribution Database",
-            description:
-                "Discover distribution opportunities, for reaching more users.",
-            downloads: "0.0k",
-            size: "Loading",
+            title: "AI Prompting",
+            description: "Engineering effective prompts, conversation design, and advanced techniques for AI interactions.",
+            status: "Exploring",
+            progress: "Prompt Engineering",
+            icon: "message"
         },
         {
-            title: "Copy Conversions Playbook",
-            description: "Learn proven marketing dialects, growth languages.",
-            downloads: "0.0k",
-            size: "3.1MB",
+            title: "AI Brand Building",
+            description: "Using AI tools for design, content creation, and marketing to build compelling brands.",
+            status: "Experimenting",
+            progress: "Creative AI Tools",
+            icon: "brand"
         },
     ];
 </script>
 
 <section class="features" id="features">
     <div class="container">
-        <div class="resources-grid">
-            {#each resources as resource}
-                <div class="resource-card">
-                    <div class="folder-icon">
-                        <svg
-                            width="64"
-                            height="64"
-                            viewBox="0 0 64 64"
-                            fill="none"
-                            xmlns="http://www.w3.org/2000/svg"
-                        >
-                            <path
-                                d="M8 16C8 13.7909 9.79086 12 12 12H24L28 16H52C54.2091 16 56 17.7909 56 20V48C56 50.2091 54.2091 52 52 52H12C9.79086 52 8 50.2091 8 48V16Z"
-                                fill="#3B82F6"
-                            />
-                        </svg>
+        <div class="learning-grid">
+            {#each learningAreas as area}
+                <div class="learning-card">
+                    <div class="area-icon">
+                        {#if area.icon === 'code'}
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M16 18L22 12L16 6M8 6L2 12L8 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        {:else if area.icon === 'message'}
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M21 15A2 2 0 0 1 19 17H7L4 20V6A2 2 0 0 1 6 4H19A2 2 0 0 1 21 6V15Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M13 8H8M16 12H8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        {:else}
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 2L15.09 8.26L22 9L17 14L18.18 21L12 17.77L5.82 21L7 14L2 9L8.91 8.26L12 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        {/if}
                     </div>
-                    <h3>{resource.title}</h3>
-                    <p>{resource.description}</p>
-                    <div class="card-meta">
-                        <span>{resource.size}</span>
-                        <span>•</span>
-                        <span>{resource.downloads} downloads</span>
+                    <h3>{area.title}</h3>
+                    <p>{area.description}</p>
+                    <div class="progress-info">
+                        <span class="status-badge">{area.status}</span>
+                        <span class="current-focus">{area.progress}</span>
                     </div>
-                    <button class="download-btn">
-                        <svg
-                            width="16"
-                            height="16"
-                            viewBox="0 0 16 16"
-                            fill="none"
-                            xmlns="http://www.w3.org/2000/svg"
-                        >
-                            <path
-                                d="M8 2V10M8 10L5 7M8 10L11 7M2 12V13C2 13.5523 2.44772 14 3 14H13C13.5523 14 14 13.5523 14 13V12"
-                                stroke="currentColor"
-                                stroke-width="2"
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                            />
+                    <button class="explore-btn">
+                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M6 12L10 8L6 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                         </svg>
-                        Download
+                        Explore Learning
                     </button>
                 </div>
             {/each}
@@ -79,7 +69,7 @@
         background: var(--bg);
     }
 
-    .resources-grid {
+    .learning-grid {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
         gap: 24px;
@@ -87,7 +77,7 @@
         margin: 0 auto;
     }
 
-    .resource-card {
+    .learning-card {
         background: var(--bg);
         padding: 32px;
         border-radius: 16px;
@@ -99,18 +89,20 @@
         text-align: center;
     }
 
-    .resource-card:hover {
+    .learning-card:hover {
         box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
         border-color: #d1d5db;
+        transform: translateY(-2px);
     }
 
-    .folder-icon {
+    .area-icon {
         margin-bottom: 20px;
+        color: var(--primary);
     }
 
-    .folder-icon svg {
-        width: 80px;
-        height: 80px;
+    .area-icon svg {
+        width: 48px;
+        height: 48px;
     }
 
     h3 {
@@ -128,16 +120,33 @@
         flex-grow: 1;
     }
 
-    .card-meta {
+    .progress-info {
         display: flex;
-        align-items: center;
+        flex-direction: column;
         gap: 8px;
-        font-size: 13px;
-        color: var(--text-light);
         margin-bottom: 20px;
+        width: 100%;
     }
 
-    .download-btn {
+    .status-badge {
+        display: inline-flex;
+        padding: 6px 12px;
+        background: var(--bg-alt);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        font-size: 12px;
+        font-weight: 500;
+        color: var(--primary);
+        align-self: center;
+    }
+
+    .current-focus {
+        font-size: 13px;
+        color: var(--text-light);
+        font-style: italic;
+    }
+
+    .explore-btn {
         display: flex;
         align-items: center;
         gap: 8px;
@@ -152,12 +161,12 @@
         justify-content: center;
     }
 
-    .download-btn:hover {
+    .explore-btn:hover {
         background: var(--primary-dark);
         transform: translateY(-1px);
     }
 
-    .download-btn svg {
+    .explore-btn svg {
         width: 16px;
         height: 16px;
     }
@@ -167,7 +176,7 @@
             padding: 30px 0 60px;
         }
 
-        .resources-grid {
+        .learning-grid {
             grid-template-columns: 1fr;
         }
     }
