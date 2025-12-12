@@ -5,7 +5,6 @@
   import Features from './components/Features.svelte';
   import Instructor from './components/Instructor.svelte';
   import Testimonials from './components/Testimonials.svelte';
-  import Pricing from './components/Pricing.svelte';
   import FAQ from './components/FAQ.svelte';
   import CTA from './components/CTA.svelte';
   import Footer from './components/Footer.svelte';
@@ -18,7 +17,6 @@
   <Features />
   <Instructor />
   <Testimonials />
-  <Pricing />
   <FAQ />
   <CTA />
   <Footer />

@@ -28,7 +28,7 @@
             <div class="nav-links" class:open={mobileMenuOpen}>
                 <a href="#how-it-works">How It Works</a>
                 <a href="#curriculum">Curriculum</a>
-                <a href="#pricing">Pricing</a>
+                <a href="#testimonials">Testimonials</a>
                 <a href="#faq">FAQ</a>
             </div>
 

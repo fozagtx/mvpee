@@ -44,7 +44,7 @@
                     <h4>Platform</h4>
                     <a href="#how-it-works">How It Works</a>
                     <a href="#curriculum">Curriculum</a>
-                    <a href="#pricing">Pricing</a>
+                    <a href="#instructor">Instructor</a>
                     <a href="#testimonials">Testimonials</a>
                 </div>
 
