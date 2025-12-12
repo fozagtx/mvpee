@@ -42,15 +42,16 @@
             <div class="footer-links">
                 <div class="link-group">
                     <h4>Platform</h4>
+                    <a href="#how-it-works">How It Works</a>
                     <a href="#curriculum">Curriculum</a>
+                    <a href="#pricing">Pricing</a>
                     <a href="#testimonials">Testimonials</a>
-                    <a href="#newsletter">Updates</a>
                 </div>
 
                 <div class="link-group">
                     <h4>Resources</h4>
-                    <a href="#">Documentation</a>
-                    <a href="#">Blog</a>
+                    <a href="#faq">FAQ</a>
+                    <a href="#newsletter">Newsletter</a>
                     <a href="#">Community</a>
                 </div>
 

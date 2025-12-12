@@ -84,8 +84,8 @@
 <style>
     .hero {
         position: relative;
-        min-height: 100vh;
-        padding: 140px 0 80px;
+        min-height: auto;
+        padding: 140px 0 100px;
         display: flex;
         align-items: center;
         overflow: hidden;
