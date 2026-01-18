@@ -1,13 +1,31 @@
 <script>
-    let email = '';
+    let formData = {
+        name: '',
+        email: '',
+        phone: '',
+        businessType: '',
+        packageInterest: '',
+        message: ''
+    };
     let isSubmitting = false;
     let isSuccess = false;
     let errorMessage = '';
 
+    const packageOptions = [
+        { value: 'one-page', label: 'One-Page Site ($150)' },
+        { value: 'full-stack', label: 'Full-Stack Site ($500)' },
+        { value: 'unsure', label: 'Not sure yet' }
+    ];
+
     async function handleSubmit(e) {
         e.preventDefault();
 
-        if (!email || !email.includes('@')) {
+        if (!formData.name || !formData.email || !formData.message) {
+            errorMessage = 'Please fill in all required fields';
+            return;
+        }
+
+        if (!formData.email.includes('@')) {
             errorMessage = 'Please enter a valid email address';
             return;
         }
@@ -16,166 +34,195 @@
         errorMessage = '';
 
         // Simulate API call
-        await new Promise(resolve => setTimeout(resolve, 1000));
+        await new Promise(resolve => setTimeout(resolve, 1500));
 
         isSuccess = true;
         isSubmitting = false;
-        email = '';
     }
 </script>
 
-<section class="newsletter" id="newsletter">
+<section class="contact" id="contact">
     <div class="container">
-        <div class="newsletter-content">
-            <div class="newsletter-bg">
-                <div class="gradient-orb orb-1"></div>
-                <div class="gradient-orb orb-2"></div>
-            </div>
-
-            <div class="newsletter-inner">
-                <span class="section-badge">
-                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M2 4L8 8.5L14 4M2 12H14V4H2V12Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                    Get Notified
-                </span>
-
-                <h2>Stay Updated on <span class="gradient-text">New Resources</span></h2>
-
-                <p class="newsletter-subtitle">
-                    Get notified about new lessons, platform updates, and exclusive content. No spam, just valuable AI development insights.
+        <div class="contact-grid">
+            <div class="contact-info">
+                <span class="section-badge">Get Started</span>
+                <h2>Ready to Get Your <span class="gradient-text">Business Online?</span></h2>
+                <p class="contact-subtitle">
+                    Professional website. Fast delivery. Transparent pricing. Let's build your MVP-ready site.
                 </p>
 
-                {#if isSuccess}
-                    <div class="success-message">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M22 11.08V12C21.9988 14.1564 21.3005 16.2547 20.0093 17.9818C18.7182 19.709 16.9033 20.9725 14.8354 21.5839C12.7674 22.1953 10.5573 22.1219 8.53447 21.3746C6.51168 20.6273 4.78465 19.2461 3.61096 17.4371C2.43727 15.628 1.87979 13.4881 2.02168 11.3363C2.16356 9.18455 2.99721 7.13631 4.39828 5.49706C5.79935 3.85781 7.69279 2.71537 9.79619 2.24013C11.8996 1.7649 14.1003 1.98232 16.07 2.85999" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            <path d="M22 4L12 14.01L9 11.01" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                        <span>You're on the list! We'll notify you about new updates.</span>
-                    </div>
-                {:else}
-                    <form on:submit={handleSubmit} class="newsletter-form">
-                        <div class="input-wrapper">
-                            <input
-                                type="email"
-                                placeholder="Enter your email"
-                                bind:value={email}
-                                disabled={isSubmitting}
-                            />
-                            <button type="submit" disabled={isSubmitting}>
-                                {#if isSubmitting}
-                                    <span class="spinner"></span>
-                                {:else}
-                                    Get Notified
-                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                    </svg>
-                                {/if}
-                            </button>
+                <div class="contact-features">
+                    <div class="contact-feature">
+                        <div class="feature-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M22 11.08V12C21.9988 14.1564 21.3005 16.2547 20.0093 17.9818C18.7182 19.709 16.9033 20.9725 14.8354 21.5839C12.7674 22.1953 10.5573 22.1219 8.53447 21.3746C6.51168 20.6273 4.78465 19.2461 3.61096 17.4371C2.43727 15.628 1.87979 13.4881 2.02168 11.3363C2.16356 9.18455 2.99721 7.13631 4.39828 5.49706C5.79935 3.85781 7.69279 2.71537 9.79619 2.24013C11.8996 1.7649 14.1003 1.98232 16.07 2.85999" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M22 4L12 14.01L9 11.01" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
                         </div>
-                        {#if errorMessage}
-                            <span class="error-message">{errorMessage}</span>
-                        {/if}
-                    </form>
-                {/if}
-
-                <div class="trust-signals">
-                    <div class="trust-item">
-                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M13.3337 4L6.00033 11.3333L2.66699 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                        <span>No spam, ever</span>
+                        <span>Response within 24 hours</span>
                     </div>
-                    <div class="trust-item">
-                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M13.3337 4L6.00033 11.3333L2.66699 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                        <span>Unsubscribe anytime</span>
+                    <div class="contact-feature">
+                        <div class="feature-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M22 11.08V12C21.9988 14.1564 21.3005 16.2547 20.0093 17.9818C18.7182 19.709 16.9033 20.9725 14.8354 21.5839C12.7674 22.1953 10.5573 22.1219 8.53447 21.3746C6.51168 20.6273 4.78465 19.2461 3.61096 17.4371C2.43727 15.628 1.87979 13.4881 2.02168 11.3363C2.16356 9.18455 2.99721 7.13631 4.39828 5.49706C5.79935 3.85781 7.69279 2.71537 9.79619 2.24013C11.8996 1.7649 14.1003 1.98232 16.07 2.85999" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M22 4L12 14.01L9 11.01" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <span>No obligation consultation</span>
                     </div>
-                    <div class="trust-item">
-                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M13.3337 4L6.00033 11.3333L2.66699 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                        <span>Early access to content</span>
+                    <div class="contact-feature">
+                        <div class="feature-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M22 11.08V12C21.9988 14.1564 21.3005 16.2547 20.0093 17.9818C18.7182 19.709 16.9033 20.9725 14.8354 21.5839C12.7674 22.1953 10.5573 22.1219 8.53447 21.3746C6.51168 20.6273 4.78465 19.2461 3.61096 17.4371C2.43727 15.628 1.87979 13.4881 2.02168 11.3363C2.16356 9.18455 2.99721 7.13631 4.39828 5.49706C5.79935 3.85781 7.69279 2.71537 9.79619 2.24013C11.8996 1.7649 14.1003 1.98232 16.07 2.85999" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M22 4L12 14.01L9 11.01" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <span>100% satisfaction focus</span>
                     </div>
                 </div>
+
+                <div class="risk-reversal">
+                    <p>We don't stop until your site represents your business perfectly.</p>
+                </div>
+            </div>
+
+            <div class="contact-form-wrapper">
+                {#if isSuccess}
+                    <div class="success-message">
+                        <div class="success-icon">
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M22 11.08V12C21.9988 14.1564 21.3005 16.2547 20.0093 17.9818C18.7182 19.709 16.9033 20.9725 14.8354 21.5839C12.7674 22.1953 10.5573 22.1219 8.53447 21.3746C6.51168 20.6273 4.78465 19.2461 3.61096 17.4371C2.43727 15.628 1.87979 13.4881 2.02168 11.3363C2.16356 9.18455 2.99721 7.13631 4.39828 5.49706C5.79935 3.85781 7.69279 2.71537 9.79619 2.24013C11.8996 1.7649 14.1003 1.98232 16.07 2.85999" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M22 4L12 14.01L9 11.01" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <h3>Message Sent!</h3>
+                        <p>Thank you for reaching out. We'll get back to you within 24 hours with a project confirmation and timeline.</p>
+                    </div>
+                {:else}
+                    <form on:submit={handleSubmit} class="contact-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="name">Name *</label>
+                                <input
+                                    type="text"
+                                    id="name"
+                                    placeholder="Your name"
+                                    bind:value={formData.name}
+                                    disabled={isSubmitting}
+                                />
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email *</label>
+                                <input
+                                    type="email"
+                                    id="email"
+                                    placeholder="you@company.com"
+                                    bind:value={formData.email}
+                                    disabled={isSubmitting}
+                                />
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="phone">Phone (Optional)</label>
+                                <input
+                                    type="tel"
+                                    id="phone"
+                                    placeholder="+1 (555) 000-0000"
+                                    bind:value={formData.phone}
+                                    disabled={isSubmitting}
+                                />
+                            </div>
+                            <div class="form-group">
+                                <label for="businessType">Business Type</label>
+                                <input
+                                    type="text"
+                                    id="businessType"
+                                    placeholder="e.g., Consulting, Retail, Services"
+                                    bind:value={formData.businessType}
+                                    disabled={isSubmitting}
+                                />
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="packageInterest">Package Interest</label>
+                            <select
+                                id="packageInterest"
+                                bind:value={formData.packageInterest}
+                                disabled={isSubmitting}
+                            >
+                                <option value="">Select a package...</option>
+                                {#each packageOptions as option}
+                                    <option value={option.value}>{option.label}</option>
+                                {/each}
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message">Project Details *</label>
+                            <textarea
+                                id="message"
+                                placeholder="Tell us about your business and what you need..."
+                                rows="4"
+                                bind:value={formData.message}
+                                disabled={isSubmitting}
+                            ></textarea>
+                        </div>
+
+                        {#if errorMessage}
+                            <div class="error-message">{errorMessage}</div>
+                        {/if}
+
+                        <button type="submit" class="submit-btn" disabled={isSubmitting}>
+                            {#if isSubmitting}
+                                <span class="spinner"></span>
+                                <span>Sending...</span>
+                            {:else}
+                                <span>Start Your Project</span>
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            {/if}
+                        </button>
+                    </form>
+                {/if}
             </div>
         </div>
     </div>
 </section>
 
 <style>
-    .newsletter {
+    .contact {
         padding: 120px 0;
         background: var(--bg-primary);
     }
 
-    .newsletter-content {
-        position: relative;
-        background: var(--bg-card);
-        border: 1px solid var(--border-color);
-        border-radius: 24px;
-        overflow: hidden;
-    }
-
-    .newsletter-bg {
-        position: absolute;
-        inset: 0;
-        overflow: hidden;
-    }
-
-    .gradient-orb {
-        position: absolute;
-        border-radius: 50%;
-        filter: blur(80px);
-        opacity: 0.3;
-    }
-
-    .orb-1 {
-        width: 400px;
-        height: 400px;
-        background: linear-gradient(135deg, #3b82f6, #8b5cf6);
-        top: -200px;
-        right: -100px;
-    }
-
-    .orb-2 {
-        width: 300px;
-        height: 300px;
-        background: linear-gradient(135deg, #8b5cf6, #ec4899);
-        bottom: -150px;
-        left: -100px;
-    }
-
-    .newsletter-inner {
-        position: relative;
-        z-index: 1;
-        padding: 80px 60px;
-        text-align: center;
-        max-width: 600px;
-        margin: 0 auto;
+    .contact-grid {
+        display: grid;
+        grid-template-columns: 1fr 1.2fr;
+        gap: 80px;
+        align-items: start;
     }
 
     .section-badge {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
+        display: inline-block;
         padding: 8px 16px;
-        background: rgba(59, 130, 246, 0.1);
-        border: 1px solid rgba(59, 130, 246, 0.2);
+        background: rgba(20, 184, 166, 0.1);
+        border: 1px solid rgba(20, 184, 166, 0.2);
         border-radius: 24px;
         font-size: 14px;
         font-weight: 500;
         color: var(--accent-primary);
-        margin-bottom: 24px;
+        margin-bottom: 20px;
     }
 
     h2 {
-        font-size: 42px;
+        font-size: 44px;
         font-weight: 700;
         line-height: 1.2;
-        margin-bottom: 16px;
+        margin-bottom: 20px;
         letter-spacing: -0.02em;
     }
 
@@ -186,62 +233,149 @@
         background-clip: text;
     }
 
-    .newsletter-subtitle {
+    .contact-subtitle {
         font-size: 18px;
         color: var(--text-secondary);
-        line-height: 1.6;
+        line-height: 1.7;
         margin-bottom: 32px;
     }
 
-    .newsletter-form {
+    .contact-features {
         display: flex;
         flex-direction: column;
-        gap: 12px;
+        gap: 16px;
+        margin-bottom: 32px;
     }
 
-    .input-wrapper {
+    .contact-feature {
         display: flex;
+        align-items: center;
         gap: 12px;
-        background: var(--bg-secondary);
+        font-size: 15px;
+        color: var(--text-secondary);
+    }
+
+    .feature-icon {
+        width: 36px;
+        height: 36px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba(34, 197, 94, 0.1);
+        border-radius: 10px;
+        color: var(--accent-green);
+    }
+
+    .risk-reversal {
+        padding: 16px 20px;
+        background: var(--bg-card);
         border: 1px solid var(--border-color);
         border-radius: 12px;
-        padding: 6px;
     }
 
-    input {
-        flex: 1;
-        padding: 14px 18px;
-        background: transparent;
-        border: none;
-        font-size: 16px;
+    .risk-reversal p {
+        font-size: 14px;
+        color: var(--text-muted);
+        margin: 0;
+        font-style: italic;
+    }
+
+    .contact-form-wrapper {
+        background: var(--bg-card);
+        border: 1px solid var(--border-color);
+        border-radius: 20px;
+        padding: 40px;
+    }
+
+    .contact-form {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .form-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+    }
+
+    .form-group {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    label {
+        font-size: 14px;
+        font-weight: 500;
         color: var(--text-primary);
-        outline: none;
     }
 
-    input::placeholder {
+    input, select, textarea {
+        padding: 14px 16px;
+        background: var(--bg-secondary);
+        border: 1px solid var(--border-color);
+        border-radius: 10px;
+        font-size: 15px;
+        color: var(--text-primary);
+        font-family: inherit;
+        transition: all 0.2s ease;
+    }
+
+    input::placeholder, textarea::placeholder {
         color: var(--text-muted);
     }
 
-    button[type="submit"] {
-        display: inline-flex;
+    input:focus, select:focus, textarea:focus {
+        outline: none;
+        border-color: var(--accent-primary);
+        box-shadow: 0 0 0 3px rgba(20, 184, 166, 0.1);
+    }
+
+    select {
+        cursor: pointer;
+        appearance: none;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%2371717a' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+        background-repeat: no-repeat;
+        background-position: right 16px center;
+        padding-right: 44px;
+    }
+
+    textarea {
+        resize: vertical;
+        min-height: 120px;
+    }
+
+    .error-message {
+        padding: 12px 16px;
+        background: rgba(239, 68, 68, 0.1);
+        border: 1px solid rgba(239, 68, 68, 0.2);
+        border-radius: 10px;
+        font-size: 14px;
+        color: #ef4444;
+    }
+
+    .submit-btn {
+        display: flex;
         align-items: center;
+        justify-content: center;
         gap: 8px;
-        padding: 14px 28px;
+        padding: 16px 32px;
         background: var(--accent-gradient);
         color: white;
-        border-radius: 10px;
+        border-radius: 12px;
         font-weight: 600;
-        font-size: 15px;
+        font-size: 16px;
         transition: all 0.2s ease;
-        white-space: nowrap;
+        margin-top: 8px;
     }
 
-    button[type="submit"]:hover:not(:disabled) {
-        transform: translateY(-1px);
-        box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
+    .submit-btn:hover:not(:disabled) {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 24px rgba(20, 184, 166, 0.4);
     }
 
-    button[type="submit"]:disabled {
+    .submit-btn:disabled {
         opacity: 0.7;
         cursor: not-allowed;
     }
@@ -261,68 +395,66 @@
         }
     }
 
-    .error-message {
-        font-size: 14px;
-        color: #ef4444;
-    }
-
     .success-message {
+        text-align: center;
+        padding: 40px 20px;
+    }
+
+    .success-icon {
+        width: 80px;
+        height: 80px;
         display: flex;
         align-items: center;
         justify-content: center;
-        gap: 12px;
-        padding: 20px;
         background: rgba(34, 197, 94, 0.1);
-        border: 1px solid rgba(34, 197, 94, 0.2);
-        border-radius: 12px;
+        border-radius: 50%;
         color: var(--accent-green);
+        margin: 0 auto 24px;
+    }
+
+    .success-message h3 {
+        font-size: 24px;
+        font-weight: 600;
+        color: var(--text-primary);
+        margin-bottom: 12px;
+    }
+
+    .success-message p {
         font-size: 16px;
-        margin-bottom: 24px;
+        color: var(--text-secondary);
+        line-height: 1.6;
     }
 
-    .trust-signals {
-        display: flex;
-        justify-content: center;
-        gap: 32px;
-        margin-top: 32px;
-    }
+    @media (max-width: 1024px) {
+        .contact-grid {
+            grid-template-columns: 1fr;
+            gap: 48px;
+        }
 
-    .trust-item {
-        display: flex;
-        align-items: center;
-        gap: 8px;
-        font-size: 14px;
-        color: var(--text-muted);
-    }
+        .contact-info {
+            text-align: center;
+        }
 
-    .trust-item svg {
-        color: var(--accent-green);
+        .contact-features {
+            align-items: center;
+        }
     }
 
     @media (max-width: 768px) {
-        .newsletter {
+        .contact {
             padding: 80px 0;
-        }
-
-        .newsletter-inner {
-            padding: 48px 24px;
         }
 
         h2 {
             font-size: 32px;
         }
 
-        .input-wrapper {
-            flex-direction: column;
+        .contact-form-wrapper {
+            padding: 24px;
         }
 
-        button[type="submit"] {
-            justify-content: center;
-        }
-
-        .trust-signals {
-            flex-direction: column;
-            gap: 12px;
+        .form-row {
+            grid-template-columns: 1fr;
         }
     }
 </style>
