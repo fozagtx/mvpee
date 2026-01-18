@@ -2,26 +2,23 @@
     const steps = [
         {
             number: "01",
-            title: "Sign Up & Get Access",
-            description: "Join the waitlist and get early access to the platform. You'll receive login credentials and can start immediately.",
-            icon: "user"
+            day: "Day 0",
+            title: "Share Your Vision",
+            description: "Fill out our quick form. Tell us about your business, what you need, and your goals. We'll confirm the timeline and get started immediately.",
+            icon: "message"
         },
         {
             number: "02",
-            title: "Follow the Curriculum",
-            description: "Work through structured modules at your own pace. Each lesson builds on the previous one for progressive learning.",
-            icon: "book"
-        },
-        {
-            number: "03",
-            title: "Build Real Projects",
-            description: "Apply your skills by building actual applications. Get hands-on experience with AI-assisted development.",
+            day: "Days 1-4",
+            title: "We Build Your Site",
+            description: "Our team builds your professional, MVP-ready website. One-page sites in 2 days. Full-stack solutions in 4 days. You get updates along the way.",
             icon: "code"
         },
         {
-            number: "04",
-            title: "Ship & Iterate",
-            description: "Deploy your projects to production. Learn the full cycle from idea to shipped product using AI tools.",
+            number: "03",
+            day: "Day 5+",
+            title: "Launch & Grow",
+            description: "Your site goes live. Add our SEO package (+$79) to get discovered on Google and start attracting customers organically.",
             icon: "rocket"
         }
     ];
@@ -31,9 +28,9 @@
     <div class="container">
         <div class="section-header">
             <span class="section-badge">How It Works</span>
-            <h2>Your Path to <span class="gradient-text">AI Mastery</span></h2>
+            <h2>Three Simple Steps to <span class="gradient-text">Your New Website</span></h2>
             <p class="section-subtitle">
-                A simple, structured approach to mastering AI-powered development in weeks, not months.
+                From idea to live website in days, not months. Here's how we make it happen.
             </p>
         </div>
 
@@ -46,16 +43,12 @@
                         <div class="step-dot"></div>
                     </div>
                     <div class="step-content">
+                        <span class="step-day">{step.day}</span>
                         <div class="step-icon">
-                            {#if step.icon === 'user'}
+                            {#if step.icon === 'message'}
                                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M20 21V19C20 17.9391 19.5786 16.9217 18.8284 16.1716C18.0783 15.4214 17.0609 15 16 15H8C6.93913 15 5.92172 15.4214 5.17157 16.1716C4.42143 16.9217 4 17.9391 4 19V21" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                    <circle cx="12" cy="7" r="4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                </svg>
-                            {:else if step.icon === 'book'}
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M4 19.5C4 18.837 4.26339 18.2011 4.73223 17.7322C5.20107 17.2634 5.83696 17 6.5 17H20" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                    <path d="M6.5 2H20V22H6.5C5.83696 22 5.20107 21.7366 4.73223 21.2678C4.26339 20.7989 4 20.163 4 19.5V4.5C4 3.83696 4.26339 3.20107 4.73223 2.73223C5.20107 2.26339 5.83696 2 6.5 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M21 15A2 2 0 0 1 19 17H7L3 21V5A2 2 0 0 1 5 3H19A2 2 0 0 1 21 5V15Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <path d="M8 9H16M8 13H12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
                                 </svg>
                             {:else if step.icon === 'code'}
                                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -74,6 +67,15 @@
                     </div>
                 </div>
             {/each}
+        </div>
+
+        <div class="cta-row">
+            <a href="#contact" class="btn-primary">
+                Start Your Project
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </a>
         </div>
     </div>
 </section>
@@ -94,8 +96,8 @@
     .section-badge {
         display: inline-block;
         padding: 8px 16px;
-        background: rgba(59, 130, 246, 0.1);
-        border: 1px solid rgba(59, 130, 246, 0.2);
+        background: rgba(20, 184, 166, 0.1);
+        border: 1px solid rgba(20, 184, 166, 0.2);
         border-radius: 24px;
         font-size: 14px;
         font-weight: 500;
@@ -127,15 +129,16 @@
     .steps-container {
         position: relative;
         display: grid;
-        grid-template-columns: repeat(4, 1fr);
+        grid-template-columns: repeat(3, 1fr);
         gap: 24px;
+        margin-bottom: 48px;
     }
 
     .steps-line {
         position: absolute;
         top: 40px;
-        left: 12.5%;
-        right: 12.5%;
+        left: 16.66%;
+        right: 16.66%;
         height: 2px;
         background: var(--border-color);
     }
@@ -145,7 +148,7 @@
         position: absolute;
         top: 0;
         left: 0;
-        width: 50%;
+        width: 66%;
         height: 100%;
         background: var(--accent-gradient);
     }
@@ -206,6 +209,17 @@
         box-shadow: var(--shadow-lg);
     }
 
+    .step-day {
+        display: inline-block;
+        padding: 4px 12px;
+        background: rgba(20, 184, 166, 0.1);
+        border-radius: 8px;
+        font-size: 12px;
+        font-weight: 600;
+        color: var(--accent-primary);
+        margin-bottom: 16px;
+    }
+
     .step-icon {
         width: 56px;
         height: 56px;
@@ -219,7 +233,7 @@
     }
 
     h3 {
-        font-size: 18px;
+        font-size: 20px;
         font-weight: 600;
         margin-bottom: 12px;
         color: var(--text-primary);
@@ -228,13 +242,36 @@
     p {
         font-size: 14px;
         color: var(--text-secondary);
-        line-height: 1.6;
+        line-height: 1.7;
+    }
+
+    .cta-row {
+        text-align: center;
+    }
+
+    .btn-primary {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 16px 32px;
+        background: var(--accent-gradient);
+        color: white;
+        border-radius: 12px;
+        font-weight: 600;
+        font-size: 16px;
+        transition: all 0.2s ease;
+    }
+
+    .btn-primary:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 24px rgba(20, 184, 166, 0.4);
     }
 
     @media (max-width: 1024px) {
         .steps-container {
-            grid-template-columns: repeat(2, 1fr);
-            gap: 40px;
+            grid-template-columns: 1fr;
+            max-width: 480px;
+            margin: 0 auto 48px;
         }
 
         .steps-line {
@@ -249,12 +286,6 @@
 
         h2 {
             font-size: 36px;
-        }
-
-        .steps-container {
-            grid-template-columns: 1fr;
-            max-width: 400px;
-            margin: 0 auto;
         }
     }
 </style>

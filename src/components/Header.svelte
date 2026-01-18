@@ -13,27 +13,29 @@
                 <div class="logo-icon">
                     <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <rect width="32" height="32" rx="8" fill="url(#logo-gradient)"/>
-                        <path d="M10 16L14 20L22 12" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M8 16L12 12V20L8 16Z" fill="white"/>
+                        <path d="M14 10L18 16L14 22V10Z" fill="white" fill-opacity="0.8"/>
+                        <path d="M20 12L24 16L20 20V12Z" fill="white" fill-opacity="0.6"/>
                         <defs>
                             <linearGradient id="logo-gradient" x1="0" y1="0" x2="32" y2="32" gradientUnits="userSpaceOnUse">
-                                <stop stop-color="#3b82f6"/>
-                                <stop offset="1" stop-color="#8b5cf6"/>
+                                <stop stop-color="#14b8a6"/>
+                                <stop offset="1" stop-color="#3b82f6"/>
                             </linearGradient>
                         </defs>
                     </svg>
                 </div>
-                <span class="logo-text">mvpe.fun</span>
+                <span class="logo-text">MVPE</span>
             </a>
 
             <div class="nav-links" class:open={mobileMenuOpen}>
-                <a href="#how-it-works">How It Works</a>
-                <a href="#curriculum">Curriculum</a>
-                <a href="#testimonials">Testimonials</a>
-                <a href="#faq">FAQ</a>
+                <a href="#how-it-works" on:click={() => mobileMenuOpen = false}>How It Works</a>
+                <a href="#pricing" on:click={() => mobileMenuOpen = false}>Pricing</a>
+                <a href="#testimonials" on:click={() => mobileMenuOpen = false}>Testimonials</a>
+                <a href="#faq" on:click={() => mobileMenuOpen = false}>FAQ</a>
             </div>
 
             <div class="nav-actions">
-                <a href="#newsletter" class="btn-primary">Get Notified</a>
+                <a href="#contact" class="btn-primary">Get Your Website</a>
             </div>
 
             <button class="mobile-menu-btn" on:click={toggleMobileMenu} aria-label="Toggle menu">
@@ -90,6 +92,7 @@
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         background-clip: text;
+        letter-spacing: 0.05em;
     }
 
     .nav-links {
@@ -126,7 +129,7 @@
 
     .btn-primary:hover {
         transform: translateY(-1px);
-        box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
+        box-shadow: 0 4px 12px rgba(20, 184, 166, 0.4);
     }
 
     .mobile-menu-btn {

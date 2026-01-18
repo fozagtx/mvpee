@@ -1,8 +1,8 @@
 <script>
     const stats = [
-        { value: "10+", label: "Modules" },
-        { value: "50+", label: "Lessons" },
-        { value: "24/7", label: "AI Support" }
+        { value: "2+", label: "Sites Built" },
+        { value: "2-4", label: "Day Delivery" },
+        { value: "$150", label: "Starting Price" }
     ];
 </script>
 
@@ -17,27 +17,35 @@
         <div class="hero-content">
             <div class="badge">
                 <span class="badge-dot"></span>
-                <span>AI-Powered Development Education</span>
+                <span>MVP-Ready Web Design</span>
             </div>
 
             <h1>
-                Master <span class="gradient-text">AI-Powered</span> Development
+                Get Your Business Online in <span class="gradient-text">2-4 Days</span>—Without the $10K Agency Price Tag
             </h1>
 
             <p class="subtitle">
-                A comprehensive course to master AI-powered development. Learn Cursor, custom modes, rules, MCPs, and build production-ready applications with AI assistance.
+                Professional, MVP-ready websites for established businesses. One-page sites from $150. Full-stack solutions from $500. Fast delivery guaranteed.
             </p>
 
             <div class="hero-cta">
-                <a href="#newsletter" class="btn-primary-large">
-                    <span>Get Early Access</span>
+                <a href="#contact" class="btn-primary-large">
+                    <span>Get Your Website Built</span>
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>
                 </a>
-                <a href="#curriculum" class="btn-secondary">
-                    View Curriculum
+                <a href="#pricing" class="btn-secondary">
+                    See Pricing
                 </a>
+            </div>
+
+            <div class="trust-text">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="currentColor" stroke-width="2"/>
+                    <path d="M8 12L11 15L16 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <span>Trusted by businesses in Switzerland, Ghana, and beyond</span>
             </div>
 
             <div class="stats">
@@ -51,30 +59,48 @@
         </div>
 
         <div class="hero-visual">
-            <div class="code-window">
-                <div class="window-header">
-                    <div class="window-dots">
-                        <span class="dot red"></span>
-                        <span class="dot yellow"></span>
-                        <span class="dot green"></span>
+            <div class="website-mockup">
+                <div class="mockup-browser">
+                    <div class="browser-header">
+                        <div class="browser-dots">
+                            <span class="dot red"></span>
+                            <span class="dot yellow"></span>
+                            <span class="dot green"></span>
+                        </div>
+                        <div class="browser-url">
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="currentColor" stroke-width="2"/>
+                                <path d="M8 12L11 15L16 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                            <span>yourbusiness.com</span>
+                        </div>
                     </div>
-                    <span class="window-title">cursor.ai</span>
+                    <div class="browser-content">
+                        <div class="mock-nav"></div>
+                        <div class="mock-hero">
+                            <div class="mock-headline"></div>
+                            <div class="mock-subheadline"></div>
+                            <div class="mock-cta"></div>
+                        </div>
+                        <div class="mock-features">
+                            <div class="mock-feature"></div>
+                            <div class="mock-feature"></div>
+                            <div class="mock-feature"></div>
+                        </div>
+                    </div>
                 </div>
-                <div class="window-content">
-                    <pre><code><span class="comment">// AI-assisted development</span>
-<span class="keyword">const</span> <span class="variable">buildProduct</span> = <span class="keyword">async</span> () => {'{'}
-  <span class="keyword">const</span> <span class="variable">ai</span> = <span class="keyword">await</span> <span class="function">initCursor</span>();
-  <span class="keyword">const</span> <span class="variable">app</span> = <span class="keyword">await</span> <span class="variable">ai</span>.<span class="function">generate</span>({'{'}
-    <span class="property">prompt</span>: <span class="string">"Build a SaaS app"</span>,
-    <span class="property">framework</span>: <span class="string">"Next.js"</span>,
-    <span class="property">database</span>: <span class="string">"PostgreSQL"</span>
-  {'}'});
-
-  <span class="keyword">return</span> <span class="variable">app</span>.<span class="function">deploy</span>();
-{'}'};
-
-<span class="comment">// Ship faster with AI</span>
-<span class="function">buildProduct</span>().<span class="function">then</span>(<span class="function">console.log</span>);</code></pre>
+                <div class="floating-card card-1">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M13 2L3 14H12L11 22L21 10H12L13 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <span>Fast Delivery</span>
+                </div>
+                <div class="floating-card card-2">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="currentColor" stroke-width="2"/>
+                        <path d="M8 12L11 15L16 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <span>100% Responsive</span>
                 </div>
             </div>
         </div>
@@ -108,7 +134,7 @@
     .orb-1 {
         width: 600px;
         height: 600px;
-        background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+        background: linear-gradient(135deg, #14b8a6, #3b82f6);
         top: -200px;
         right: -100px;
     }
@@ -116,7 +142,7 @@
     .orb-2 {
         width: 400px;
         height: 400px;
-        background: linear-gradient(135deg, #8b5cf6, #ec4899);
+        background: linear-gradient(135deg, #3b82f6, #8b5cf6);
         bottom: -100px;
         left: -100px;
     }
@@ -148,8 +174,8 @@
         align-items: center;
         gap: 8px;
         padding: 8px 16px;
-        background: rgba(59, 130, 246, 0.1);
-        border: 1px solid rgba(59, 130, 246, 0.2);
+        background: rgba(20, 184, 166, 0.1);
+        border: 1px solid rgba(20, 184, 166, 0.2);
         border-radius: 24px;
         font-size: 14px;
         color: var(--accent-primary);
@@ -165,9 +191,9 @@
     }
 
     h1 {
-        font-size: 64px;
+        font-size: 52px;
         font-weight: 700;
-        line-height: 1.1;
+        line-height: 1.15;
         margin-bottom: 24px;
         letter-spacing: -0.02em;
     }
@@ -180,9 +206,9 @@
     }
 
     .subtitle {
-        font-size: 20px;
+        font-size: 18px;
         color: var(--text-secondary);
-        line-height: 1.6;
+        line-height: 1.7;
         margin-bottom: 32px;
         max-width: 540px;
     }
@@ -190,7 +216,7 @@
     .hero-cta {
         display: flex;
         gap: 16px;
-        margin-bottom: 48px;
+        margin-bottom: 24px;
     }
 
     .btn-primary-large {
@@ -208,7 +234,7 @@
 
     .btn-primary-large:hover {
         transform: translateY(-2px);
-        box-shadow: 0 8px 24px rgba(59, 130, 246, 0.4);
+        box-shadow: 0 8px 24px rgba(20, 184, 166, 0.4);
     }
 
     .btn-secondary {
@@ -227,6 +253,19 @@
     .btn-secondary:hover {
         background: var(--bg-card);
         border-color: var(--text-secondary);
+    }
+
+    .trust-text {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 14px;
+        color: var(--text-muted);
+        margin-bottom: 32px;
+    }
+
+    .trust-text svg {
+        color: var(--accent-green);
     }
 
     .stats {
@@ -256,9 +295,14 @@
 
     .hero-visual {
         animation: fadeInUp 0.8s ease-out 0.2s both;
+        position: relative;
     }
 
-    .code-window {
+    .website-mockup {
+        position: relative;
+    }
+
+    .mockup-browser {
         background: var(--bg-card);
         border: 1px solid var(--border-color);
         border-radius: 16px;
@@ -266,16 +310,16 @@
         box-shadow: var(--shadow-lg), var(--shadow-glow);
     }
 
-    .window-header {
+    .browser-header {
         display: flex;
         align-items: center;
-        gap: 12px;
+        gap: 16px;
         padding: 16px 20px;
         background: var(--bg-secondary);
         border-bottom: 1px solid var(--border-color);
     }
 
-    .window-dots {
+    .browser-dots {
         display: flex;
         gap: 8px;
     }
@@ -290,33 +334,106 @@
     .dot.yellow { background: #ffbd2e; }
     .dot.green { background: #27c93f; }
 
-    .window-title {
+    .browser-url {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        flex: 1;
+        padding: 8px 16px;
+        background: var(--bg-card);
+        border-radius: 8px;
         font-size: 13px;
         color: var(--text-muted);
     }
 
-    .window-content {
+    .browser-url svg {
+        color: var(--accent-green);
+    }
+
+    .browser-content {
         padding: 24px;
-        overflow-x: auto;
+        min-height: 280px;
     }
 
-    pre {
-        margin: 0;
-        font-family: 'Fira Code', 'Monaco', 'Consolas', monospace;
-        font-size: 14px;
-        line-height: 1.7;
+    .mock-nav {
+        height: 12px;
+        width: 60%;
+        background: var(--bg-secondary);
+        border-radius: 6px;
+        margin-bottom: 32px;
     }
 
-    code {
-        color: var(--text-secondary);
+    .mock-hero {
+        margin-bottom: 32px;
     }
 
-    .comment { color: #6b7280; }
-    .keyword { color: #c084fc; }
-    .variable { color: #60a5fa; }
-    .function { color: #34d399; }
-    .string { color: #fbbf24; }
-    .property { color: #f472b6; }
+    .mock-headline {
+        height: 24px;
+        width: 80%;
+        background: linear-gradient(90deg, var(--border-color-light), var(--border-color));
+        border-radius: 8px;
+        margin-bottom: 12px;
+    }
+
+    .mock-subheadline {
+        height: 12px;
+        width: 60%;
+        background: var(--border-color);
+        border-radius: 6px;
+        margin-bottom: 20px;
+    }
+
+    .mock-cta {
+        height: 36px;
+        width: 120px;
+        background: var(--accent-gradient);
+        border-radius: 8px;
+    }
+
+    .mock-features {
+        display: flex;
+        gap: 16px;
+    }
+
+    .mock-feature {
+        flex: 1;
+        height: 80px;
+        background: var(--bg-secondary);
+        border-radius: 12px;
+        border: 1px solid var(--border-color);
+    }
+
+    .floating-card {
+        position: absolute;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 12px 16px;
+        background: var(--bg-card);
+        border: 1px solid var(--border-color);
+        border-radius: 12px;
+        font-size: 13px;
+        font-weight: 500;
+        color: var(--text-primary);
+        box-shadow: var(--shadow-lg);
+        animation: float 4s ease-in-out infinite;
+    }
+
+    .floating-card svg {
+        color: var(--accent-primary);
+    }
+
+    .card-1 {
+        top: 20px;
+        right: -20px;
+        animation-delay: 0s;
+    }
+
+    .card-2 {
+        bottom: 40px;
+        left: -20px;
+        animation-delay: 2s;
+    }
 
     @media (max-width: 1024px) {
         .container {
@@ -325,7 +442,7 @@
         }
 
         h1 {
-            font-size: 48px;
+            font-size: 42px;
         }
 
         .subtitle {
@@ -333,6 +450,10 @@
         }
 
         .hero-cta {
+            justify-content: center;
+        }
+
+        .trust-text {
             justify-content: center;
         }
 
@@ -344,6 +465,10 @@
             max-width: 600px;
             margin: 0 auto;
         }
+
+        .floating-card {
+            display: none;
+        }
     }
 
     @media (max-width: 640px) {
@@ -352,7 +477,7 @@
         }
 
         h1 {
-            font-size: 36px;
+            font-size: 32px;
         }
 
         .subtitle {
@@ -369,10 +494,6 @@
 
         .stat-value {
             font-size: 24px;
-        }
-
-        pre {
-            font-size: 12px;
         }
     }
 </style>

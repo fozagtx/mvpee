@@ -1,28 +1,28 @@
 <script>
     const faqs = [
         {
-            question: "Do I need coding experience to take this course?",
-            answer: "Basic programming knowledge is helpful but not required. The course is designed for both beginners and experienced developers. We start with fundamentals and progressively build to advanced topics."
+            question: "Why are your prices so low compared to agencies?",
+            answer: "We focus on MVP-ready sites—lean, professional, and effective. No bloat, no overhead, just what your business needs to get online and start converting. We've streamlined our process to deliver quality work without the agency markup."
         },
         {
-            question: "What tools do I need to get started?",
-            answer: "You'll need a computer with Cursor IDE installed (free download). We'll guide you through setting up everything else, including any API keys and integrations needed for the projects."
+            question: "What's the difference between one-page and full-stack?",
+            answer: "One-page sites are perfect for simple businesses—service providers, consultants, local shops. Everything your customers need on a single, scrollable page. Full-stack sites include multiple pages, advanced features like CMS integration, and are better for growing businesses, e-commerce, or content-heavy sites."
         },
         {
-            question: "How long do I have access to the course?",
-            answer: "You get lifetime access to all course materials, including any future updates. Once you purchase, you can learn at your own pace and revisit content whenever you need."
+            question: "Do I really need the SEO add-on?",
+            answer: "If you want customers to find you on Google, yes. The SEO package ensures your site gets properly indexed and ranks for relevant searches in your area. Without it, you'll have a beautiful site that nobody can find through search engines."
         },
         {
-            question: "Is there a community or support available?",
-            answer: "Yes! All students get access to our private Discord community where you can ask questions, share your projects, and connect with other learners. Pro students also get priority support."
+            question: "What if I need changes after launch?",
+            answer: "Minor revisions are included with all packages. For major updates or ongoing maintenance, we can discuss additional work at fair rates. We're here to support your business long-term."
         },
         {
-            question: "What if the course doesn't work for me?",
-            answer: "We offer a 30-day money-back guarantee. If you're not satisfied with the course for any reason, just reach out and we'll process a full refund, no questions asked."
+            question: "Can you handle international businesses?",
+            answer: "Absolutely. We've successfully delivered sites for clients in Switzerland, Ghana, and beyond. We understand diverse markets and can adapt your site for international audiences. Time zones are never a problem—we work asynchronously to meet your deadlines."
         },
         {
-            question: "Will this course stay updated with new AI tools?",
-            answer: "Absolutely. AI development moves fast, and so do we. The course is regularly updated with new modules covering the latest tools, techniques, and best practices."
+            question: "How do I get started?",
+            answer: "Simply fill out the contact form below with your project details. We'll review your requirements and get back to you within 24 hours with a confirmation and timeline. Once you approve, we start building immediately."
         }
     ];
 
@@ -38,16 +38,16 @@
         <div class="faq-grid">
             <div class="faq-header">
                 <span class="section-badge">FAQ</span>
-                <h2>Frequently Asked <span class="gradient-text">Questions</span></h2>
+                <h2>Common Questions <span class="gradient-text">Answered</span></h2>
                 <p class="section-subtitle">
-                    Everything you need to know about the course. Can't find your answer? Reach out to us.
+                    Everything you need to know about our web design service. Can't find your answer? Reach out to us.
                 </p>
-                <a href="#newsletter" class="contact-link">
+                <a href="#contact" class="contact-link">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M4 4H20C21.1 4 22 4.9 22 6V18C22 19.1 21.1 20 20 20H4C2.9 20 2 19.1 2 18V6C2 4.9 2.9 4 4 4Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                         <path d="M22 6L12 13L2 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>
-                    Contact Support
+                    Contact Us
                 </a>
             </div>
 
@@ -94,8 +94,8 @@
     .section-badge {
         display: inline-block;
         padding: 8px 16px;
-        background: rgba(59, 130, 246, 0.1);
-        border: 1px solid rgba(59, 130, 246, 0.2);
+        background: rgba(20, 184, 166, 0.1);
+        border: 1px solid rgba(20, 184, 166, 0.2);
         border-radius: 24px;
         font-size: 14px;
         font-weight: 500;
@@ -159,7 +159,7 @@
 
     .faq-item.open {
         border-color: var(--accent-primary);
-        box-shadow: 0 0 20px rgba(59, 130, 246, 0.1);
+        box-shadow: 0 0 20px rgba(20, 184, 166, 0.1);
     }
 
     .faq-trigger {
